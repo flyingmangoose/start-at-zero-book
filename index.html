@@ -995,16 +995,16 @@
       <div class="form-card" id="formCard">
         <h3>Reserve Your Signed Copy</h3>
         <p>Be first to receive <em>Start at Zero</em> when it launches — plus get exclusive access to the companion toolkit and early chapter previews.</p>
-        <form id="reserveForm" onsubmit="handleSubmit(event)">
-          <div class="form-row">
-            <input type="text" class="form-input" placeholder="Your name" required id="formName" />
-            <input type="email" class="form-input" placeholder="Email address" required id="formEmail" />
-          </div>
-          <div class="form-row-single">
-            <input type="text" class="form-input" placeholder="Organization (optional)" id="formOrg" />
-            <button type="submit" class="btn-primary form-submit" id="submitBtn">Reserve My Copy</button>
-          </div>
-        </form>
+        <div id="hubspotForm"></div>
+        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
+        <script>
+          hbspt.forms.create({
+            portalId: "24211389",
+            formId: "5b80993b-caef-4735-88ea-f95fca9538ba",
+            region: "na1",
+            target: "#hubspotForm"
+          });
+        </script>
         <p class="form-note">No payment required. We'll notify you at launch.</p>
       </div>
     </div>
@@ -1030,44 +1030,6 @@
         if (p !== part) p.classList.remove('open');
       });
       part.classList.toggle('open');
-    }
-
-    async function handleSubmit(e) {
-      e.preventDefault();
-      const btn = document.getElementById('submitBtn');
-      btn.textContent = 'Reserving...';
-      btn.disabled = true;
-
-      const name = document.getElementById('formName').value;
-      const email = document.getElementById('formEmail').value;
-      const org = document.getElementById('formOrg').value;
-      const [firstName, ...lastParts] = name.trim().split(' ');
-      const lastName = lastParts.join(' ') || '';
-
-      try {
-        const resp = await fetch('https://api.hsforms.com/submissions/v3/integration/submit/24211389/c0a66f57-4d3e-4587-aef7-9208e0605dc3', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            fields: [
-              { name: 'firstname', value: firstName },
-              { name: 'lastname', value: lastName },
-              { name: 'email', value: email },
-              { name: 'company', value: org },
-            ],
-          }),
-        });
-      } catch (err) {
-        // still show success for UX
-      }
-
-      document.getElementById('formCard').innerHTML = `
-        <div class="success-state">
-          <div class="success-icon">✓</div>
-          <h4 style="font-family:var(--font-serif);font-size:1.5rem;color:var(--cream);margin-bottom:8px;">You're on the list.</h4>
-          <p style="color:var(--slate);">We'll reach out when Start at Zero launches.</p>
-        </div>
-      `;
     }
 
     // Scroll reveal
