@@ -3,270 +3,1052 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Press Kit — Start at Zero by Abhijit Verekar</title>
-  <meta name="description" content="Media kit for Start at Zero. Download cover images, author bio, press release, and book fact sheet." />
+  <title>Start at Zero — Leading High-Stakes Modernization in the Age of AI</title>
+  <meta name="description" content="The definitive playbook for government leaders navigating high-stakes ERP modernization. By Abhijit Verekar, 5× Inc. 5000 CEO." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     :root {
-      --navy: #0c1e3a; --navy-deep: #081526; --navy-light: #122d52;
-      --cream: #f5f0e8; --cream-dim: #cbd5e1; --blue-light: #b8dff0;
-      --orange: hsl(20, 90%, 48%); --orange-hover: hsl(20, 90%, 42%);
-      --slate: #b0bec5; --slate-dark: #8899a6; --slate-darker: #64748b;
-      --glass-border: rgba(255,255,255,0.08); --glass-bg: rgba(255,255,255,0.03);
+      --navy: #0c1e3a;
+      --navy-deep: #081526;
+      --navy-light: #122d52;
+      --cream: #f5f0e8;
+      --cream-dim: #a0aec0;
+      --blue-light: #b8dff0;
+      --orange: hsl(20, 90%, 48%);
+      --orange-hover: hsl(20, 90%, 42%);
+      --slate: #8899a6;
+      --slate-dark: #64748b;
+      --slate-darker: #4a5568;
+      --glass-border: rgba(255,255,255,0.08);
+      --glass-bg: rgba(255,255,255,0.03);
       --font-serif: 'Libre Caslon Text', Georgia, serif;
       --font-sans: 'Roboto', system-ui, sans-serif;
       --font-mono: 'Roboto Mono', monospace;
     }
-    html { scroll-behavior: smooth; }
-    body { font-family: var(--font-sans); background: var(--navy); color: var(--cream-dim); line-height: 1.7; -webkit-font-smoothing: antialiased; }
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
-    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 16px 0; background: rgba(12, 30, 58, 0.85); backdrop-filter: blur(16px); border-bottom: 1px solid var(--glass-border); }
-    .nav-inner { display: flex; justify-content: space-between; align-items: center; }
-    .nav-brand { font-family: var(--font-serif); font-size: 1.1rem; font-weight: 700; color: var(--cream); text-decoration: none; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--navy);
+      color: var(--cream-dim);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ── Utility ── */
+    .accent { color: var(--orange); }
+    .cream { color: var(--cream); }
+    .blue { color: var(--blue-light); }
+    .slate { color: var(--slate); }
+    .tracking-wide { letter-spacing: 0.2em; }
+    .mono { font-family: var(--font-mono); }
+    .serif { font-family: var(--font-serif); }
+    .uppercase { text-transform: uppercase; }
+    .text-center { text-align: center; }
+
+    /* ── Animations ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+    @keyframes shimmer {
+      0% { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+    .fade-up {
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards;
+    }
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
+    .delay-4 { animation-delay: 0.4s; }
+    .delay-5 { animation-delay: 0.5s; }
+    .delay-6 { animation-delay: 0.6s; }
+
+    /* ── Minimal Nav ── */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 16px 0;
+      background: rgba(12, 30, 58, 0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--glass-border);
+    }
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-brand {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--cream);
+      text-decoration: none;
+    }
     .nav-brand span { color: var(--orange); }
-    .nav-links { display: flex; align-items: center; gap: 24px; }
-    .nav-links a { color: var(--slate); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--cream); }
-    .nav-cta { display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px; background: var(--orange); color: white; font-weight: 600; font-size: 0.85rem; border-radius: 8px; text-decoration: none; transition: background 0.2s; }
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 24px;
+      background: var(--orange);
+      color: white;
+      font-weight: 600;
+      font-size: 0.85rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
     .nav-cta:hover { background: var(--orange-hover); }
 
-    .page-header { padding: 140px 0 60px; text-align: center; border-bottom: 1px solid var(--glass-border); }
-    .page-header .label { font-family: var(--font-mono); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--orange); margin-bottom: 16px; }
-    .page-header h1 { font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; color: var(--cream); line-height: 1.2; margin-bottom: 16px; }
-    .page-header p { max-width: 600px; margin: 0 auto; font-size: 1.05rem; line-height: 1.8; }
-
-    /* Book Facts */
-    .facts-section { padding: 64px 0; border-bottom: 1px solid var(--glass-border); }
-    .facts-grid { display: grid; grid-template-columns: 300px 1fr; gap: 48px; align-items: start; }
-    .cover-image { width: 100%; border-radius: 12px; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.4)); }
-    .fact-table { width: 100%; }
-    .fact-row { display: grid; grid-template-columns: 160px 1fr; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--glass-border); }
-    .fact-label { font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; color: var(--orange); letter-spacing: 0.1em; text-transform: uppercase; padding-top: 2px; }
-    .fact-value { font-size: 0.95rem; color: var(--cream); }
-
-    /* Author Bio */
-    .bio-section { padding: 64px 0; border-bottom: 1px solid var(--glass-border); }
-    .section-label { font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--orange); margin-bottom: 8px; }
-    .section-title { font-family: var(--font-serif); font-size: 1.6rem; font-weight: 700; color: var(--cream); margin-bottom: 24px; }
-    .bio-grid { display: grid; grid-template-columns: 180px 1fr; gap: 36px; align-items: start; }
-    .bio-photo { width: 100%; border-radius: 12px; border: 2px solid var(--glass-border); }
-    .bio-text p { font-size: 0.95rem; line-height: 1.8; margin-bottom: 16px; }
-    .bio-text .copy-hint { font-size: 0.8rem; color: var(--slate-dark); font-style: italic; margin-top: 8px; }
-
-    /* Cover Images */
-    .covers-section { padding: 64px 0; border-bottom: 1px solid var(--glass-border); }
-    .covers-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .cover-card { padding: 20px; border-radius: 16px; background: var(--glass-bg); border: 1px solid var(--glass-border); text-align: center; }
-    .cover-card img { width: 100%; border-radius: 8px; margin-bottom: 12px; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3)); }
-    .cover-card .cover-label { font-family: var(--font-mono); font-size: 0.7rem; color: var(--slate); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px; }
-    .cover-card .cover-name { font-weight: 700; color: var(--cream); font-size: 0.9rem; }
-
-    /* Press Release */
-    .press-release-section { padding: 64px 0; border-bottom: 1px solid var(--glass-border); }
-    .press-release {
-      max-width: 720px; margin: 0 auto; padding: 48px;
-      border-radius: 16px; background: rgba(255,255,255,0.02);
-      border: 1px solid var(--glass-border);
+    /* ── Hero Section ── */
+    .hero {
+      padding: 140px 0 80px;
+      position: relative;
+      overflow: hidden;
     }
-    .press-release .pr-header { text-align: center; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 1px solid var(--glass-border); }
-    .press-release .pr-tag { font-family: var(--font-mono); font-size: 0.7rem; font-weight: 700; color: var(--orange); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 8px; }
-    .press-release h3 { font-family: var(--font-serif); font-size: 1.5rem; font-weight: 700; color: var(--cream); line-height: 1.3; margin-bottom: 8px; }
-    .press-release .pr-date { font-size: 0.85rem; color: var(--slate); }
-    .press-release p { font-size: 0.9rem; line-height: 1.8; margin-bottom: 16px; }
-    .press-release .pr-contact { margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--glass-border); font-size: 0.85rem; }
-    .press-release .pr-contact strong { color: var(--cream); }
-
-    /* Contact */
-    .contact-section { padding: 64px 0; text-align: center; }
-    .contact-card {
-      max-width: 560px; margin: 0 auto; padding: 40px;
-      border-radius: 16px; background: var(--glass-bg);
-      border: 1px solid var(--glass-border);
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(184, 223, 240, 0.04) 0%, transparent 70%);
+      pointer-events: none;
     }
-    .contact-card h3 { font-family: var(--font-serif); font-size: 1.4rem; font-weight: 700; color: var(--cream); margin-bottom: 16px; }
-    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; text-align: left; }
-    .contact-item { padding: 12px 16px; background: rgba(255,255,255,0.02); border-radius: 10px; border: 1px solid var(--glass-border); }
-    .contact-item .c-label { font-family: var(--font-mono); font-size: 0.65rem; color: var(--orange); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 2px; }
-    .contact-item .c-value { font-size: 0.9rem; color: var(--cream); }
-    .contact-item a { color: var(--blue-light); text-decoration: none; }
-    .contact-item a:hover { text-decoration: underline; }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .hero-cover {
+      display: flex;
+      justify-content: center;
+    }
+    .hero-cover img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 12px;
+      animation: float 6s ease-in-out infinite;
+      filter: drop-shadow(0 25px 50px rgba(0,0,0,0.5));
+    }
+    .hero-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.5rem, 5vw, 3.8rem);
+      font-weight: 700;
+      color: var(--cream);
+      line-height: 1.15;
+      margin-bottom: 8px;
+    }
+    .hero-subtitle {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
+      color: var(--blue-light);
+      margin-bottom: 32px;
+    }
+    .hero-desc {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      max-width: 520px;
+      margin-bottom: 40px;
+    }
+    .hero-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+      padding: 16px 20px;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 12px;
+      max-width: 520px;
+    }
+    .hero-author-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--orange);
+    }
+    .hero-author-name {
+      font-weight: 700;
+      color: var(--cream);
+      font-size: 0.95rem;
+    }
+    .hero-author-title {
+      font-size: 0.8rem;
+      color: var(--slate);
+    }
+    .btn-row {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 32px;
+      background: var(--orange);
+      color: white;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: none;
+      border-radius: 10px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-primary:hover { background: var(--orange-hover); transform: translateY(-1px); }
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 32px;
+      background: transparent;
+      color: var(--cream-dim);
+      font-weight: 500;
+      font-size: 0.95rem;
+      border: 1px solid rgba(160,174,192,0.3);
+      border-radius: 10px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-outline:hover { border-color: rgba(160,174,192,0.6); background: rgba(160,174,192,0.05); }
+    .btn-sm { padding: 10px 20px; font-size: 0.85rem; }
+    .small-note {
+      margin-top: 16px;
+      font-size: 0.8rem;
+      color: var(--slate-dark);
+    }
 
-    .footer { padding: 40px 0; border-top: 1px solid var(--glass-border); text-align: center; }
-    .footer-brand { font-family: var(--font-serif); font-weight: 700; color: var(--cream); margin-bottom: 8px; }
-    .footer-links { display: flex; justify-content: center; gap: 24px; margin-top: 12px; }
-    .footer-links a { color: var(--slate); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+    /* ── Stats Bar ── */
+    .stats-bar {
+      padding: 40px 0;
+      border-top: 1px solid var(--glass-border);
+      border-bottom: 1px solid var(--glass-border);
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      text-align: center;
+    }
+    .stat-number {
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 700;
+      color: var(--orange);
+      margin-bottom: 4px;
+    }
+    .stat-desc {
+      font-size: 0.85rem;
+      color: var(--slate);
+      line-height: 1.5;
+    }
+
+    /* ── Section Headings ── */
+    .section-heading {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .section-heading .label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 16px;
+    }
+    .section-heading h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+    .section-heading p {
+      max-width: 600px;
+      margin: 0 auto;
+      color: var(--slate);
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    /* ── Three Forces ── */
+    .forces { padding: 80px 0; }
+    .forces-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .force-card {
+      padding: 32px;
+      border-radius: 16px;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .force-card:hover {
+      border-color: rgba(255,255,255,0.15);
+      transform: translateY(-4px);
+    }
+    .force-num {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--orange);
+      margin-bottom: 16px;
+    }
+    .force-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 12px;
+    }
+    .force-body {
+      font-size: 0.9rem;
+      color: var(--slate);
+      line-height: 1.7;
+    }
+
+    /* ── Birmingham Case Study ── */
+    .case-study {
+      padding: 80px 0;
+      border-top: 1px solid var(--glass-border);
+    }
+    .case-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 64px;
+      align-items: center;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .case-quote {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      font-style: italic;
+      color: var(--cream);
+      line-height: 1.5;
+      position: relative;
+      padding-left: 24px;
+      border-left: 3px solid var(--orange);
+    }
+    .case-attribution {
+      margin-top: 16px;
+      font-size: 0.85rem;
+      color: var(--slate);
+      font-style: normal;
+      padding-left: 24px;
+    }
+    .case-facts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .case-fact {
+      padding: 24px;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 12px;
+    }
+    .case-fact-num {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--orange);
+      margin-bottom: 4px;
+    }
+    .case-fact-label {
+      font-size: 0.8rem;
+      color: var(--slate);
+    }
+
+    /* ── Chapters ── */
+    .chapters {
+      padding: 80px 0;
+      border-top: 1px solid var(--glass-border);
+    }
+    .parts-container {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .part {
+      margin-bottom: 24px;
+      border-radius: 16px;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      overflow: hidden;
+    }
+    .part-header {
+      padding: 24px 28px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.2s;
+    }
+    .part-header:hover { background: rgba(255,255,255,0.02); }
+    .part-label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--orange);
+      display: block;
+      margin-bottom: 4px;
+    }
+    .part-subtitle { font-size: 0.85rem; color: var(--slate); }
+    .part-chevron {
+      width: 20px;
+      height: 20px;
+      color: var(--slate);
+      transition: transform 0.3s;
+      flex-shrink: 0;
+    }
+    .part.open .part-chevron { transform: rotate(180deg); }
+    .part-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+    .part.open .part-content { max-height: 600px; }
+    .part-chapters { padding: 0 28px 24px; }
+    .chapter-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      padding: 14px 16px;
+      border-radius: 10px;
+      border-left: 3px solid var(--blue-light);
+      background: rgba(255,255,255,0.01);
+      margin-bottom: 10px;
+      transition: background 0.2s;
+    }
+    .chapter-item:hover { background: rgba(255,255,255,0.02); }
+    .chapter-num {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--orange);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .chapter-title {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--cream);
+      margin-bottom: 2px;
+    }
+    .chapter-desc {
+      font-size: 0.8rem;
+      color: var(--slate-dark);
+    }
+
+    /* ── Who Is This For ── */
+    .audience {
+      padding: 80px 0;
+      border-top: 1px solid var(--glass-border);
+    }
+    .audience-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .audience-card {
+      padding: 32px;
+      border-radius: 16px;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      text-align: center;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .audience-card:hover {
+      border-color: rgba(255,255,255,0.15);
+      transform: translateY(-4px);
+    }
+    .audience-icon {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 16px;
+      border-radius: 12px;
+      background: rgba(184, 223, 240, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+    }
+    .audience-title {
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+    .audience-desc {
+      font-size: 0.85rem;
+      color: var(--slate);
+      line-height: 1.6;
+    }
+
+    /* ── About the Author ── */
+    .author-section {
+      padding: 80px 0;
+      border-top: 1px solid var(--glass-border);
+    }
+    .author-grid {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 48px;
+      align-items: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .author-photo {
+      width: 220px;
+      height: 280px;
+      border-radius: 16px;
+      object-fit: cover;
+      object-position: top;
+      border: 2px solid var(--glass-border);
+    }
+    .author-name {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 8px;
+    }
+    .author-role {
+      color: var(--orange);
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+    }
+    .author-bio {
+      font-size: 0.95rem;
+      color: var(--cream-dim);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .author-credentials {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    .credential {
+      font-size: 0.8rem;
+      padding: 6px 14px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--glass-border);
+      color: var(--blue-light);
+    }
+
+    /* ── Reservation Form ── */
+    .reserve {
+      padding: 80px 0 100px;
+      border-top: 1px solid var(--glass-border);
+    }
+    .form-card {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 48px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--glass-border);
+      position: relative;
+      overflow: hidden;
+    }
+    .form-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--orange), transparent);
+    }
+    .form-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--cream);
+      text-align: center;
+      margin-bottom: 8px;
+    }
+    .form-card > p {
+      text-align: center;
+      color: var(--slate);
+      margin-bottom: 32px;
+      font-size: 0.95rem;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .form-row-single {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .form-input {
+      padding: 14px 16px;
+      background: var(--navy-deep);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      color: var(--cream);
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-input::placeholder { color: var(--slate-darker); }
+    .form-input:focus { border-color: var(--orange); }
+    .form-submit {
+      width: 100%;
+      padding: 14px;
+      margin-top: 8px;
+    }
+    .form-note {
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--slate-darker);
+      margin-top: 20px;
+    }
+    .success-state {
+      text-align: center;
+      padding: 32px 0;
+    }
+    .success-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: rgba(34,197,94,0.1);
+      color: #22c55e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      font-size: 1.6rem;
+    }
+    .success-state h4 {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      color: var(--cream);
+      margin-bottom: 8px;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      padding: 40px 0;
+      border-top: 1px solid var(--glass-border);
+      text-align: center;
+    }
+    .footer-brand {
+      font-family: var(--font-serif);
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 8px;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 12px;
+    }
+    .footer-links a {
+      color: var(--slate);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
     .footer-links a:hover { color: var(--cream); }
-    .footer-copy { margin-top: 20px; font-size: 0.75rem; color: var(--slate-darker); }
+    .footer-copy {
+      margin-top: 20px;
+      font-size: 0.75rem;
+      color: var(--slate-darker);
+    }
 
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-    .fade-up { opacity: 0; animation: fadeUp 0.8s ease forwards; }
-    .delay-1 { animation-delay: 0.1s; } .delay-2 { animation-delay: 0.2s; }
-
+    /* ── Responsive ── */
     @media (max-width: 900px) {
-      .facts-grid { grid-template-columns: 1fr; }
-      .cover-image { max-width: 250px; margin: 0 auto; display: block; }
-      .bio-grid { grid-template-columns: 1fr; text-align: center; }
-      .bio-photo { max-width: 160px; margin: 0 auto; }
-      .covers-grid { grid-template-columns: 1fr; max-width: 300px; margin: 0 auto; }
-      .contact-grid { grid-template-columns: 1fr; }
+      .hero-grid { grid-template-columns: 1fr; gap: 48px; text-align: center; }
+      .hero-cover { order: -1; }
+      .hero-cover img { max-width: 280px; }
+      .hero-desc, .hero-author { margin-left: auto; margin-right: auto; }
+      .btn-row { justify-content: center; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .forces-grid { grid-template-columns: 1fr; }
+      .case-grid { grid-template-columns: 1fr; gap: 40px; }
+      .audience-grid { grid-template-columns: 1fr; }
+      .author-grid { grid-template-columns: 1fr; text-align: center; }
+      .author-photo { margin: 0 auto; }
+      .author-credentials { justify-content: center; }
+      .form-row, .form-row-single { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
+  <!-- ── Nav ── -->
   <nav class="nav">
     <div class="container nav-inner">
-      <a href="/" class="nav-brand"><span>Start</span> at Zero</a>
-      <div class="nav-links">
-        <a href="/chapter-1">Free Chapter</a>
-        <a href="/toolkit">Toolkit</a>
-        <a href="/speaking">Speaking</a>
-        <a href="/#reserve" class="nav-cta">Reserve Your Copy</a>
-      </div>
+      <a href="#" class="nav-brand"><span>Start</span> at Zero</a>
+      <a href="#reserve" class="nav-cta">Reserve Your Copy</a>
     </div>
   </nav>
 
-  <section class="page-header">
+  <!-- ── Hero ── -->
+  <section class="hero">
     <div class="container">
-      <p class="label fade-up">Media & Press</p>
-      <h1 class="fade-up delay-1">Press Kit</h1>
-      <p class="fade-up delay-2">Everything you need to cover <em>Start at Zero</em>. Cover images, author biography, book facts, and press release.</p>
-    </div>
-  </section>
-
-  <!-- Book Facts -->
-  <section class="facts-section">
-    <div class="container">
-      <div class="facts-grid">
-        <img src="https://raw.githubusercontent.com/flyingmangoose/avero-executive-glow/main/src/assets/book-cover.jpg" alt="Start at Zero book cover" class="cover-image" />
+      <div class="hero-grid">
+        <div class="hero-cover fade-up">
+          <img src="https://raw.githubusercontent.com/flyingmangoose/avero-executive-glow/main/src/assets/book-cover.jpg" alt="Start at Zero book cover" />
+        </div>
         <div>
-          <p class="section-label">Book Details</p>
-          <h2 class="section-title">At a Glance</h2>
-          <div class="fact-table">
-            <div class="fact-row"><div class="fact-label">Title</div><div class="fact-value">Start at Zero: Leading High-Stakes Modernization in the Age of AI</div></div>
-            <div class="fact-row"><div class="fact-label">Author</div><div class="fact-value">Abhijit Verekar</div></div>
-            <div class="fact-row"><div class="fact-label">Publication</div><div class="fact-value">Spring 2026</div></div>
-            <div class="fact-row"><div class="fact-label">Pages</div><div class="fact-value">~200 pages</div></div>
-            <div class="fact-row"><div class="fact-label">Chapters</div><div class="fact-value">12 chapters across 3 parts</div></div>
-            <div class="fact-row"><div class="fact-label">Toolkit</div><div class="fact-value">16 downloadable templates & checklists</div></div>
-            <div class="fact-row"><div class="fact-label">Audience</div><div class="fact-value">Government CIOs, city/county managers, finance directors, and IT leaders</div></div>
-            <div class="fact-row"><div class="fact-label">Website</div><div class="fact-value"><a href="https://book.averoadvisors.com" style="color:var(--blue-light);">book.averoadvisors.com</a></div></div>
+          <p class="hero-label accent tracking-wide uppercase mono fade-up delay-1">Coming Soon — Spring 2026</p>
+          <h1 class="fade-up delay-2">Start at Zero</h1>
+          <p class="hero-subtitle fade-up delay-3">Leading High-Stakes Modernization in the Age of AI</p>
+          <p class="hero-desc fade-up delay-4">
+            Government ERP projects fail at rates that would be scandalous in any other sector. This book reveals why the failures are structural&nbsp;— and delivers the playbook that prevents the next $216&nbsp;million disaster before it starts.
+          </p>
+          <div class="hero-author fade-up delay-4">
+            <img src="https://raw.githubusercontent.com/flyingmangoose/avero-executive-glow/main/src/assets/abhijit-photo.jpeg" alt="Abhijit Verekar" class="hero-author-avatar" />
+            <div>
+              <div class="hero-author-name">Abhijit Verekar</div>
+              <div class="hero-author-title">5× Inc. 5000 CEO · Founder, Avèro Advisors</div>
+            </div>
           </div>
+          <div class="btn-row fade-up delay-5">
+            <a href="#reserve" class="btn-primary">Reserve Your Signed Copy</a>
+            <a href="#chapters" class="btn-outline">See What's Inside ↓</a>
+          </div>
+          <p class="small-note fade-up delay-6">No payment required. Limited signed first-edition copies.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Author Bio -->
-  <section class="bio-section">
+  <!-- ── Stats ── -->
+  <section class="stats-bar">
     <div class="container">
-      <p class="section-label">Author Biography</p>
-      <h2 class="section-title">About Abhijit Verekar</h2>
-      <div class="bio-grid">
-        <img src="https://raw.githubusercontent.com/flyingmangoose/avero-executive-glow/main/src/assets/abhijit-photo.jpeg" alt="Abhijit Verekar" class="bio-photo" />
-        <div class="bio-text">
-          <p><strong style="color:var(--cream);">Short Bio (75 words)</strong></p>
-          <p>Abhijit Verekar is the founder and CEO of Avèro Advisors, the only consulting firm exclusively focused on independent, vendor-neutral government ERP advisory. His firm has been recognized on the Inc. 5000 list five times. Over two decades, he has guided cities, counties, and states through the most complex technology transformations in the public sector — always on the government's side of the table, never the vendor's.</p>
-
-          <p><strong style="color:var(--cream);">Extended Bio (150 words)</strong></p>
-          <p>Abhijit Verekar has spent twenty years helping government organizations navigate high-stakes technology modernization. As founder and CEO of Avèro Advisors, he built the only consulting firm exclusively focused on independent, vendor-neutral government ERP advisory — earning recognition on the Inc. 5000 list five times.</p>
-          <p>His team works exclusively with cities, counties, and states, providing the unbiased oversight that prevents the structural failures plaguing public sector technology projects. From Phase Zero strategic planning through post-go-live value realization, Avèro has guided over 30 government ERP engagements with a singular focus: ensuring the government's interests come first.</p>
-          <p><em>Start at Zero</em> distills two decades of frontline experience into the definitive playbook for government leaders facing modernization decisions in the age of AI.</p>
-          <p class="copy-hint">Copy either bio for publication. Photo available for download below.</p>
+      <div class="stats-grid">
+        <div class="fade-up">
+          <div class="stat-number">70%+</div>
+          <div class="stat-desc">of large gov't IT projects fail to deliver intended benefits</div>
+        </div>
+        <div class="fade-up delay-1">
+          <div class="stat-number">$216M</div>
+          <div class="stat-desc">lost in Birmingham — from a $19M budget</div>
+        </div>
+        <div class="fade-up delay-2">
+          <div class="stat-number">12</div>
+          <div class="stat-desc">chapters of frameworks & real case studies</div>
+        </div>
+        <div class="fade-up delay-3">
+          <div class="stat-number">16+</div>
+          <div class="stat-desc">ready-to-use tools & checklists included</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Cover Images -->
-  <section class="covers-section">
+  <!-- ── Three Forces ── -->
+  <section class="forces">
     <div class="container">
-      <p class="section-label">Downloadable Assets</p>
-      <h2 class="section-title">Cover Images & Author Photo</h2>
-      <div class="covers-grid">
-        <div class="cover-card">
-          <img src="https://raw.githubusercontent.com/flyingmangoose/avero-executive-glow/main/src/assets/book-cover.jpg" alt="Book cover - front" />
-          <div class="cover-label">Front Cover</div>
-          <div class="cover-name">High Resolution JPG</div>
+      <div class="section-heading">
+        <p class="label">The Convergence</p>
+        <h2>Three Forces Creating Extraordinary Risk</h2>
+        <p>Thousands of government organizations are simultaneously entering the market for new enterprise systems. Most aren't prepared for what's coming.</p>
+      </div>
+      <div class="forces-grid">
+        <div class="force-card">
+          <div class="force-num">01</div>
+          <div class="force-title">The Ticking Clock</div>
+          <div class="force-body">SAP end-of-support deadlines. Oracle cloud mandates. Thousands of cities, counties, and states entering the market simultaneously — many for the first time in 20 years.</div>
         </div>
-        <div class="cover-card">
-          <img src="https://raw.githubusercontent.com/flyingmangoose/avero-executive-glow/main/src/assets/abhijit-photo.jpeg" alt="Author headshot" />
-          <div class="cover-label">Author Headshot</div>
-          <div class="cover-name">High Resolution JPG</div>
+        <div class="force-card">
+          <div class="force-num">02</div>
+          <div class="force-title">The AI Confusion</div>
+          <div class="force-body">AI is transforming what's possible — and being weaponized as a marketing tool. The gap between what AI can deliver and what vendors claim has never been wider.</div>
         </div>
-        <div class="cover-card">
-          <img src="https://raw.githubusercontent.com/flyingmangoose/avero-executive-glow/main/src/assets/book-cover.jpg" alt="Book cover - social" style="aspect-ratio:16/9; object-fit:cover;" />
-          <div class="cover-label">Social Media</div>
-          <div class="cover-name">16:9 Crop</div>
+        <div class="force-card">
+          <div class="force-num">03</div>
+          <div class="force-title">The Structural Trap</div>
+          <div class="force-body">Vendor-led processes. Conflicted advisors. Governance designed to rubber-stamp rather than challenge. The structures that produce failures remain unchanged.</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Press Release -->
-  <section class="press-release-section">
+  <!-- ── Case Study ── -->
+  <section class="case-study">
     <div class="container">
-      <p class="section-label">Press Release</p>
-      <h2 class="section-title" style="margin-bottom:32px;">For Immediate Release</h2>
-      <div class="press-release">
-        <div class="pr-header">
-          <p class="pr-tag">Press Release</p>
-          <h3>New Book Reveals Why Government ERP Projects Fail at Catastrophic Rates — and Delivers the Framework to Prevent It</h3>
-          <p class="pr-date">For Release: Spring 2026</p>
+      <div class="section-heading">
+        <p class="label">Cautionary Tale</p>
+        <h2>The Birmingham Wake-Up Call</h2>
+      </div>
+      <div class="case-grid">
+        <div>
+          <blockquote class="case-quote">
+            Europe's largest local authority — serving over 1 million citizens — turned a working 20-year SAP system into a catastrophe.
+          </blockquote>
+          <p class="case-attribution">No Phase Zero. No independent oversight. No governance separating advice from delivery.</p>
         </div>
-
-        <p><strong style="color:var(--cream);">COLUMBIA, MD</strong> — Abhijit Verekar, five-time Inc. 5000 CEO and founder of Avèro Advisors, announces the publication of <em>Start at Zero: Leading High-Stakes Modernization in the Age of AI</em>, the first book to address the structural causes behind billion-dollar government technology failures.</p>
-
-        <p>Government ERP projects fail at rates that would be scandalous in any other sector. Over 70% of large government IT projects fail to deliver intended benefits, with notable disasters like Birmingham City Council's $216 million overrun on a $19 million budget. Verekar's book reveals that these failures aren't caused by bad technology — they're caused by conflicted advisory structures, absent governance, and skipped preparation.</p>
-
-        <p>"Every government leader facing a modernization decision right now is walking into a market that's more dangerous and more confusing than any time in the last twenty years," says Verekar. "The convergence of SAP end-of-support deadlines, Oracle cloud mandates, and AI hype has created conditions where billions of public dollars are at risk."</p>
-
-        <p><em>Start at Zero</em> introduces the Phase Zero framework — a structured 100-day preparation methodology that creates clarity before vendors enter the conversation. The book includes 16 ready-to-use templates covering everything from governance charters to vendor evaluation scorecards to AI readiness assessments.</p>
-
-        <p>Drawing from over 30 government ERP engagements and two decades of working exclusively on the government's side of the table, the book provides the first comprehensive playbook for independent modernization oversight.</p>
-
-        <div class="pr-contact">
-          <p><strong>Media Contact:</strong></p>
-          <p>Avèro Advisors<br/>
-          <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="8dfdffe8fefecdecfbe8ffe2ece9fbe4fee2fffea3eee2e0">[email&#160;protected]</a><br/>
-          averoadvisors.com</p>
+        <div class="case-facts">
+          <div class="case-fact">
+            <div class="case-fact-num">$19M</div>
+            <div class="case-fact-label">Original budget</div>
+          </div>
+          <div class="case-fact">
+            <div class="case-fact-num">$216M</div>
+            <div class="case-fact-label">Actual cost</div>
+          </div>
+          <div class="case-fact">
+            <div class="case-fact-num">10×</div>
+            <div class="case-fact-label">Budget overrun</div>
+          </div>
+          <div class="case-fact">
+            <div class="case-fact-num">1M+</div>
+            <div class="case-fact-label">Citizens affected</div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact -->
-  <section class="contact-section">
+  <!-- ── Chapters ── -->
+  <section class="chapters" id="chapters">
     <div class="container">
-      <div class="contact-card">
-        <h3>Media Inquiries</h3>
-        <div class="contact-grid">
-          <div class="contact-item">
-            <div class="c-label">Press</div>
-            <div class="c-value"><a href="/cdn-cgi/l/email-protection#20505245535360415645524f41445649534f52530e434f4d"><span class="__cf_email__" data-cfemail="b7c7c5d2c4c4f7d6c1d2c5d8d6d3c1dec4d8c5c499d4d8da">[email&#160;protected]</span></a></div>
+      <div class="section-heading">
+        <p class="label">Inside the Book</p>
+        <h2>The Complete Modernization Playbook</h2>
+        <p>12 chapters. Real case studies. Actionable frameworks. Every phase from first recognition to post-go-live governance.</p>
+      </div>
+      <div class="parts-container">
+
+        <div class="part open">
+          <div class="part-header" onclick="togglePart(this)">
+            <div>
+              <span class="part-label">Part I — Why Projects Fail</span>
+              <span class="part-subtitle">Understanding the root causes behind billion-dollar government IT failures</span>
+            </div>
+            <svg class="part-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </div>
-          <div class="contact-item">
-            <div class="c-label">Speaking</div>
-            <div class="c-value"><a href="/cdn-cgi/l/email-protection#295a594c484240474e69485f4c5b46484d5f405a465b5a074a4644"><span class="__cf_email__" data-cfemail="11626174707a787f7651706774637e70756778627e63623f727e7c">[email&#160;protected]</span></a></div>
+          <div class="part-content">
+            <div class="part-chapters">
+              <div class="chapter-item">
+                <span class="chapter-num">01</span>
+                <div>
+                  <div class="chapter-title">The $216M Wake-Up Call</div>
+                  <div class="chapter-desc">Forensic examination of why identical challenges produced opposite outcomes.</div>
+                </div>
+              </div>
+              <div class="chapter-item">
+                <span class="chapter-num">02</span>
+                <div>
+                  <div class="chapter-title">Legacy Time Bombs</div>
+                  <div class="chapter-desc">Why waiting costs more than acting — and how to build the case before crisis forces your hand.</div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="contact-item">
-            <div class="c-label">Book Site</div>
-            <div class="c-value"><a href="https://book.averoadvisors.com">book.averoadvisors.com</a></div>
+        </div>
+
+        <div class="part">
+          <div class="part-header" onclick="togglePart(this)">
+            <div>
+              <span class="part-label">Part II — Regaining Command</span>
+              <span class="part-subtitle">The frameworks and preparation that create clarity before vendors arrive</span>
+            </div>
+            <svg class="part-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </div>
-          <div class="contact-item">
-            <div class="c-label">Company</div>
-            <div class="c-value"><a href="https://averoadvisors.com">averoadvisors.com</a></div>
+          <div class="part-content">
+            <div class="part-chapters">
+              <div class="chapter-item"><span class="chapter-num">03</span><div><div class="chapter-title">Four Pillars of Project Control</div><div class="chapter-desc">The architecture of control that separates success from disaster.</div></div></div>
+              <div class="chapter-item"><span class="chapter-num">04</span><div><div class="chapter-title">Phase Zero Mastery</div><div class="chapter-desc">The preparation that creates clarity before vendors arrive.</div></div></div>
+              <div class="chapter-item"><span class="chapter-num">05</span><div><div class="chapter-title">AI-Enabled Requirements</div><div class="chapter-desc">How AI transforms requirements gathering into a focused, human-centric process.</div></div></div>
+              <div class="chapter-item"><span class="chapter-num">06</span><div><div class="chapter-title">Winning Procurement Strategy</div><div class="chapter-desc">Crafting RFPs that attract the right vendors and protect your leverage.</div></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="part">
+          <div class="part-header" onclick="togglePart(this)">
+            <div>
+              <span class="part-label">Part III — Executing Without Capture</span>
+              <span class="part-subtitle">From vendor selection through go-live — maintaining independence at every stage</span>
+            </div>
+            <svg class="part-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </div>
+          <div class="part-content">
+            <div class="part-chapters">
+              <div class="chapter-item"><span class="chapter-num">07</span><div><div class="chapter-title">Vendor Selection</div><div class="chapter-desc">Spotting allies, dodging traps, and cutting through polished demos.</div></div></div>
+              <div class="chapter-item"><span class="chapter-num">08</span><div><div class="chapter-title">Governance Reimagined</div><div class="chapter-desc">Structures for decision-making that prevent vendor capture.</div></div></div>
+              <div class="chapter-item"><span class="chapter-num">09</span><div><div class="chapter-title">The Human Element</div><div class="chapter-desc">Change management that determines adoption or rejection.</div></div></div>
+              <div class="chapter-item"><span class="chapter-num">10</span><div><div class="chapter-title">The Independence Principle</div><div class="chapter-desc">Building advisory relationships where incentives are permanently aligned.</div></div></div>
+              <div class="chapter-item"><span class="chapter-num">11</span><div><div class="chapter-title">AI Comes of Age</div><div class="chapter-desc">The new rules — what AI delivers today and how to spot vendor overselling.</div></div></div>
+              <div class="chapter-item"><span class="chapter-num">12</span><div><div class="chapter-title">The Complete Roadmap</div><div class="chapter-desc">Step-by-step from day one to go-live with every framework integrated.</div></div></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Who It's For ── -->
+  <section class="audience">
+    <div class="container">
+      <div class="section-heading">
+        <p class="label">Who This Book Is For</p>
+        <h2>Written for the Leaders Who Bear the Risk</h2>
+        <p>If you'll be held accountable when the implementation goes sideways, this book was written for you.</p>
+      </div>
+      <div class="audience-grid">
+        <div class="audience-card">
+          <div class="audience-icon">🏛️</div>
+          <div class="audience-title">City & County Managers</div>
+          <div class="audience-desc">Leading enterprise modernization with limited staff and enormous public scrutiny.</div>
+        </div>
+        <div class="audience-card">
+          <div class="audience-icon">💻</div>
+          <div class="audience-title">Government CIOs & IT Directors</div>
+          <div class="audience-desc">Navigating vendor landscapes, AI hype, and legacy system transitions.</div>
+        </div>
+        <div class="audience-card">
+          <div class="audience-icon">📊</div>
+          <div class="audience-title">Finance Directors & CFOs</div>
+          <div class="audience-desc">Protecting budgets and ensuring ROI on the largest technology investments of a career.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── About the Author ── -->
+  <section class="author-section">
+    <div class="container">
+      <div class="section-heading">
+        <p class="label">About the Author</p>
+      </div>
+      <div class="author-grid">
+        <img src="https://raw.githubusercontent.com/flyingmangoose/avero-executive-glow/main/src/assets/abhijit-photo.jpeg" alt="Abhijit Verekar" class="author-photo" />
+        <div>
+          <div class="author-name">Abhijit Verekar</div>
+          <div class="author-role">Founder & CEO, Avèro Advisors</div>
+          <p class="author-bio">
+            Abhijit Verekar has spent two decades helping government organizations navigate the most complex technology transformations in the public sector. As founder of Avèro Advisors, he built the only consulting firm exclusively focused on independent, vendor-neutral government ERP advisory.
+          </p>
+          <p class="author-bio">
+            His firm has been recognized on the Inc. 5000 list five times, and his team works exclusively with cities, counties, and states — never with the vendors who sell to them.
+          </p>
+          <div class="author-credentials">
+            <span class="credential">5× Inc. 5000</span>
+            <span class="credential">20+ Years in Gov Tech</span>
+            <span class="credential">30+ ERP Engagements</span>
+            <span class="credential">100% Government Focus</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ── Reserve Form ── -->
+  <section class="reserve" id="reserve">
+    <div class="container">
+      <div class="form-card" id="formCard">
+        <h3>Reserve Your Signed Copy</h3>
+        <p>Be first to receive <em>Start at Zero</em> when it launches — plus get exclusive access to the companion toolkit and early chapter previews.</p>
+        <div id="hubspotForm"></div>
+        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
+        <script>
+          hbspt.forms.create({
+            portalId: "24211389",
+            formId: "5b80993b-caef-4735-88ea-f95fca9538ba",
+            region: "na1",
+            target: "#hubspotForm"
+          });
+        </script>
+        <p class="form-note">No payment required. We'll notify you at launch.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
   <footer class="footer">
     <div class="container">
       <div class="footer-brand">Start at Zero</div>
-      <p style="font-size:0.85rem; color:var(--slate);">by Abhiji
+      <p class="slate" style="font-size:0.85rem;">by Abhijit Verekar</p>
+      <div class="footer-links">
+        <a href="https://averoadvisors.com" target="_blank">Avèro Advisors</a>
+        <a href="https://averoadvisors.com/about" target="_blank">About Abhijit</a>
+      </div>
+      <p class="footer-copy">&copy; 2026 Abhijit Verekar. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function togglePart(header) {
+      const part = header.parentElement;
+      document.querySelectorAll('.part').forEach(p => {
+        if (p !== part) p.classList.remove('open');
+      });
+      part.classList.toggle('open');
+    }
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.force-card, .case-fact, .audience-card, .chapter-item').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(el);
+    });
+  </script>
+
+</body>
+</html>
