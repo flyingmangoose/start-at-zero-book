@@ -176,6 +176,7 @@
     .hero-desc {
       font-size: 1.05rem;
       line-height: 1.8;
+                  color: var(--cream-dim);
       max-width: 520px;
       margin-bottom: 40px;
     }
@@ -675,6 +676,60 @@
       margin-bottom: 8px;
     }
 
+    /* ── HubSpot Form Overrides ── */
+    #hubspotForm .hs-form label,
+    #hubspotForm .hs-form .hs-form-field > label {
+      color: var(--cream) !important;
+      font-size: 0.9rem !important;
+    }
+    #hubspotForm .hs-form .hs-input {
+      background: var(--navy-deep) !important;
+      color: var(--cream) !important;
+      border: 1px solid rgba(255,255,255,0.1) !important;
+      border-radius: 10px !important;
+    }
+    #hubspotForm .hs-form .hs-input::placeholder {
+      color: var(--slate-darker) !important;
+    }
+    #hubspotForm .hs-form .hs-input:focus {
+      border-color: var(--orange) !important;
+    }
+    #hubspotForm .hs-form .hs-error-msg,
+    #hubspotForm .hs-form .hs-error-msgs label {
+      color: #f87171 !important;
+    }
+    #hubspotForm .hs-form .hs-richtext,
+    #hubspotForm .hs-form .hs-richtext p {
+      color: var(--slate) !important;
+    }
+    #hubspotForm .hs-form .hs-button {
+      background: var(--orange) !important;
+      color: white !important;
+      border: none !important;
+      border-radius: 10px !important;
+      padding: 14px 32px !important;
+      font-weight: 600 !important;
+      cursor: pointer !important;
+      transition: background 0.2s !important;
+    }
+    #hubspotForm .hs-form .hs-button:hover {
+      background: var(--orange-hover) !important;
+    }
+    #hubspotForm .hs-form select {
+      background: var(--navy-deep) !important;
+      color: var(--cream) !important;
+      border: 1px solid rgba(255,255,255,0.1) !important;
+    }
+    #hubspotForm .hs-form .legal-consent-container,
+    #hubspotForm .hs-form .legal-consent-container p,
+    #hubspotForm .hs-form .legal-consent-container span {
+      color: var(--slate) !important;
+    }
+    #hubspotForm .hs-form fieldset {
+      max-width: 100% !important;
+    }
+
+
     /* ── Footer ── */
     .footer {
       padding: 40px 0;
@@ -976,7 +1031,7 @@
             Abhijit Verekar has spent two decades helping government organizations navigate the most complex technology transformations in the public sector. As founder of Avèro Advisors, he built the only consulting firm exclusively focused on independent, vendor-neutral government ERP advisory.
           </p>
           <p class="author-bio">
-            His firm has been recognized on the Inc. 5000 list five times, and his team works exclusively with cities, counties, and states — never with the vendors who sell to them.
+            His firm has been recognized on the Inc. 5000 list five times in a row, and his team works exclusively with cities, counties, and states — never with the vendors who sell to them.
           </p>
           <div class="author-credentials">
             <span class="credential">5× Inc. 5000</span>
