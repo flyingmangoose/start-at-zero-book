@@ -1,344 +1,456 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Modernization Toolkit — 16 Templates & Checklists | Start at Zero</title>
-  <meta name="description" content="16 ready-to-use templates and checklists for government ERP modernization. Phase Zero checklists, governance charters, vendor scorecards, and more." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet" />
-  <style>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Modernization Toolkit — 16 Templates & Checklists | Start at Zero</title>
+    <meta name="description" content="16 ready-to-use templates and checklists for government ERP modernization. Phase Zero planning, governance charters, vendor scorecards, and more." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet" />
+    <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     :root {
-      --navy: #0c1e3a; --navy-deep: #081526; --navy-light: #122d52;
-      --cream: #f5f0e8; --cream-dim: #cbd5e1; --blue-light: #b8dff0;
-      --orange: hsl(20, 90%, 48%); --orange-hover: hsl(20, 90%, 42%);
-      --slate: #b0bec5; --slate-dark: #8899a6; --slate-darker: #64748b;
-      --glass-border: rgba(255,255,255,0.08); --glass-bg: rgba(255,255,255,0.03);
+      --navy: #0c1e3a;
+      --navy-deep: #081526;
+      --navy-light: #122d52;
+      --cream: #f5f0e8;
+      --cream-dim: #a0aec0;
+      --blue-light: #b8dff0;
+      --orange: hsl(20, 90%, 48%);
+      --orange-hover: hsl(20, 90%, 42%);
+      --slate: #8899a6;
+      --slate-dark: #64748b;
+      --glass-border: rgba(255,255,255,0.08);
+      --glass-bg: rgba(255,255,255,0.03);
       --font-serif: 'Libre Caslon Text', Georgia, serif;
       --font-sans: 'Roboto', system-ui, sans-serif;
       --font-mono: 'Roboto Mono', monospace;
     }
-    html { scroll-behavior: smooth; }
-    body { font-family: var(--font-sans); background: var(--navy); color: var(--cream-dim); line-height: 1.7; -webkit-font-smoothing: antialiased; }
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
-    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 16px 0; background: rgba(12, 30, 58, 0.85); backdrop-filter: blur(16px); border-bottom: 1px solid var(--glass-border); }
-    .nav-inner { display: flex; justify-content: space-between; align-items: center; }
-    .nav-brand { font-family: var(--font-serif); font-size: 1.1rem; font-weight: 700; color: var(--cream); text-decoration: none; }
+    body {
+      font-family: var(--font-sans);
+      background: var(--navy);
+      color: var(--cream);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Navigation ── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 40px;
+      background: rgba(12,30,58,0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--glass-border);
+    }
+    .nav-brand { font-family: var(--font-serif); font-size: 1.2rem; color: var(--cream); text-decoration: none; font-weight: 700; }
     .nav-brand span { color: var(--orange); }
     .nav-links { display: flex; align-items: center; gap: 24px; }
     .nav-links a { color: var(--slate); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
     .nav-links a:hover { color: var(--cream); }
-    .nav-cta { display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px; background: var(--orange); color: white; font-weight: 600; font-size: 0.85rem; border-radius: 8px; text-decoration: none; transition: background 0.2s; }
+    .nav-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 24px; background: var(--orange); color: white;
+      font-weight: 600; font-size: 0.85rem; border-radius: 8px;
+      text-decoration: none; transition: background 0.2s;
+    }
     .nav-cta:hover { background: var(--orange-hover); }
 
-    .page-header { padding: 140px 0 60px; text-align: center; border-bottom: 1px solid var(--glass-border); }
-    .page-header .label { font-family: var(--font-mono); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--orange); margin-bottom: 16px; }
-    .page-header h1 { font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; color: var(--cream); line-height: 1.2; margin-bottom: 16px; }
-    .page-header p { max-width: 640px; margin: 0 auto; font-size: 1.05rem; line-height: 1.8; }
+    /* ── Layout ── */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
 
-    .stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 600px; margin: 32px auto 0; }
-    .stat-item { text-align: center; }
-    .stat-num { font-size: 2rem; font-weight: 700; color: var(--orange); }
-    .stat-label { font-size: 0.8rem; color: var(--slate); }
-
-    /* Toolkit Sections */
-    .toolkit-section { padding: 64px 0; border-bottom: 1px solid var(--glass-border); }
-    .toolkit-section:last-of-type { border-bottom: none; }
-    .section-label { font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--orange); margin-bottom: 8px; }
-    .section-title { font-family: var(--font-serif); font-size: 1.6rem; font-weight: 700; color: var(--cream); margin-bottom: 8px; }
-    .section-desc { color: var(--cream-dim); font-size: 0.95rem; margin-bottom: 32px; max-width: 700px; }
-
-    .tools-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-    .tool-card {
-      padding: 28px; border-radius: 16px;
-      background: var(--glass-bg); border: 1px solid var(--glass-border);
-      transition: border-color 0.3s, transform 0.3s;
-      position: relative;
-    }
-    .tool-card:hover { border-color: rgba(255,255,255,0.15); transform: translateY(-3px); }
-    .tool-num { font-family: var(--font-mono); font-size: 0.7rem; font-weight: 700; color: var(--orange); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
-    .tool-title { font-weight: 700; color: var(--cream); font-size: 1.05rem; margin-bottom: 8px; }
-    .tool-desc { font-size: 0.85rem; color: var(--slate); line-height: 1.6; margin-bottom: 12px; }
-    .tool-format { font-family: var(--font-mono); font-size: 0.7rem; color: var(--slate-dark); letter-spacing: 0.05em; }
-    .tool-download { display: inline-block; margin-top: 12px; padding: 8px 16px; background: var(--orange); color: white; text-decoration: none; border-radius: 6px; font-size: 0.8rem; font-weight: 600; transition: background 0.2s; }
-    .tool-download:hover { background: var(--orange-hover); }
-
-    .badge-free {
-      display: inline-block; padding: 2px 8px; border-radius: 4px;
-      background: rgba(34,197,94,0.15); color: #4ade80;
-      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
-    }
-    .badge-gated {
-      display: inline-block; padding: 2px 8px; border-radius: 4px;
-      background: rgba(184, 223, 240, 0.1); color: var(--blue-light);
-      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
-    }
-
-    /* Gate CTA */
-    .gate-section { padding: 80px 0; }
-    .gate-card {
-      max-width: 640px; margin: 0 auto; padding: 48px;
-      border-radius: 20px; background: rgba(255,255,255,0.04);
-      border: 1px solid var(--glass-border); position: relative; overflow: hidden;
+    /* ── Hero ── */
+    .toolkit-hero {
+      padding: 140px 0 80px;
       text-align: center;
     }
-    .gate-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--orange), transparent); }
-    .gate-card h3 { font-family: var(--font-serif); font-size: 1.6rem; font-weight: 700; color: var(--cream); margin-bottom: 8px; }
-    .gate-card > p { color: var(--slate); margin-bottom: 24px; font-size: 0.95rem; }
-    .gate-note { text-align: center; font-size: 0.75rem; color: var(--slate-darker); margin-top: 16px; }
-
-    .footer { padding: 40px 0; border-top: 1px solid var(--glass-border); text-align: center; }
-    .footer-brand { font-family: var(--font-serif); font-weight: 700; color: var(--cream); margin-bottom: 8px; }
-    .footer-links { display: flex; justify-content: center; gap: 24px; margin-top: 12px; }
-    .footer-links a { color: var(--slate); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
-    .footer-links a:hover { color: var(--cream); }
-    .footer-copy { margin-top: 20px; font-size: 0.75rem; color: var(--slate-darker); }
-
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-    .fade-up { opacity: 0; animation: fadeUp 0.8s ease forwards; }
-    .delay-1 { animation-delay: 0.1s; } .delay-2 { animation-delay: 0.2s; } .delay-3 { animation-delay: 0.3s; }
-
-    @media (max-width: 900px) {
-      .tools-grid { grid-template-columns: 1fr; }
-      .stats-row { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .toolkit-hero h1 {
+      font-family: var(--font-serif);
+      font-size: 2.8rem;
+      line-height: 1.15;
+      margin-bottom: 16px;
     }
-  </style>
-</head>
-<body>
+    .toolkit-hero .subtitle {
+      font-size: 1.15rem;
+      color: var(--slate);
+      max-width: 640px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+    }
+    .toolkit-hero .stats {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+    }
+    .toolkit-hero .stat-num {
+      font-family: var(--font-mono);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--orange);
+    }
+    .toolkit-hero .stat-label {
+      font-size: 0.8rem;
+      color: var(--slate);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
 
-  <nav class="nav">
-    <div class="container nav-inner">
+    /* ── Section Headers ── */
+    .section-header {
+      margin: 60px 0 32px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--glass-border);
+    }
+    .section-header h2 {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+    }
+    .section-header p {
+      color: var(--slate);
+      font-size: 0.95rem;
+    }
+
+    /* ── Tool Cards ── */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .tool-card {
+      padding: 28px;
+      border-radius: 16px;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      transition: border-color 0.2s;
+    }
+    .tool-card:hover {
+      border-color: rgba(255,255,255,0.15);
+    }
+    .tool-num {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--slate);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .badge-included {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 4px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      background: rgba(212,96,12,0.15);
+      color: var(--orange);
+    }
+    .badge-bonus {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 4px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      background: rgba(184,223,240,0.1);
+      color: var(--blue-light);
+    }
+    .tool-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+    }
+    .tool-desc {
+      font-size: 0.85rem;
+      color: var(--slate);
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+    .tool-format {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--slate-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── CTA Section ── */
+    .toolkit-cta {
+      margin: 80px 0;
+      padding: 60px 48px;
+      border-radius: 24px;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      text-align: center;
+    }
+    .toolkit-cta h3 {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+    }
+    .toolkit-cta p {
+      color: var(--slate);
+      margin-bottom: 32px;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .toolkit-cta .form-note {
+      margin-top: 16px;
+      font-size: 0.8rem;
+      color: var(--slate-dark);
+    }
+
+    /* ── Footer ── */
+    footer {
+      padding: 48px 0;
+      border-top: 1px solid var(--glass-border);
+      text-align: center;
+      color: var(--slate-dark);
+      font-size: 0.8rem;
+    }
+    footer .footer-title {
+      font-family: var(--font-serif);
+      font-weight: 700;
+      color: var(--cream);
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+    footer .footer-author { color: var(--slate); margin-bottom: 16px; }
+    footer .footer-links { display: flex; justify-content: center; gap: 20px; margin-bottom: 20px; }
+    footer .footer-links a { color: var(--slate); text-decoration: none; font-size: 0.8rem; transition: color 0.2s; }
+    footer .footer-links a:hover { color: var(--cream); }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .nav { padding: 12px 20px; }
+      .nav-links { gap: 12px; }
+      .toolkit-hero h1 { font-size: 2rem; }
+      .toolkit-hero .stats { flex-direction: column; gap: 16px; }
+      .tools-grid { grid-template-columns: 1fr; }
+      .toolkit-cta { padding: 40px 24px; }
+    }
+    </style>
+    <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
+  </head>
+  <body>
+    <!-- ── Navigation ── -->
+    <nav class="nav">
       <a href="/" class="nav-brand"><span>Start</span> at Zero</a>
       <div class="nav-links">
         <a href="/chapter-1">Free Chapter</a>
+        <a href="/toolkit">Toolkit</a>
         <a href="/speaking">Speaking</a>
         <a href="/#reserve" class="nav-cta">Read Chapter 1 Free</a>
       </div>
-    </div>
-  </nav>
+    </nav>
 
-  <section class="page-header">
-    <div class="container">
-      <p class="label fade-up">The Companion Toolkit</p>
-      <h1 class="fade-up delay-1">16 Ready-to-Use Templates & Checklists</h1>
-      <p class="fade-up delay-2">Every framework from the book — as editable templates you can deploy on day one. From Phase Zero planning through post-go-live value tracking.</p>
-      <div class="stats-row fade-up delay-3">
-        <div class="stat-item"><div class="stat-num">16</div><div class="stat-label">Templates</div></div>
-        <div class="stat-item"><div class="stat-num">5</div><div class="stat-label">Free to download</div></div>
-        <div class="stat-item"><div class="stat-num">11</div><div class="stat-label">With book reservation</div></div>
+    <!-- ── Hero ── -->
+    <section class="toolkit-hero">
+      <div class="container">
+        <p style="font-family:var(--font-mono);font-size:0.8rem;color:var(--orange);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:16px;">The Companion Toolkit</p>
+        <h1>16 Ready-to-Use Templates<br />& Checklists</h1>
+        <p class="subtitle">Every framework from the book — as editable templates you can deploy on day one. From Phase Zero planning through post-go-live value tracking.</p>
+        <div class="stats">
+          <div><div class="stat-num">16</div><div class="stat-label">Templates</div></div>
+          <div><div class="stat-num">5</div><div class="stat-label">Included with Book</div></div>
+          <div><div class="stat-num">11</div><div class="stat-label">Bonus with Signup</div></div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- SECTION 1: PHASE ZERO & PLANNING -->
-  <section class="toolkit-section">
     <div class="container">
-      <p class="section-label">Phase Zero & Planning</p>
-      <h2 class="section-title">Lay the Foundation Before Vendors Arrive</h2>
-      <p class="section-desc">These tools ensure you do the critical preparation work that separates successful modernizations from catastrophic ones.</p>
-      <div class="tools-grid">
 
+      <!-- ══════════════════════════════════════════════ -->
+      <!-- INCLUDED WITH THE BOOK (Templates 1–5)       -->
+      <!-- ══════════════════════════════════════════════ -->
+      <div class="section-header">
+        <h2>Included with the Book</h2>
+        <p>These five core templates come with every copy of Start at Zero.</p>
+      </div>
+
+      <div class="tools-grid">
         <div class="tool-card">
-          <div class="tool-num"><span class="badge-free">Free</span> TEMPLATE 01</div>
+          <div class="tool-num"><span class="badge-included">Included</span> TEMPLATE 01</div>
           <div class="tool-title">Phase Zero 100-Day Checklist</div>
           <div class="tool-desc">Step-by-step checklist for completing Phase Zero in 100 days. Nine milestone activities from team formation through Go/No-Go decision.</div>
-          <div class="tool-format">Editable Word Document</div>
+          <div class="tool-format">Downloadable PDF</div>
         </div>
 
         <div class="tool-card">
-          <div class="tool-num"><span class="badge-free">Free</span> TEMPLATE 07</div>
-          <div class="tool-title">AI Governance & Readiness Assessment</div>
-          <div class="tool-desc">Evaluate AI readiness across nine dimensions (People, Process, Technology). Includes maturity scoring, gap analysis, and use case inventory.</div>
-          <div class="tool-format">Editable Word Document</div>
-        </div>
-
-        <div class="tool-card">
-          <div class="tool-num"><span class="badge-gated">With Book</span> TEMPLATE 14</div>
-          <div class="tool-title">Stakeholder Power/Influence Map</div>
-          <div class="tool-desc">Identify and manage stakeholders strategically. Power/interest matrix, detailed profiles, resistance assessment, and engagement action plan.</div>
-          <div class="tool-format">Editable Word Document</div>
-        </div>
-
-        <div class="tool-card">
-          <div class="tool-num"><span class="badge-gated">With Book</span> TEMPLATE 11</div>
-          <div class="tool-title">Benefits Realization Tracker</div>
-          <div class="tool-desc">Track financial, operational, and strategic benefits from business case through post-go-live. Includes cumulative ROI calculation.</div>
-          <div class="tool-format">Editable Excel Spreadsheet</div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION 2: GOVERNANCE & OVERSIGHT -->
-  <section class="toolkit-section">
-    <div class="container">
-      <p class="section-label">Governance & Oversight</p>
-      <h2 class="section-title">Build Structures That Prevent Vendor Capture</h2>
-      <p class="section-desc">The governance frameworks that keep decision-making independent and aligned with your interests — not the vendor's.</p>
-      <div class="tools-grid">
-
-        <div class="tool-card">
-          <div class="tool-num"><span class="badge-book">With Book</span> TEMPLATE 02</div>
-          <div class="tool-title">Independent PMO Charter</div>
-          <div class="tool-desc">Sample charter establishing unbiased oversight. Defines scope, authority, roles, reporting, and success metrics for your independent PMO.</div>
-          <div class="tool-format">Editable Word Document</div>
-        </div>
-
-        <div class="tool-card">
-          <div class="tool-num"><span class="badge-free">Free</span> TEMPLATE 03</div>
+          <div class="tool-num"><span class="badge-included">Included</span> TEMPLATE 02</div>
           <div class="tool-title">Three-Layer RACI Matrix</div>
           <div class="tool-desc">RACI matrix for the three-layer model (Software Vendor + System Integrator + Independent PMO). Clarifies who decides what.</div>
-          <div class="tool-format">Editable Excel Spreadsheet</div>
+          <div class="tool-format">Downloadable PDF</div>
         </div>
 
         <div class="tool-card">
-          <div class="tool-num"><span class="badge-gated">With Book</span> TEMPLATE 08</div>
-          <div class="tool-title">Executive Steering Committee Governance Charter</div>
-          <div class="tool-desc">Complete governance framework: decision rights matrix, meeting cadence, escalation paths, success metrics, and signature pages.</div>
-          <div class="tool-format">Editable Word Document</div>
+          <div class="tool-num"><span class="badge-included">Included</span> TEMPLATE 03</div>
+          <div class="tool-title">AI Governance & Readiness Assessment</div>
+          <div class="tool-desc">Evaluate AI readiness across nine dimensions (People, Process, Technology). Includes maturity scoring, gap analysis, and use case inventory.</div>
+          <div class="tool-format">Downloadable PDF</div>
         </div>
 
         <div class="tool-card">
-          <div class="tool-num"><span class="badge-gated">With Book</span> TEMPLATE 04</div>
-          <div class="tool-title">Scope Change Request Form</div>
-          <div class="tool-desc">Evaluate and approve scope changes to prevent creep. Impact assessment across schedule, budget, risk, and benefits.</div>
-          <div class="tool-format">Editable Word Document</div>
-        </div>
-
-        <div class="tool-card">
-          <div class="tool-num"><span class="badge-free">Free</span> TEMPLATE 16</div>
-          <div class="tool-title">Go/No-Go Decision Criteria</div>
-          <div class="tool-desc">Objective criteria for Phase Zero completion and pre-go-live gates. Critical vs. non-critical assessment with conditional approval paths.</div>
-          <div class="tool-format">Editable Word Document</div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION 3: VENDOR SELECTION -->
-  <section class="toolkit-section">
-    <div class="container">
-      <p class="section-label">Vendor Selection & Contracts</p>
-      <h2 class="section-title">Choose Partners, Not Captors</h2>
-      <p class="section-desc">Tools for evaluating vendors objectively, checking references rigorously, and negotiating contracts that protect you.</p>
-      <div class="tools-grid">
-
-        <div class="tool-card">
-          <div class="tool-num"><span class="badge-book">With Book</span> TEMPLATE 10</div>
-          <div class="tool-title">Independent Advisor Selection Criteria</div>
-          <div class="tool-desc">Evaluate advisory firms with independence verification (pass/fail), experience scoring, and reference check framework.</div>
-          <div class="tool-format">Editable Word Document</div>
-        </div>
-
-        <div class="tool-card">
-          <div class="tool-num"><span class="badge-free">Free</span> TEMPLATE 09</div>
+          <div class="tool-num"><span class="badge-included">Included</span> TEMPLATE 04</div>
           <div class="tool-title">Vendor Evaluation Scorecard</div>
           <div class="tool-desc">Seven-category weighted scorecard: functional fit, architecture, implementation, viability, TCO, demo performance, and references.</div>
-          <div class="tool-format">Editable Excel Spreadsheet</div>
+          <div class="tool-format">Downloadable PDF</div>
         </div>
 
         <div class="tool-card">
-          <div class="tool-num"><span class="badge-gated">With Book</span> TEMPLATE 12</div>
+          <div class="tool-num"><span class="badge-included">Included</span> TEMPLATE 05</div>
+          <div class="tool-title">Go/No-Go Decision Criteria</div>
+          <div class="tool-desc">Objective criteria for Phase Zero completion and pre-go-live gates. Critical vs. non-critical assessment with conditional approval paths.</div>
+          <div class="tool-format">Downloadable PDF</div>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════════ -->
+      <!-- BONUS TEMPLATES (Templates 6–16)              -->
+      <!-- ══════════════════════════════════════════════ -->
+      <div class="section-header">
+        <h2>Bonus Templates — Free with Signup</h2>
+        <p>Sign up below to unlock all 11 bonus templates covering governance, vendor selection, contracts, and implementation.</p>
+      </div>
+
+      <div class="tools-grid">
+        <div class="tool-card">
+          <div class="tool-num"><span class="badge-bonus">Bonus</span> TEMPLATE 06</div>
+          <div class="tool-title">Independent PMO Charter</div>
+          <div class="tool-desc">Sample charter establishing unbiased oversight. Defines scope, authority, roles, reporting, and success metrics for your independent PMO.</div>
+          <div class="tool-format">Downloadable PDF</div>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-num"><span class="badge-bonus">Bonus</span> TEMPLATE 07</div>
+          <div class="tool-title">Scope Change Request Form</div>
+          <div class="tool-desc">Evaluate and approve scope changes to prevent creep. Impact assessment across schedule, budget, risk, and benefits.</div>
+          <div class="tool-format">Downloadable PDF</div>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-num"><span class="badge-bonus">Bonus</span> TEMPLATE 08</div>
+          <div class="tool-title">Executive Steering Committee Governance Charter</div>
+          <div class="tool-desc">Complete governance framework: decision rights matrix, meeting cadence, escalation paths, success metrics, and signature pages.</div>
+          <div class="tool-format">Downloadable PDF</div>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-num"><span class="badge-bonus">Bonus</span> TEMPLATE 09</div>
+          <div class="tool-title">Stakeholder Power/Influence Map</div>
+          <div class="tool-desc">Identify and manage stakeholders strategically. Power/interest matrix, detailed profiles, resistance assessment, and engagement action plan.</div>
+          <div class="tool-format">Downloadable PDF</div>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-num"><span class="badge-bonus">Bonus</span> TEMPLATE 10</div>
+          <div class="tool-title">Independent Advisor Selection Criteria</div>
+          <div class="tool-desc">Evaluate advisory firms with independence verification (pass/fail), experience scoring, and reference check framework.</div>
+          <div class="tool-format">Downloadable PDF</div>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-num"><span class="badge-bonus">Bonus</span> TEMPLATE 11</div>
+          <div class="tool-title">Benefits Realization Tracker</div>
+          <div class="tool-desc">Track financial, operational, and strategic benefits from business case through post-go-live. Includes cumulative ROI calculation.</div>
+          <div class="tool-format">Downloadable PDF</div>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-num"><span class="badge-bonus">Bonus</span> TEMPLATE 12</div>
           <div class="tool-title">Vendor Reference Check Interview Guide</div>
           <div class="tool-desc">Structured interview guide with implementation, post-go-live, and critical questions. Includes "the ultimate question."</div>
-          <div class="tool-format">Editable Word Document</div>
+          <div class="tool-format">Downloadable PDF</div>
         </div>
 
         <div class="tool-card">
-          <div class="tool-num"><span class="badge-gated">With Book</span> TEMPLATE 13</div>
+          <div class="tool-num"><span class="badge-bonus">Bonus</span> TEMPLATE 13</div>
           <div class="tool-title">Contract Negotiation Checklist</div>
           <div class="tool-desc">Nine-section checklist: payments, data ownership, IP, SLAs, termination, staffing, pricing, security, and AI provisions. Red flags included.</div>
-          <div class="tool-format">Editable Word Document</div>
+          <div class="tool-format">Downloadable PDF</div>
         </div>
 
         <div class="tool-card">
-          <div class="tool-num"><span class="badge-gated">With Book</span> TEMPLATE 05</div>
+          <div class="tool-num"><span class="badge-bonus">Bonus</span> TEMPLATE 14</div>
           <div class="tool-title">Vendor Termination Letter</div>
           <div class="tool-desc">Sample letter to terminate a vendor contract for cause. Covers material breaches, required actions, and compliance obligations.</div>
-          <div class="tool-format">Editable Word Document</div>
+          <div class="tool-format">Downloadable PDF</div>
         </div>
 
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION 4: IMPLEMENTATION -->
-  <section class="toolkit-section">
-    <div class="container">
-      <p class="section-label">Implementation & Change</p>
-      <h2 class="section-title">Execute Without Losing Control</h2>
-      <p class="section-desc">From change champion networks to parallel cutover — the tools that keep implementation on track through go-live.</p>
-      <div class="tools-grid">
-
         <div class="tool-card">
-          <div class="tool-num"><span class="badge-gated">With Book</span> TEMPLATE 15</div>
+          <div class="tool-num"><span class="badge-bonus">Bonus</span> TEMPLATE 15</div>
           <div class="tool-title">Change Champion Network Charter</div>
           <div class="tool-desc">Formalize your grassroots change network. Selection criteria, role description, responsibilities, and commitment framework.</div>
-          <div class="tool-format">Editable Word Document</div>
+          <div class="tool-format">Downloadable PDF</div>
         </div>
 
         <div class="tool-card">
-          <div class="tool-num"><span class="badge-gated">With Book</span> TEMPLATE 06</div>
+          <div class="tool-num"><span class="badge-bonus">Bonus</span> TEMPLATE 16</div>
           <div class="tool-title">Parallel Run Cutover Checklist</div>
           <div class="tool-desc">Nine-step checklist for running old/new systems in parallel during cutover. Data reconciliation, monitoring, and rollback planning.</div>
-          <div class="tool-format">Editable Word Document</div>
+          <div class="tool-format">Downloadable PDF</div>
         </div>
-
       </div>
-    </div>
-  </section>
 
-  <!-- Unlock CTA -->
-  <section class="gate-section">
-    <div class="gate-card">
-      <h3>Unlock All 16 Templates</h3>
-      <p>Reserve your signed copy of <em>Start at Zero</em> to get the complete toolkit — plus early chapter previews and launch-day priority.</p>
-      <div id="toolkitForm"></div>
-      <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
-      <script>
-        hbspt.forms.create({
-          portalId: "24211389",
-          formId: "5b80993b-caef-4735-88ea-f95fca9538ba",
-          region: "na1",
-          target: "#toolkitForm"
-        });
-      </script>
-      <p class="gate-note">No payment required. Free templates available immediately after sign-up.</p>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-brand">Start at Zero</div>
-      <p style="font-size:0.85rem; color:var(--slate);">by Abhijit Verekar</p>
-      <div class="footer-links">
-        <a href="/">Home</a>
-        <a href="/chapter-1">Free Chapter</a>
-        <a href="/speaking">Speaking</a>
-        <a href="/press">Press</a>
-        <a href="https://averoadvisors.com" target="_blank">Avèro Advisors</a>
+      <!-- ── CTA ── -->
+      <div class="toolkit-cta" id="toolkitSignup">
+        <h3>Get All 16 Templates</h3>
+        <p>Read Chapter 1 free and reserve your signed copy to unlock the complete toolkit — delivered to your inbox.</p>
+        <div id="toolkitForm"></div>
+        <script>
+          hbspt.forms.create({
+            portalId: "24211389",
+            formId: "5b80993b-caef-4735-88ea-f95fca9538ba",
+            region: "na1",
+            target: "#toolkitForm"
+          });
+        </script>
+        <p class="form-note">No payment required. Templates delivered after signup.</p>
       </div>
-      <p class="footer-copy">&copy; 2026 Abhijit Verekar. All rights reserved.</p>
-    </div>
-  </footer>
 
-  <script>
+    </div>
+
+    <!-- ── Footer ── -->
+    <footer>
+      <div class="container">
+        <div class="footer-title">Start at Zero</div>
+        <div class="footer-author">by Abhijit Verekar</div>
+        <div class="footer-links">
+          <a href="/">Home</a>
+          <a href="/chapter-1">Free Chapter</a>
+          <a href="/toolkit">Toolkit</a>
+          <a href="/speaking">Speaking</a>
+          <a href="/press">Press</a>
+          <a href="https://averoadvisors.com" target="_blank">Avèro Advisors</a>
+        </div>
+        <p>&copy; 2026 Abhijit Verekar. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script>
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) { entry.target.style.opacity = '1'; entry.target.style.transform = 'translateY(0)'; }
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
       });
     }, { threshold: 0.1 });
+
     document.querySelectorAll('.tool-card').forEach(el => {
-      el.style.opacity = '0'; el.style.transform = 'translateY(20px)';
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
       el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
       observer.observe(el);
     });
-  </script>
-
-</body>
+    </script>
+  </body>
 </html>
