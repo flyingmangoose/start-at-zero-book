@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Speaking & Workshops — Abhijit Verekar | Start at Zero</title>
+  <meta name="description" content="Book Abhijit Verekar for keynotes and workshops on government ERP modernization, AI governance, and the Start at Zero framework." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0c1e3a; --navy-deep: #081526; --navy-light: #122d52;
+      --cream: #f5f0e8; --cream-dim: #cbd5e1; --blue-light: #b8dff0;
+      --orange: hsl(20, 90%, 48%); --orange-hover: hsl(20, 90%, 42%);
+      --slate: #b0bec5; --slate-dark: #8899a6; --slate-darker: #64748b;
+      --glass-border: rgba(255,255,255,0.08); --glass-bg: rgba(255,255,255,0.03);
+      --font-serif: 'Libre Caslon Text', Georgia, serif;
+      --font-sans: 'Roboto', system-ui, sans-serif;
+      --font-mono: 'Roboto Mono', monospace;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-sans); background: var(--navy); color: var(--cream-dim); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 16px 0; background: rgba(12, 30, 58, 0.85); backdrop-filter: blur(16px); border-bottom: 1px solid var(--glass-border); }
+    .nav-inner { display: flex; justify-content: space-between; align-items: center; }
+    .nav-brand { font-family: var(--font-serif); font-size: 1.1rem; font-weight: 700; color: var(--cream); text-decoration: none; }
+    .nav-brand span { color: var(--orange); }
+    .nav-links { display: flex; align-items: center; gap: 24px; }
+    .nav-links a { color: var(--slate); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--cream); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px; background: var(--orange); color: white; font-weight: 600; font-size: 0.85rem; border-radius: 8px; text-decoration: none; transition: background 0.2s; }
+    .nav-cta:hover { background: var(--orange-hover); }
+
+    /* Hero */
+    .speaking-hero { padding: 140px 0 80px; }
+    .hero-grid { display: grid; grid-template-columns: auto 1fr; gap: 64px; align-items: center; }
+    .hero-photo { width: 280px; height: 360px; border-radius: 16px; object-fit: cover; object-position: top; border: 2px solid var(--glass-border); }
+    .hero-label { font-family: var(--font-mono); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--orange); margin-bottom: 16px; }
+    .speaking-hero h1 { font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; color: var(--cream); line-height: 1.2; margin-bottom: 16px; }
+    .speaking-hero .subtitle { font-family: var(--font-serif); font-style: italic; font-size: 1.15rem; color: var(--blue-light); margin-bottom: 24px; }
+    .speaking-hero .desc { font-size: 1.05rem; line-height: 1.8; max-width: 560px; margin-bottom: 32px; }
+    .credentials { display: flex; gap: 16px; flex-wrap: wrap; }
+    .credential { font-size: 0.8rem; padding: 6px 14px; border-radius: 20px; background: rgba(255,255,255,0.04); border: 1px solid var(--glass-border); color: var(--blue-light); }
+
+    /* Talks */
+    .talks-section { padding: 80px 0; border-top: 1px solid var(--glass-border); }
+    .section-label { font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--orange); margin-bottom: 8px; }
+    .section-title { font-family: var(--font-serif); font-size: 1.8rem; font-weight: 700; color: var(--cream); margin-bottom: 32px; }
+
+    .talk-card {
+      display: grid; grid-template-columns: 100px 1fr; gap: 28px; align-items: start;
+      padding: 32px; border-radius: 16px; background: var(--glass-bg);
+      border: 1px solid var(--glass-border); margin-bottom: 20px;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .talk-card:hover { border-color: rgba(255,255,255,0.15); transform: translateY(-3px); }
+    .talk-type { font-family: var(--font-mono); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--orange); margin-bottom: 4px; }
+    .talk-duration { font-size: 0.8rem; color: var(--slate-dark); }
+    .talk-icon { width: 100px; height: 100px; border-radius: 12px; background: rgba(184, 223, 240, 0.06); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; }
+    .talk-title { font-family: var(--font-serif); font-size: 1.3rem; font-weight: 700; color: var(--cream); margin-bottom: 8px; }
+    .talk-desc { font-size: 0.9rem; color: var(--cream-dim); line-height: 1.7; margin-bottom: 12px; }
+    .talk-outcomes { list-style: none; }
+    .talk-outcomes li { font-size: 0.85rem; color: var(--slate); padding: 4px 0; padding-left: 20px; position: relative; }
+    .talk-outcomes li::before { content: '→'; position: absolute; left: 0; color: var(--orange); }
+
+    /* Audiences */
+    .audiences-section { padding: 80px 0; border-top: 1px solid var(--glass-border); }
+    .audience-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .audience-card { padding: 28px; border-radius: 16px; background: var(--glass-bg); border: 1px solid var(--glass-border); text-align: center; }
+    .audience-icon { font-size: 2rem; margin-bottom: 12px; }
+    .audience-title { font-weight: 700; color: var(--cream); margin-bottom: 8px; }
+    .audience-desc { font-size: 0.85rem; color: var(--slate); line-height: 1.6; }
+
+    /* Booking CTA */
+    .booking-section { padding: 80px 0; border-top: 1px solid var(--glass-border); }
+    .booking-card {
+      max-width: 700px; margin: 0 auto; padding: 48px;
+      border-radius: 20px; background: rgba(255,255,255,0.04);
+      border: 1px solid var(--glass-border); text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .booking-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--orange), transparent); }
+    .booking-card h3 { font-family: var(--font-serif); font-size: 1.8rem; font-weight: 700; color: var(--cream); margin-bottom: 8px; }
+    .booking-card > p { color: var(--cream-dim); margin-bottom: 32px; font-size: 1rem; line-height: 1.7; }
+    .booking-details { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; text-align: left; margin-bottom: 32px; }
+    .detail-item { padding: 16px; background: rgba(255,255,255,0.02); border-radius: 10px; border: 1px solid var(--glass-border); }
+    .detail-label { font-family: var(--font-mono); font-size: 0.7rem; font-weight: 700; color: var(--orange); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px; }
+    .detail-value { font-size: 0.9rem; color: var(--cream); }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 32px; background: var(--orange); color: white;
+      font-weight: 600; font-size: 0.95rem; border: none; border-radius: 10px;
+      text-decoration: none; cursor: pointer; transition: all 0.2s;
+    }
+    .btn-primary:hover { background: var(--orange-hover); transform: translateY(-1px); }
+    .booking-note { margin-top: 16px; font-size: 0.8rem; color: var(--slate-dark); }
+
+    .footer { padding: 40px 0; border-top: 1px solid var(--glass-border); text-align: center; }
+    .footer-brand { font-family: var(--font-serif); font-weight: 700; color: var(--cream); margin-bottom: 8px; }
+    .footer-links { display: flex; justify-content: center; gap: 24px; margin-top: 12px; }
+    .footer-links a { color: var(--slate); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--cream); }
+    .footer-copy { margin-top: 20px; font-size: 0.75rem; color: var(--slate-darker); }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-up { opacity: 0; animation: fadeUp 0.8s ease forwards; }
+    .delay-1 { animation-delay: 0.1s; } .delay-2 { animation-delay: 0.2s; } .delay-3 { animation-delay: 0.3s; }
+
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; text-align: center; }
+      .hero-photo { margin: 0 auto; width: 200px; height: 260px; }
+      .credentials { justify-content: center; }
+      .talk-card { grid-template-columns: 1fr; }
+      .talk-icon { display: none; }
+      .audience-grid { grid-template-columns: 1fr; }
+      .booking-details { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="/" class="nav-brand"><span>Start</span> at Zero</a>
+      <div class="nav-links">
+        <a href="/chapter-1">Free Chapter</a>
+        <a href="/toolkit">Toolkit</a>
+        <a href="/#reserve" class="nav-cta">Reserve Your Copy</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="speaking-hero">
+    <div class="container">
+      <div class="hero-grid">
+        <img src="https://raw.githubusercontent.com/flyingmangoose/avero-executive-glow/main/src/assets/abhijit-photo.jpeg" alt="Abhijit Verekar" class="hero-photo fade-up" />
+        <div>
+          <p class="hero-label fade-up delay-1">Speaking & Workshops</p>
+          <h1 class="fade-up delay-1">Keynotes That Change How Leaders Think About Modernization</h1>
+          <p class="subtitle fade-up delay-2">Based on the frameworks in Start at Zero</p>
+          <p class="desc fade-up delay-2">
+            Abhijit Verekar brings two decades of frontline government technology experience to every stage. His talks combine forensic case studies with actionable frameworks — and the candor that comes from working exclusively on the government's side of the table.
+          </p>
+          <div class="credentials fade-up delay-3">
+            <span class="credential">5× Inc. 5000 CEO</span>
+            <span class="credential">ICMA Speaker</span>
+            <span class="credential">IACP 2026</span>
+            <span class="credential">30+ Engagements</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="talks-section">
+    <div class="container">
+      <p class="section-label">Available Presentations</p>
+      <h2 class="section-title">Three Talks, One Mission</h2>
+
+      <div class="talk-card">
+        <div class="talk-icon">🎯</div>
+        <div>
+          <div class="talk-type">Keynote</div>
+          <div class="talk-duration">45–60 minutes</div>
+          <div class="talk-title">Start at Zero: Why Government Modernization Fails — and the Framework to Prevent It</div>
+          <p class="talk-desc">
+            The flagship keynote. Through the lens of the Birmingham $216M disaster and contrasting success stories, Abhijit reveals why identical challenges produce opposite outcomes. Audiences leave with a clear understanding of the structural traps that produce failures — and the Phase Zero framework that prevents them.
+          </p>
+          <ul class="talk-outcomes">
+            <li>The three forces creating extraordinary risk right now</li>
+            <li>Why "best practice" advisory structures are structurally conflicted</li>
+            <li>The Phase Zero framework: 100 days to clarity</li>
+            <li>AI in government: separating capability from marketing</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="talk-card">
+        <div class="talk-icon">🤖</div>
+        <div>
+          <div class="talk-type">Keynote / Panel</div>
+          <div class="talk-duration">30–45 minutes</div>
+          <div class="talk-title">AI Comes of Age: What Government Leaders Actually Need to Know</div>
+          <p class="talk-desc">
+            AI is transforming what's possible in government operations — and being weaponized as a marketing tool. This talk cuts through the hype with a practical assessment of what AI delivers today, what it can't, and the governance framework every agency needs before saying yes.
+          </p>
+          <ul class="talk-outcomes">
+            <li>Real AI capabilities vs. vendor vaporware</li>
+            <li>The AI readiness assessment framework</li>
+            <li>Contract provisions that protect your data</li>
+            <li>Building AI governance before building AI systems</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="talk-card">
+        <div class="talk-icon">🔧</div>
+        <div>
+          <div class="talk-type">Workshop</div>
+          <div class="talk-duration">Half-day or Full-day</div>
+          <div class="talk-title">Phase Zero Intensive: Building Your Modernization Readiness Plan</div>
+          <p class="talk-desc">
+            A hands-on working session where leadership teams apply the Start at Zero framework to their own organizations. Participants leave with a customized Phase Zero roadmap, stakeholder map, and governance charter draft — ready to execute.
+          </p>
+          <ul class="talk-outcomes">
+            <li>Complete stakeholder power/influence mapping exercise</li>
+            <li>Draft governance charter and decision rights matrix</li>
+            <li>AI readiness self-assessment and gap analysis</li>
+            <li>Customized 100-day Phase Zero action plan</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="audiences-section">
+    <div class="container">
+      <p class="section-label">Ideal Audiences</p>
+      <h2 class="section-title" style="margin-bottom:32px;">Built for the Rooms Where Decisions Happen</h2>
+      <div class="audience-grid">
+        <div class="audience-card">
+          <div class="audience-icon">🏛️</div>
+          <div class="audience-title">Government Conferences</div>
+          <div class="audience-desc">ICMA, GFOA, NACo, NASCIO, state CIO summits, and municipal leadership forums.</div>
+        </div>
+        <div class="audience-card">
+          <div class="audience-icon">👔</div>
+          <div class="audience-title">Executive Leadership Teams</div>
+          <div class="audience-desc">City managers, county administrators, CIOs, and CFOs preparing for modernization decisions.</div>
+        </div>
+        <div class="audience-card">
+          <div class="audience-icon">📋</div>
+          <div class="audience-title">Industry & Professional Groups</div>
+          <div class="audience-desc">Technology associations, public sector consulting firms, and ERP user groups.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="booking-section">
+    <div class="container">
+      <div class="booking-card">
+        <h3>Book Abhijit for Your Event</h3>
+        <p>Every attendee receives a signed copy of <em>Start at Zero</em>. Bulk pricing available for conferences and leadership teams.</p>
+        <div class="booking-details">
+          <div class="detail-item">
+            <div class="detail-label">Keynotes</div>
+            <div class="detail-value">30–60 minutes + Q&A</div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-label">Workshops</div>
+            <div class="detail-value">Half-day or full-day</div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-label">Availability</div>
+            <div class="detail-value">Booking for 2026–2027</div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-label">Includes</div>
+            <div class="detail-value">Signed books for attendees</div>
+          </div>
+        </div>
+        <a href="mailto:speaking@averoadvisors.com?subject=Speaking%20Inquiry%20-%20Start%20at%20Zero" class="btn-primary">Inquire About Availability</a>
+        <p class="booking-note">Or email directly: speaking@averoadvisors.com</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-brand">Start at Zero</div>
+      <p style="font-size:0.85rem; color:var(--slate);">by Abhijit Verekar</p>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/chapter-1">Free Chapter</a>
+        <a href="/toolkit">Toolkit</a>
+        <a href="/press">Press</a>
+        <a href="https://averoadvisors.com" target="_blank">Avèro Advisors</a>
+      </div>
+      <p class="footer-copy">&copy; 2026 Abhijit Verekar. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
