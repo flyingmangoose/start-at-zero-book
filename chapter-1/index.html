@@ -252,7 +252,16 @@
       </div>
       <p class="footer-copy">&copy; 2026 Abhijit Verekar. All rights reserved.</p>
     </div>
+    <div style="text-align:center; margin: 40px 0;">
+          <a href="/#reserve" style="display:inline-block; padding:14px 32px; background:var(--orange); color:white; text-decoration:none; border-radius:8px; font-weight:600; font-size:1rem; transition:background 0.2s;">Get a Signed Copy →</a>
+        </div>
   </footer>
-
+<script>
+if (new URLSearchParams(window.location.search).get('unlocked') === 'true') {
+  document.querySelector('.fade-gate')?.classList.remove('fade-gate');
+  document.querySelector('.gate-section')?.style.setProperty('display', 'none');
+  document.querySelectorAll('.gated-content, .full-content, [style*="display: none"]').forEach(el => el.style.display = 'block');
+}
+</script>
 </body>
 </html>
