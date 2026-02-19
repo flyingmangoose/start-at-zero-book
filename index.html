@@ -760,7 +760,7 @@
             <a href="#reserve" class="btn-primary">Read Chapter 1 Free</a>
             <a href="#chapters" class="btn-outline">See What's Inside ↓</a>
           </div>
-          <p class="small-note fade-up delay-6">Free preview — you'll also reserve a signed first edition. No payment required.</p>
+                      <p class="small-note fade-up delay-6">Free chapter + 5 templates. Or reserve a signed copy. No payment required.</p>
         </div>
       </div>
     </div>
@@ -990,27 +990,48 @@
     </div>
   </section>
 
-  <!-- ── Reserve Form ── -->
-  <section class="reserve" id="reserve">
-    <div class="container">
-      <div class="form-card" id="formCard">
-        <h3></h3>Read Chapter 1 Free</h3>
-        <p>Get the full Birmingham case study that turned a $19M budget into a $216M disaster — plus reserve your signed first edition.</p>
-        <div id="hubspotForm"></div>
-        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
-        <script>
-          hbspt.forms.create({
-            portalId: "24211389",
-            formId: "5b80993b-caef-4735-88ea-f95fca9538ba",
-            region: "na1",
-            target: "#hubspotForm",
-            redirectUrl: "https://book.averoadvisors.com/chapter-1?unlocked=true"
-          });
-        </script>
-        <p class="form-note">No payment required. We'll notify you at launch.</p>
+    <!-- — Reserve Forms — -->
+    <section class="reserve" id="reserve">
+      <div class="container">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;max-width:900px;margin:0 auto">
+
+          <!-- Path A: Read Chapter 1 Free -->
+          <div class="form-card" id="formCardChapter">
+            <h3>Read Chapter 1 Free</h3>
+            <p>Get the full Birmingham case study — plus 5 ready-to-use templates delivered to your inbox.</p>
+            <div id="hubspotFormChapter"></div>
+            <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
+            <script>
+              hbspt.forms.create({
+                portalId: "24211389",
+                formId: "5b80993b-caef-4735-88ea-f95fca9538ba",
+                region: "na1",
+                target: "#hubspotFormChapter",
+                redirectUrl: "https://book.averoadvisors.com/chapter-1?unlocked=true"
+              });
+            </script>
+            <p class="form-note">No payment required. Chapter 1 + 5 templates sent instantly.</p>
+          </div>
+
+          <!-- Path B: Request a Signed Copy -->
+          <div class="form-card" id="formCardSigned">
+            <h3>Request a Signed Copy</h3>
+            <p>Reserve your signed first edition — no payment required. We'll notify you at launch.</p>
+            <div id="hubspotFormSigned"></div>
+            <script>
+              hbspt.forms.create({
+                portalId: "24211389",
+                formId: "94584085-461f-4eb3-93ab-f1770be82ca6",
+                region: "na1",
+                target: "#hubspotFormSigned"
+              });
+            </script>
+            <p class="form-note">No payment required. We'll notify you at launch.</p>
+          </div>
+
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
   <!-- ── Footer ── -->
   <footer class="footer">
