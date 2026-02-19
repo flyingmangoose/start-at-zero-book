@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter 1 Preview — The $216M Wake-Up Call | Start at Zero</title>
+  <meta name="description" content="Read Chapter 1 of Start at Zero: The Birmingham case study that turned a $19M budget into a $216M disaster. Free preview with email." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0c1e3a; --navy-deep: #081526; --navy-light: #122d52;
+      --cream: #f5f0e8; --cream-dim: #cbd5e1; --blue-light: #b8dff0;
+      --orange: hsl(20, 90%, 48%); --orange-hover: hsl(20, 90%, 42%);
+      --slate: #b0bec5; --slate-dark: #8899a6; --slate-darker: #64748b;
+      --glass-border: rgba(255,255,255,0.08); --glass-bg: rgba(255,255,255,0.03);
+      --font-serif: 'Libre Caslon Text', Georgia, serif;
+      --font-sans: 'Roboto', system-ui, sans-serif;
+      --font-mono: 'Roboto Mono', monospace;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-sans); background: var(--navy); color: var(--cream-dim); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    /* Nav */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 16px 0; background: rgba(12, 30, 58, 0.85); backdrop-filter: blur(16px); border-bottom: 1px solid var(--glass-border); }
+    .nav-inner { display: flex; justify-content: space-between; align-items: center; }
+    .nav-brand { font-family: var(--font-serif); font-size: 1.1rem; font-weight: 700; color: var(--cream); text-decoration: none; }
+    .nav-brand span { color: var(--orange); }
+    .nav-links { display: flex; align-items: center; gap: 24px; }
+    .nav-links a { color: var(--slate); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--cream); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px; background: var(--orange); color: white; font-weight: 600; font-size: 0.85rem; border-radius: 8px; text-decoration: none; transition: background 0.2s; }
+    .nav-cta:hover { background: var(--orange-hover); }
+
+    /* Header */
+    .chapter-header { padding: 140px 0 60px; border-bottom: 1px solid var(--glass-border); }
+    .chapter-header-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .chapter-meta { font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--orange); margin-bottom: 16px; }
+    .chapter-header h1 { font-family: var(--font-serif); font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 700; color: var(--cream); line-height: 1.15; margin-bottom: 16px; }
+    .chapter-header .subtitle { font-family: var(--font-serif); font-style: italic; font-size: 1.2rem; color: var(--blue-light); margin-bottom: 24px; }
+    .chapter-header .desc { font-size: 1.05rem; line-height: 1.8; margin-bottom: 32px; }
+    .fact-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .fact-item { text-align: center; padding: 20px; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 12px; }
+    .fact-num { font-size: 1.8rem; font-weight: 700; color: var(--orange); }
+    .fact-label { font-size: 0.8rem; color: var(--slate); margin-top: 4px; }
+
+    /* Preview Content */
+    .preview-content { padding: 80px 0; }
+    .prose { max-width: 680px; margin: 0 auto; }
+    .prose h2 { font-family: var(--font-serif); font-size: 1.8rem; font-weight: 700; color: var(--cream); margin: 48px 0 20px; }
+    .prose h3 { font-family: var(--font-serif); font-size: 1.3rem; font-weight: 700; color: var(--cream); margin: 36px 0 16px; }
+    .prose p { font-size: 1.05rem; line-height: 1.9; margin-bottom: 20px; color: var(--cream-dim); }
+    .prose blockquote {
+      margin: 32px 0; padding: 20px 24px; border-left: 3px solid var(--orange);
+      background: var(--glass-bg); border-radius: 0 12px 12px 0;
+      font-family: var(--font-serif); font-style: italic; font-size: 1.1rem;
+      color: var(--cream); line-height: 1.6;
+    }
+    .prose .pull-stat { text-align: center; padding: 40px 0; }
+    .prose .pull-stat .num { font-size: 3.5rem; font-weight: 700; color: var(--orange); }
+    .prose .pull-stat .label { font-size: 0.9rem; color: var(--slate); margin-top: 4px; }
+
+    /* Fade Gate */
+    .fade-gate { position: relative; }
+    .fade-gate::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+      height: 300px;
+      background: linear-gradient(to bottom, transparent, var(--navy) 90%);
+      pointer-events: none;
+    }
+
+    /* Gate CTA */
+    .gate-section { padding: 0 0 80px; text-align: center; position: relative; z-index: 2; margin-top: -60px; }
+    .gate-card {
+      max-width: 560px; margin: 0 auto; padding: 48px;
+      border-radius: 20px; background: rgba(255,255,255,0.04);
+      border: 1px solid var(--glass-border); position: relative; overflow: hidden;
+    }
+    .gate-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--orange), transparent); }
+    .gate-card h3 { font-family: var(--font-serif); font-size: 1.6rem; font-weight: 700; color: var(--cream); margin-bottom: 8px; }
+    .gate-card > p { color: var(--slate); margin-bottom: 24px; font-size: 0.95rem; }
+    .gate-note { text-align: center; font-size: 0.75rem; color: var(--slate-darker); margin-top: 16px; }
+
+    /* Also In This Book */
+    .also-section { padding: 80px 0; border-top: 1px solid var(--glass-border); }
+    .also-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 32px; }
+    .also-card { padding: 28px; border-radius: 16px; background: var(--glass-bg); border: 1px solid var(--glass-border); transition: border-color 0.3s, transform 0.3s; }
+    .also-card:hover { border-color: rgba(255,255,255,0.15); transform: translateY(-4px); }
+    .also-num { font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; color: var(--orange); margin-bottom: 8px; }
+    .also-title { font-weight: 700; color: var(--cream); margin-bottom: 8px; font-size: 1rem; }
+    .also-desc { font-size: 0.85rem; color: var(--slate); line-height: 1.6; }
+
+    /* Footer */
+    .footer { padding: 40px 0; border-top: 1px solid var(--glass-border); text-align: center; }
+    .footer-brand { font-family: var(--font-serif); font-weight: 700; color: var(--cream); margin-bottom: 8px; }
+    .footer-links { display: flex; justify-content: center; gap: 24px; margin-top: 12px; }
+    .footer-links a { color: var(--slate); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--cream); }
+    .footer-copy { margin-top: 20px; font-size: 0.75rem; color: var(--slate-darker); }
+
+    @media (max-width: 900px) {
+      .chapter-header-grid { grid-template-columns: 1fr; gap: 40px; }
+      .fact-strip { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+      .also-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="/" class="nav-brand"><span>Start</span> at Zero</a>
+      <div class="nav-links">
+        <a href="/toolkit">Toolkit</a>
+        <a href="/speaking">Speaking</a>
+        <a href="/#reserve" class="nav-cta">Reserve Your Copy</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="chapter-header">
+    <div class="container">
+      <div class="chapter-header-grid">
+        <div>
+          <p class="chapter-meta">Chapter 01 — Free Preview</p>
+          <h1>The $216 Million Wake-Up Call</h1>
+          <p class="subtitle">How Europe's largest local authority turned a working system into a catastrophe</p>
+          <p class="desc">
+            Birmingham City Council had a working SAP system for twenty years. Then they decided to modernize. What followed is the most expensive municipal IT failure in history — and every warning sign was visible from the start.
+          </p>
+        </div>
+        <div class="fact-strip">
+          <div class="fact-item">
+            <div class="fact-num">$19M</div>
+            <div class="fact-label">Original budget</div>
+          </div>
+          <div class="fact-item">
+            <div class="fact-num">$216M</div>
+            <div class="fact-label">Final cost</div>
+          </div>
+          <div class="fact-item">
+            <div class="fact-num">1M+</div>
+            <div class="fact-label">Citizens affected</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="preview-content">
+    <div class="container">
+      <div class="prose fade-gate" id="previewContent">
+
+        <h2>Two Cities, Two Outcomes</h2>
+
+        <p>In 2018, Birmingham City Council — the largest local authority in Europe, serving over one million citizens — embarked on what should have been a straightforward ERP modernization. They had run SAP for twenty years. The system worked. It wasn't elegant, and it wasn't modern, but payroll went out, invoices got paid, and the books balanced.</p>
+
+        <p>The council approved a £19 million budget to migrate from their aging on-premise SAP system to Oracle Fusion Cloud. The vendor promised a modern, cloud-native platform that would reduce costs, improve efficiency, and position Birmingham for the next decade. The timeline was aggressive but achievable — eighteen months to full go-live.</p>
+
+        <blockquote>
+          "The project was doomed before the first line of code was written. Not because the technology was wrong, but because the governance structures ensured that no one independent was watching."
+        </blockquote>
+
+        <p>Four years later, the project had consumed £216 million — more than ten times the original budget. Citizens couldn't access basic services. Council workers went unpaid for weeks. Housing benefit payments failed, leaving vulnerable families without support. The Oracle system, rather than improving operations, had created chaos at every level of city government.</p>
+
+        <div class="pull-stat">
+          <div class="num">11.4×</div>
+          <div class="label">Budget overrun — from £19M to £216M</div>
+        </div>
+
+        <h3>The Anatomy of a Disaster</h3>
+
+        <p>The Birmingham failure wasn't a technology failure. Oracle Fusion is a capable platform used successfully by organizations worldwide. The failure was structural — a perfect storm of conflicted advice, absent oversight, and governance designed to rubber-stamp rather than challenge.</p>
+
+        <p>Three factors converged to create the catastrophe:</p>
+
+        <p><strong>First, there was no Phase Zero.</strong> Birmingham skipped the foundational preparation phase entirely. They moved directly from "we need a new system" to vendor selection without documenting current processes, assessing data quality, or building internal readiness. The council didn't know what they needed because they'd never done the work to find out.</p>
+
+        <p><strong>Second, the advisory structure was conflicted.</strong> The consulting firm advising on vendor selection had existing commercial relationships with the vendors being evaluated. When you're choosing between platforms and your advisor profits from one of the choices, the advice is structurally compromised — regardless of the individuals' integrity.</p>
+
+        <p><strong>Third, governance was designed for compliance, not challenge.</strong> The project board included vendor representatives alongside council members. Decisions were made in rooms where the people implementing the system were also evaluating their own progress. There was no independent voice asking uncomfortable questions, no outside perspective measuring reality against promises.</p>
+
+        <h3>Meanwhile, Across the Atlantic...</h3>
+
+        <p>At the same time Birmingham was spiraling, a mid-sized American city faced an identical challenge: replace an aging ERP system that had served them for decades. Same scale of complexity. Same vendor landscape. Same political pressures to modernize quickly.</p>
+
+        <p>But this city did something Birmingham didn't. They started at zero.</p>
+
+        <p>They spent 100 days in Phase Zero — documenting every process, mapping every integration, assessing every data quality issue, and building genuine stakeholder alignment before a single vendor entered the conversation. They engaged an independent advisor with no vendor relationships. They established governance that separated advice from delivery...</p>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="gate-section">
+    <div class="gate-card">
+      <h3>Continue Reading Chapter 1</h3>
+      <p>Enter your email to unlock the full chapter — including the complete Birmingham forensic analysis and the framework that could have prevented it.</p>
+      <div id="chapterGateForm"></div>
+      <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
+      <script>
+        hbspt.forms.create({
+          portalId: "24211389",
+          formId: "5b80993b-caef-4735-88ea-f95fca9538ba",
+          region: "na1",
+          target: "#chapterGateForm"
+        });
+      </script>
+      <p class="gate-note">You'll also reserve your signed first-edition copy. No payment required.</p>
+    </div>
+  </section>
+
+  <section class="also-section">
+    <div class="container">
+      <div class="section-heading" style="text-align:center; margin-bottom:32px;">
+        <p class="chapter-meta">Also in the Book</p>
+        <h2 style="font-family:var(--font-serif); font-size:2rem; color:var(--cream); margin-top:12px;">More Chapters That Change How You Lead</h2>
+      </div>
+      <div class="also-grid">
+        <div class="also-card">
+          <div class="also-num">CHAPTER 04</div>
+          <div class="also-title">Phase Zero Mastery</div>
+          <div class="also-desc">The 100-day preparation methodology that creates clarity before vendors arrive.</div>
+        </div>
+        <div class="also-card">
+          <div class="also-num">CHAPTER 08</div>
+          <div class="also-title">Governance Reimagined</div>
+          <div class="also-desc">Decision-making structures that prevent vendor capture and protect your interests.</div>
+        </div>
+        <div class="also-card">
+          <div class="also-num">CHAPTER 11</div>
+          <div class="also-title">AI Comes of Age</div>
+          <div class="also-desc">What AI delivers today, what it can't, and how to spot vendor overselling.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-brand">Start at Zero</div>
+      <p style="font-size:0.85rem; color:var(--slate);">by Abhijit Verekar</p>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/toolkit">Toolkit</a>
+        <a href="/speaking">Speaking</a>
+        <a href="/press">Press</a>
+        <a href="https://averoadvisors.com" target="_blank">Avèro Advisors</a>
+      </div>
+      <p class="footer-copy">&copy; 2026 Abhijit Verekar. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
