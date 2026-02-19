@@ -257,11 +257,13 @@
         </div>
   </footer>
 <script>
-if (new URLSearchParams(window.location.search).get('unlocked') === 'true') {
-  document.querySelector('.fade-gate')?.classList.remove('fade-gate');
-  document.querySelector('.gate-section')?.style.setProperty('display', 'none');
-  document.querySelectorAll('.gated-content, .full-content, [style*="display: none"]').forEach(el => el.style.display = 'block');
-}
+document.addEventListener('DOMContentLoaded', function() {
+  if (new URLSearchParams(window.location.search).get('unlocked') === 'true') {
+    document.querySelector('.fade-gate')?.classList.remove('fade-gate');
+    document.querySelector('.gate-section')?.style.setProperty('display', 'none');
+    document.querySelectorAll('.gated-content, .full-content, [style*="display: none"]').forEach(el => el.style.display = 'block');
+  }
+});
 </script>
 </body>
 </html>
