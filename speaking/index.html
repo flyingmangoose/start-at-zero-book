@@ -10,6 +10,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        .hbspt-form .hs-form-title { display: none; }
+    #hubspotFormSpeaking .hs-form { text-align: left; }
+    #hubspotFormSpeaking .hs-form-field label { color: var(--cream); font-size: 0.9rem; font-weight: 600; margin-bottom: 4px; display: block; }
+    #hubspotFormSpeaking .hs-input { width: 100%; padding: 12px 14px; background: var(--navy-deep); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: var(--cream); font-family: var(--font-sans); font-size: 0.9rem; }
+    #hubspotFormSpeaking .hs-input:focus { border-color: var(--orange); outline: none; }
+    #hubspotFormSpeaking .hs-submit .hs-button { display: inline-flex; align-items: center; gap: 8px; padding: 14px 32px; background: var(--orange); color: white; font-weight: 600; font-size: 0.95rem; border: none; border-radius: 10px; cursor: pointer; transition: all 0.2s; }
+    #hubspotFormSpeaking .hs-submit .hs-button:hover { background: var(--orange-hover); transform: translateY(-1px); }
+    #hubspotFormSpeaking .hs-error-msgs { color: #f87171; font-size: 0.8rem; margin-top: 4px; }
+    #hubspotFormSpeaking .hs-form-field { margin-bottom: 16px; }
     :root {
       --navy: #0c1e3a; --navy-deep: #081526; --navy-light: #122d52;
       --cream: #f5f0e8; --cream-dim: #cbd5e1; --blue-light: #b8dff0;
@@ -283,7 +292,7 @@
             <div class="detail-value">Signed books for attendees</div>
           </div>
         </div>
-        <a href="https://eexml.share.hsforms.com/2nFLeF-_bR6eyYeFdhpJA-Q" target="_blank" class="btn-primary">Inquire About Availability</a>
+      <div id="hubspotFormSpeaking" style="text-align:left; margin-top:8px;"></div>
         <p class="booking-note">Or email directly: speaking@averoadvisors.com</p>
       </div>
     </div>
@@ -304,5 +313,14 @@
     </div>
   </footer>
 
+    <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
+  <script>
+    hbspt.forms.create({
+      portalId: "24211389",
+      formId: "92ca4ff5-530c-4ff5-ba27-b0f1590b4ee2",
+      region: "na1",
+      target: "#hubspotFormSpeaking"
+    });
+  </script>
 </body>
 </html>
