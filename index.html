@@ -698,7 +698,7 @@
               target: "#hubspotFormChapter",
               redirectUrl: "https://book.averoadvisors.com/chapter-1?unlocked=true",
               submitButtonClass: "btn-primary form-submit",
-              translations: { en: { submitText: "Send Me Chapter 1" } }
+              onFormReady: function($form) { $form.find('input[type="submit"]').val("Send Me Chapter 1"); }
             });
           </script>
           <p class="form-note">No payment required. Chapter 1 + 5 templates sent instantly.</p>
@@ -716,7 +716,7 @@
               region: "na1",
               target: "#hubspotFormSigned",
               submitButtonClass: "btn-primary form-submit",
-              translations: { en: { submitText: "Reserve My Copy" } }
+              onFormReady: function($form) { $form.find('input[type="submit"]').val("Reserve My Copy"); }
             });
           </script>
           <p class="form-note">No payment required. We'll notify you at launch.</p>
