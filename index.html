@@ -399,6 +399,169 @@
       .reserve .container > div { grid-template-columns: 1fr !important; }
       .stats-grid { grid-template-columns: 1fr; }
     }
+
+    /* — Continue the Conversation — */
+    .ecosystem {
+      padding: 80px 0;
+      border-top: 1px solid var(--glass-border);
+    }
+    .ecosystem-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .ecosystem-card {
+      padding: 36px;
+      border-radius: 16px;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .ecosystem-card:hover {
+      border-color: rgba(255,255,255,0.15);
+      transform: translateY(-4px);
+    }
+    .ecosystem-icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
+    .ecosystem-card-title {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 4px;
+    }
+    .ecosystem-card-subtitle {
+      font-size: 0.85rem;
+      color: var(--orange);
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    .ecosystem-card-desc {
+      font-size: 0.9rem;
+      color: var(--slate);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .ecosystem-card-note {
+      margin-top: 12px;
+      font-size: 0.8rem;
+      color: var(--slate-dark);
+    }
+    .btn-youtube {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 24px;
+      background: #FF0000;
+      color: white;
+      font-weight: 600;
+      font-size: 0.85rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn-youtube:hover {
+      background: #cc0000;
+    }
+
+    /* — Latest Episode — */
+    .latest-episode {
+      padding: 60px 0 80px;
+      border-top: 1px solid var(--glass-border);
+    }
+    .latest-episode-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 12px;
+      margin: 24px 0 16px;
+      border: 1px solid var(--glass-border);
+    }
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .video-more-link {
+      font-size: 0.85rem;
+      color: var(--slate);
+    }
+    .video-more-link a {
+      color: var(--blue-light);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .video-more-link a:hover {
+      color: var(--cream);
+    }
+
+    /* — Newsletter CTA line — */
+    .newsletter-cta-line {
+      text-align: center;
+      margin-top: 32px;
+      font-size: 0.9rem;
+      color: var(--slate);
+    }
+    .newsletter-cta-line a {
+      color: var(--orange);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .newsletter-cta-line a:hover {
+      color: var(--cream);
+    }
+
+    /* — Updated Footer — */
+    .footer-rows {
+      max-width: 700px;
+      margin: 20px auto 0;
+    }
+    .footer-row {
+      margin-bottom: 16px;
+    }
+    .footer-row-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 6px;
+    }
+    .footer-row-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+    }
+    .footer-row-links a {
+      color: var(--slate);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+    .footer-row-links a:hover {
+      color: var(--cream);
+    }
+
+    @media (max-width: 900px) {
+      .ecosystem-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
   </style>
 
   <!-- Noscript fallback for scroll-reveal -->
@@ -420,12 +583,12 @@
       <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded') === 'false' ? 'true' : 'false'); this.nextElementSibling.classList.toggle('open');">
         <span></span><span></span><span></span>
       </button>
-      <div class="nav-links"><a href="#reserve">Free Chapter 1</a><a href="/toolkit">Toolkit</a><a href="/speaking">Speaking</a><a href="/press">Press</a><a href="/#reserve" class="nav-cta">Read Chapter 1 Free</a></div>
+      <div class="nav-links"><a href="#hero">The Book</a><a href="/newsletter">Newsletter</a><a href="/youtube">YouTube</a><a href="/toolkit">Toolkit</a><a href="/speaking">Speaking</a><a href="/press">Press</a></div>
     </div>
   </nav>
 
   <!-- — Hero — -->
-  <section class="hero">
+  <section class="hero" id="hero">
     <div class="container">
       <div class="hero-grid">
         <div class="hero-cover fade-up">
@@ -679,6 +842,68 @@
     </div>
   </section>
 
+  <!-- — Continue the Conversation — -->
+  <section class="ecosystem">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Continue the Conversation</h2>
+        <p>Start at Zero isn’t just a book — it’s a movement to fix how government buys technology.</p>
+      </div>
+      <div class="ecosystem-grid">
+        <!-- Card 1: Untangled Newsletter -->
+        <div class="ecosystem-card">
+          <div class="ecosystem-icon">📬</div>
+          <div class="ecosystem-card-title">Untangled</div>
+          <div class="ecosystem-card-subtitle">Independent govtech intelligence — every Tuesday on LinkedIn</div>
+          <p class="ecosystem-card-desc">The signal through the noise. AI governance, ERP modernization, procurement strategy, and vendor management — with AV’s unfiltered take.</p>
+          <style>
+            .libutton {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              padding: 7px;
+              text-align: center;
+              outline: none;
+              text-decoration: none !important;
+              color: #ffffff !important;
+              width: 200px;
+              height: 32px;
+              border-radius: 16px;
+              background-color: #0A66C2;
+              font-family: "SF Pro Text", Helvetica, sans-serif;
+            }
+          </style>
+          <a class="libutton" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7078108855146086400" target="_blank">Subscribe on LinkedIn</a>
+          <p class="ecosystem-card-note">Alternating weekly: News Edition + Deep Dive</p>
+        </div>
+        <!-- Card 2: Start at Zero with AV (YouTube) -->
+        <div class="ecosystem-card">
+          <div class="ecosystem-icon">📺</div>
+          <div class="ecosystem-card-title">Start at Zero with AV</div>
+          <div class="ecosystem-card-subtitle">New episodes every Wednesday</div>
+          <p class="ecosystem-card-desc">Long-form govtech intelligence from the government buyer’s side, not the vendor’s. ERP, AI, procurement, digital transformation.</p>
+          <a class="btn-youtube" href="https://www.youtube.com/@startatzeroAV" target="_blank">Watch on YouTube →</a>
+          <p class="ecosystem-card-note">17,000+ subscribers</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- — Latest Episode — -->
+  <section class="latest-episode">
+    <div class="container">
+      <div class="latest-episode-inner">
+        <p class="label accent tracking-wide uppercase mono">Latest Episode</p>
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/?listType=user_uploads&list=startatzeroAV" title="Latest Start at Zero Episode" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <p class="video-more-link">Watch more at <a href="https://www.youtube.com/@startatzeroAV" target="_blank">youtube.com/@startatzeroAV</a></p>
+      </div>
+    </div>
+  </section>
+
+
+
   <!-- — Reserve Forms — -->
   <section class="reserve" id="reserve">
     <div class="container">
@@ -723,6 +948,7 @@
         </div>
 
       </div>
+      <p class="newsletter-cta-line">Or subscribe to <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7078108855146086400" target="_blank">Untangled</a> for weekly govtech intelligence →</p>
     </div>
   </section>
 
@@ -731,12 +957,30 @@
     <div class="container">
       <div class="footer-brand">Start at Zero</div>
       <p class="slate" style="font-size:0.85rem;">by Abhijit Verekar</p>
-      <div class="footer-links">
-        <a href="/toolkit">Toolkit</a>
-        <a href="/speaking">Speaking</a>
-        <a href="/press">Press</a>
-        <a href="https://averoadvisors.com" target="_blank">Avèro Advisors</a>
-        <a href="https://averoadvisors.com/about" target="_blank">About Abhijit</a>
+      <div class="footer-rows">
+        <div class="footer-row">
+          <div class="footer-row-label">Ecosystem</div>
+          <div class="footer-row-links">
+            <a href="#hero">The Book</a>
+            <a href="/newsletter">Untangled Newsletter</a>
+            <a href="/youtube">YouTube</a>
+          </div>
+        </div>
+        <div class="footer-row">
+          <div class="footer-row-label">Resources</div>
+          <div class="footer-row-links">
+            <a href="/toolkit">Toolkit</a>
+            <a href="/speaking">Speaking</a>
+            <a href="/press">Press</a>
+          </div>
+        </div>
+        <div class="footer-row">
+          <div class="footer-row-label">About</div>
+          <div class="footer-row-links">
+            <a href="https://averoadvisors.com" target="_blank">Avèro Advisors</a>
+            <a href="https://averoadvisors.com/who-we-are" target="_blank">About Abhijit</a>
+          </div>
+        </div>
       </div>
       <p class="footer-copy">&copy; 2026 Abhijit Verekar. All rights reserved.</p>
     </div>
