@@ -1,0 +1,212 @@
+From 65a5d3a81ba4673c2f5da23d4a7873e0ee510c72 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Fri, 17 Apr 2026 03:51:59 +0000
+Subject: [PATCH] Add companion video series to chapters section
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+- Embed lazy-loaded Part intro videos (facade pattern) at the top of each
+  Part accordion pane for Parts I, II, and III.
+- Add per-chapter "Watch" links (Ch 1–12) pointing to the corresponding
+  YouTube episodes.
+- Add a playlist CTA below the accordion linking to the full Start at Zero
+  YouTube playlist.
+- Increase part-content max-height to accommodate the embedded videos.
+---
+ index.html | 125 +++++++++++++++++++++++++++++++++++++++++++++++------
+ 1 file changed, 112 insertions(+), 13 deletions(-)
+diff --git a/index.html b/index.html
+index 34c2e84..fe33013 100644
+--- a/index.html
++++ b/index.html
+@@ -285,7 +285,7 @@
+     .part-chevron { width: 20px; height: 20px; color: var(--slate); transition: transform 0.3s; flex-shrink: 0; }
+     .part.open .part-chevron { transform: rotate(180deg); }
+     .part-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+-    .part.open .part-content { max-height: 600px; }
++    .part.open .part-content { max-height: 2400px; }
+     .part-chapters { padding: 0 28px 24px; }
+     .chapter-item {
+       display: flex; gap: 16px; align-items: flex-start; padding: 14px 16px;
+@@ -293,9 +293,71 @@
+       background: rgba(255,255,255,0.01); margin-bottom: 10px; transition: background 0.2s;
+     }
+     .chapter-item:hover { background: rgba(255,255,255,0.02); }
++    .chapter-item-body { flex: 1; min-width: 0; }
+     .chapter-num { font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; color: var(--orange); flex-shrink: 0; margin-top: 2px; }
+     .chapter-title { font-weight: 700; font-size: 0.9rem; color: var(--cream); margin-bottom: 2px; }
+     .chapter-desc { font-size: 0.8rem; color: var(--slate-dark); }
++    .chapter-watch {
++      display: inline-flex; align-items: center; gap: 6px;
++      padding: 6px 12px; font-size: 0.72rem; font-weight: 600;
++      color: var(--blue-light); text-decoration: none;
++      border: 1px solid rgba(184, 223, 240, 0.25); border-radius: 6px;
++      white-space: nowrap; flex-shrink: 0; margin-top: 2px;
++      transition: all 0.2s;
++    }
++    .chapter-watch:hover { background: #FF0000; color: white; border-color: #FF0000; }
++    .chapter-watch svg { width: 10px; height: 10px; flex-shrink: 0; }
++
++    /* — Part Intro Video Facade — */
++    .part-video {
++      position: relative; margin: 0 28px 20px;
++      padding-bottom: 56.25%; height: 0;
++      border-radius: 12px; overflow: hidden;
++      border: 1px solid var(--glass-border); background: #000;
++      cursor: pointer;
++    }
++    .part-video img {
++      position: absolute; top: 0; left: 0;
++      width: 100%; height: 100%;
++      object-fit: cover; border: 0; display: block;
++      transition: opacity 0.2s;
++    }
++    .part-video iframe {
++      position: absolute; top: 0; left: 0;
++      width: 100%; height: 100%; border: 0;
++    }
++    .part-video .play-btn {
++      position: absolute; top: 50%; left: 50%;
++      transform: translate(-50%, -50%);
++      width: 68px; height: 48px;
++      background: rgba(0,0,0,0.75); border-radius: 12px;
++      display: flex; align-items: center; justify-content: center;
++      pointer-events: none; transition: background 0.2s;
++    }
++    .part-video:hover .play-btn { background: #FF0000; }
++    .part-video .play-btn::after {
++      content: ''; display: block;
++      border-left: 16px solid white;
++      border-top: 10px solid transparent;
++      border-bottom: 10px solid transparent;
++      margin-left: 4px;
++    }
++    .part-video-caption {
++      margin: 0 28px 20px;
++      font-size: 0.75rem; color: var(--slate);
++      font-family: var(--font-mono); letter-spacing: 0.1em;
++      text-transform: uppercase;
++    }
++
++    .chapters-playlist-link {
++      text-align: center; margin-top: 16px;
++      font-size: 0.9rem; color: var(--slate);
++    }
++    .chapters-playlist-link a {
++      color: var(--orange); text-decoration: none; font-weight: 600;
++      transition: color 0.2s;
++    }
++    .chapters-playlist-link a:hover { color: var(--cream); }
+ 
+     /* — Who Is This For — */
+     .audience { padding: 80px 0; border-top: 1px solid var(--glass-border); }
+@@ -725,20 +787,27 @@
+             <svg class="part-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+           </div>
+           <div class="part-content">
++            <p class="part-video-caption">Watch · Part I intro</p>
++            <div class="part-video" data-video-id="JS45eB1xZ38" role="button" tabindex="0" aria-label="Play Part I intro: The Pattern Behind Every Failed IT Megaproject">
++              <img src="https://i.ytimg.com/vi/JS45eB1xZ38/hqdefault.jpg" alt="The Pattern Behind Every Failed IT Megaproject" loading="lazy" />
++              <div class="play-btn"></div>
++            </div>
+             <div class="part-chapters">
+               <div class="chapter-item">
+                 <span class="chapter-num">01</span>
+-                <div>
++                <div class="chapter-item-body">
+                   <div class="chapter-title">The $216M Wake-Up Call</div>
+                   <div class="chapter-desc">Forensic examination of why identical challenges produced opposite outcomes.</div>
+                 </div>
++                <a class="chapter-watch" href="https://youtu.be/-SZ1Fdrp3IA" target="_blank" rel="noopener" aria-label="Watch Chapter 1 episode"><svg viewBox="0 0 10 10" fill="currentColor"><polygon points="0,0 10,5 0,10"/></svg>Watch</a>
+               </div>
+               <div class="chapter-item">
+                 <span class="chapter-num">02</span>
+-                <div>
++                <div class="chapter-item-body">
+                   <div class="chapter-title">Legacy Time Bombs</div>
+                   <div class="chapter-desc">Why waiting costs more than acting — and how to build the case before crisis forces your hand.</div>
+                 </div>
++                <a class="chapter-watch" href="https://youtu.be/8fii8sfxGkg" target="_blank" rel="noopener" aria-label="Watch Chapter 2 episode"><svg viewBox="0 0 10 10" fill="currentColor"><polygon points="0,0 10,5 0,10"/></svg>Watch</a>
+               </div>
+             </div>
+           </div>
+@@ -753,11 +822,16 @@
+             <svg class="part-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+           </div>
+           <div class="part-content">
++            <p class="part-video-caption">Watch · Part II intro</p>
++            <div class="part-video" data-video-id="CEJPa8R6Nq4" role="button" tabindex="0" aria-label="Play Part II intro: Regaining Command">
++              <img src="https://i.ytimg.com/vi/CEJPa8R6Nq4/hqdefault.jpg" alt="Part II: Regaining Command" loading="lazy" />
++              <div class="play-btn"></div>
++            </div>
+             <div class="part-chapters">
+-              <div class="chapter-item"><span class="chapter-num">03</span><div><div class="chapter-title">Four Pillars of Project Control</div><div class="chapter-desc">The architecture of control that separates success from disaster.</div></div></div>
+-              <div class="chapter-item"><span class="chapter-num">04</span><div><div class="chapter-title">Phase Zero Mastery</div><div class="chapter-desc">The preparation that creates clarity before vendors arrive.</div></div></div>
+-              <div class="chapter-item"><span class="chapter-num">05</span><div><div class="chapter-title">AI-Enabled Requirements</div><div class="chapter-desc">How AI transforms requirements gathering into a focused, human-centric process.</div></div></div>
+-              <div class="chapter-item"><span class="chapter-num">06</span><div><div class="chapter-title">Winning Procurement Strategy</div><div class="chapter-desc">Crafting RFPs that attract the right vendors and protect your leverage.</div></div></div>
++              <div class="chapter-item"><span class="chapter-num">03</span><div class="chapter-item-body"><div class="chapter-title">Four Pillars of Project Control</div><div class="chapter-desc">The architecture of control that separates success from disaster.</div></div><a class="chapter-watch" href="https://youtu.be/_xxCDXN3iCU" target="_blank" rel="noopener" aria-label="Watch Chapter 3 episode"><svg viewBox="0 0 10 10" fill="currentColor"><polygon points="0,0 10,5 0,10"/></svg>Watch</a></div>
++              <div class="chapter-item"><span class="chapter-num">04</span><div class="chapter-item-body"><div class="chapter-title">Phase Zero Mastery</div><div class="chapter-desc">The preparation that creates clarity before vendors arrive.</div></div><a class="chapter-watch" href="https://youtu.be/Qew_TRNgDok" target="_blank" rel="noopener" aria-label="Watch Chapter 4 episode"><svg viewBox="0 0 10 10" fill="currentColor"><polygon points="0,0 10,5 0,10"/></svg>Watch</a></div>
++              <div class="chapter-item"><span class="chapter-num">05</span><div class="chapter-item-body"><div class="chapter-title">AI-Enabled Requirements</div><div class="chapter-desc">How AI transforms requirements gathering into a focused, human-centric process.</div></div><a class="chapter-watch" href="https://youtu.be/UFSkhbYt81k" target="_blank" rel="noopener" aria-label="Watch Chapter 5 episode"><svg viewBox="0 0 10 10" fill="currentColor"><polygon points="0,0 10,5 0,10"/></svg>Watch</a></div>
++              <div class="chapter-item"><span class="chapter-num">06</span><div class="chapter-item-body"><div class="chapter-title">Winning Procurement Strategy</div><div class="chapter-desc">Crafting RFPs that attract the right vendors and protect your leverage.</div></div><a class="chapter-watch" href="https://youtu.be/5sDXiu1thRQ" target="_blank" rel="noopener" aria-label="Watch Chapter 6 episode"><svg viewBox="0 0 10 10" fill="currentColor"><polygon points="0,0 10,5 0,10"/></svg>Watch</a></div>
+             </div>
+           </div>
+         </div>
+@@ -771,18 +845,24 @@
+             <svg class="part-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+           </div>
+           <div class="part-content">
++            <p class="part-video-caption">Watch · Part III intro</p>
++            <div class="part-video" data-video-id="oS1e241hZys" role="button" tabindex="0" aria-label="Play Part III intro: Executing Without Capture">
++              <img src="https://i.ytimg.com/vi/oS1e241hZys/hqdefault.jpg" alt="Part III: Executing Without Capture" loading="lazy" />
++              <div class="play-btn"></div>
++            </div>
+             <div class="part-chapters">
+-              <div class="chapter-item"><span class="chapter-num">07</span><div><div class="chapter-title">Vendor Selection</div><div class="chapter-desc">Spotting allies, dodging traps, and cutting through polished demos.</div></div></div>
+-              <div class="chapter-item"><span class="chapter-num">08</span><div><div class="chapter-title">Governance Reimagined</div><div class="chapter-desc">Structures for decision-making that prevent vendor capture.</div></div></div>
+-              <div class="chapter-item"><span class="chapter-num">09</span><div><div class="chapter-title">The Human Element</div><div class="chapter-desc">Change management that determines adoption or rejection.</div></div></div>
+-              <div class="chapter-item"><span class="chapter-num">10</span><div><div class="chapter-title">The Independence Principle</div><div class="chapter-desc">Building advisory relationships where incentives are permanently aligned.</div></div></div>
+-              <div class="chapter-item"><span class="chapter-num">11</span><div><div class="chapter-title">AI Comes of Age</div><div class="chapter-desc">The new rules — what AI delivers today and how to spot vendor overselling.</div></div></div>
+-              <div class="chapter-item"><span class="chapter-num">12</span><div><div class="chapter-title">The Complete Roadmap</div><div class="chapter-desc">Step-by-step from day one to go-live with every framework integrated.</div></div></div>
++              <div class="chapter-item"><span class="chapter-num">07</span><div class="chapter-item-body"><div class="chapter-title">Vendor Selection</div><div class="chapter-desc">Spotting allies, dodging traps, and cutting through polished demos.</div></div><a class="chapter-watch" href="https://youtu.be/nZYRFH42DSY" target="_blank" rel="noopener" aria-label="Watch Chapter 7 episode"><svg viewBox="0 0 10 10" fill="currentColor"><polygon points="0,0 10,5 0,10"/></svg>Watch</a></div>
++              <div class="chapter-item"><span class="chapter-num">08</span><div class="chapter-item-body"><div class="chapter-title">Governance Reimagined</div><div class="chapter-desc">Structures for decision-making that prevent vendor capture.</div></div><a class="chapter-watch" href="https://youtu.be/-5jZmQZ4iVQ" target="_blank" rel="noopener" aria-label="Watch Chapter 8 episode"><svg viewBox="0 0 10 10" fill="currentColor"><polygon points="0,0 10,5 0,10"/></svg>Watch</a></div>
++              <div class="chapter-item"><span class="chapter-num">09</span><div class="chapter-item-body"><div class="chapter-title">The Human Element</div><div class="chapter-desc">Change management that determines adoption or rejection.</div></div><a class="chapter-watch" href="https://youtu.be/Hs5iNlrrEAs" target="_blank" rel="noopener" aria-label="Watch Chapter 9 episode"><svg viewBox="0 0 10 10" fill="currentColor"><polygon points="0,0 10,5 0,10"/></svg>Watch</a></div>
++              <div class="chapter-item"><span class="chapter-num">10</span><div class="chapter-item-body"><div class="chapter-title">The Independence Principle</div><div class="chapter-desc">Building advisory relationships where incentives are permanently aligned.</div></div><a class="chapter-watch" href="https://youtu.be/V8655RK--OQ" target="_blank" rel="noopener" aria-label="Watch Chapter 10 episode"><svg viewBox="0 0 10 10" fill="currentColor"><polygon points="0,0 10,5 0,10"/></svg>Watch</a></div>
++              <div class="chapter-item"><span class="chapter-num">11</span><div class="chapter-item-body"><div class="chapter-title">AI Comes of Age</div><div class="chapter-desc">The new rules — what AI delivers today and how to spot vendor overselling.</div></div><a class="chapter-watch" href="https://youtu.be/lbscKUfkwW8" target="_blank" rel="noopener" aria-label="Watch Chapter 11 episode"><svg viewBox="0 0 10 10" fill="currentColor"><polygon points="0,0 10,5 0,10"/></svg>Watch</a></div>
++              <div class="chapter-item"><span class="chapter-num">12</span><div class="chapter-item-body"><div class="chapter-title">The Complete Roadmap</div><div class="chapter-desc">Step-by-step from day one to go-live with every framework integrated.</div></div><a class="chapter-watch" href="https://youtu.be/eHU_mw-bYVY" target="_blank" rel="noopener" aria-label="Watch Chapter 12 episode"><svg viewBox="0 0 10 10" fill="currentColor"><polygon points="0,0 10,5 0,10"/></svg>Watch</a></div>
+             </div>
+           </div>
+         </div>
+ 
+       </div>
++      <p class="chapters-playlist-link">Watch the full companion series → <a href="https://www.youtube.com/playlist?list=PLReFy7x9rCmHlx0KNz73kg_nqemxNGsTu" target="_blank" rel="noopener">Start at Zero playlist on YouTube</a></p>
+     </div>
+   </section>
+ 
+@@ -1010,6 +1090,25 @@
+       el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+       observer.observe(el);
+     });
++
++    // Lazy-load Part intro videos on click (facade pattern)
++    function loadPartVideo(el) {
++      if (el.dataset.loaded) return;
++      const id = el.dataset.videoId;
++      if (!id) return;
++      el.dataset.loaded = 'true';
++      el.innerHTML = '<iframe src="https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0" title="Start at Zero episode" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
++    }
++    document.querySelectorAll('.part-video').forEach(el => {
++      el.addEventListener('click', () => loadPartVideo(el));
++      el.addEventListener('keydown', (e) => {
++        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); loadPartVideo(el); }
++      });
++    });
++    // Prevent chapter Watch link clicks from toggling the accordion.
++    document.querySelectorAll('.chapter-watch').forEach(a => {
++      a.addEventListener('click', e => e.stopPropagation());
++    });
+   </script>
+ </body>
+ </html>
+-- 
+2.43.0
