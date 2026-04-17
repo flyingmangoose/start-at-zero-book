@@ -52,6 +52,18 @@
   {"@context":"https://schema.org","@type":"VideoObject","name":"Part III Intro: Executing Without Capture","description":"From vendor selection through go-live.","thumbnailUrl":"https://i.ytimg.com/vi/oS1e241hZys/maxresdefault.jpg","uploadDate":"2026-03-01","contentUrl":"https://www.youtube.com/watch?v=oS1e241hZys","embedUrl":"https://www.youtube.com/embed/oS1e241hZys"}
   </script>
 
+  <!-- Structured Data: FAQPage -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"What is Phase Zero in ERP modernization?","acceptedAnswer":{"@type":"Answer","text":"Phase Zero is a structured 100-day preparation methodology introduced in Start at Zero. It creates clarity before vendors enter the conversation by documenting current processes, assessing data quality, building internal readiness, and aligning governance."}},
+    {"@type":"Question","name":"Why do government ERP projects fail at such high rates?","acceptedAnswer":{"@type":"Answer","text":"Over 70% of large government IT projects fail to deliver intended benefits. The root causes are structural rather than technical: vendor-led processes, conflicted advisors, governance designed for compliance instead of challenge, and skipped preparation. Birmingham City Council’s $216 million overrun on a $19 million ERP budget is the canonical case."}},
+    {"@type":"Question","name":"Who should read Start at Zero?","acceptedAnswer":{"@type":"Answer","text":"Start at Zero is written for the leaders accountable when a government modernization goes sideways: city and county managers, government CIOs and IT directors, finance directors and CFOs, and state agency leaders running enterprise modernizations or ERP replacements."}},
+    {"@type":"Question","name":"What was the Birmingham City Council ERP failure?","acceptedAnswer":{"@type":"Answer","text":"Birmingham City Council, Europe’s largest local authority serving over 1 million citizens, replaced a working 20-year SAP system with a project that ballooned from a $19M budget to $216M in actual cost — a 10x overrun. The failure had three structural causes: no Phase Zero preparation, an advisory firm with commercial ties to the vendors being evaluated, and governance that included vendor representatives alongside council decision-makers."}},
+    {"@type":"Question","name":"What is independent advisory in government technology?","acceptedAnswer":{"@type":"Answer","text":"Independent advisory means an advisor whose firm has no commercial relationships with the vendors or implementers being evaluated. When advisors profit from the platforms they recommend, the advice is structurally compromised regardless of the individuals’ integrity."}},
+    {"@type":"Question","name":"When does Start at Zero release?","acceptedAnswer":{"@type":"Answer","text":"Start at Zero releases April 20, 2026 in hardcover. ISBN 979-8-9954535-0-5. Chapter 1 — the full Birmingham case study — is available now as a free download with five ready-to-use templates."}}
+  ]}
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet" />
@@ -392,6 +404,18 @@
       transition: color 0.2s;
     }
     .chapters-playlist-link a:hover { color: var(--cream); }
+
+    /* — FAQ — */
+    .faq { padding: 80px 0; border-top: 1px solid var(--glass-border); }
+    .faq-list { max-width: 780px; margin: 0 auto; }
+    .faq-item { margin-bottom: 14px; border-radius: 14px; background: var(--glass-bg); border: 1px solid var(--glass-border); overflow: hidden; }
+    .faq-question { padding: 22px 26px; cursor: pointer; user-select: none; display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; font-family: var(--font-serif); font-weight: 700; font-size: 1.05rem; color: var(--cream); line-height: 1.4; transition: background 0.2s; }
+    .faq-question:hover { background: rgba(255,255,255,0.02); }
+    .faq-chevron { width: 18px; height: 18px; color: var(--orange); flex-shrink: 0; margin-top: 4px; transition: transform 0.3s; }
+    .faq-item.open .faq-chevron { transform: rotate(180deg); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+    .faq-item.open .faq-answer { max-height: 500px; }
+    .faq-answer-inner { padding: 0 26px 24px; font-size: 0.95rem; color: var(--cream-dim); line-height: 1.7; }
 
     /* — Who Is This For — */
     .audience { padding: 80px 0; border-top: 1px solid var(--glass-border); }
@@ -1158,6 +1182,61 @@
     </div>
   </section>
 
+  <!-- — FAQ — -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="section-heading">
+        <p class="label">Common Questions</p>
+        <h2>Frequently Asked</h2>
+        <p>Quick answers about the book, the frameworks, and what’s inside.</p>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)" role="button" tabindex="0" aria-expanded="false" onkeydown="if(event.key===&#39;Enter&#39;||event.key===&#39; &#39;){event.preventDefault();toggleFaq(this);}">
+            <span>What is Phase Zero in ERP modernization?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </div>
+          <div class="faq-answer"><div class="faq-answer-inner">Phase Zero is a structured 100-day preparation methodology introduced in <em>Start at Zero</em>. It creates clarity before vendors enter the conversation by documenting current processes, assessing data quality, building internal readiness, and aligning governance. Skipping Phase Zero is one of the most common root causes of failed government ERP modernizations.</div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)" role="button" tabindex="0" aria-expanded="false" onkeydown="if(event.key===&#39;Enter&#39;||event.key===&#39; &#39;){event.preventDefault();toggleFaq(this);}">
+            <span>Why do government ERP projects fail at such high rates?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </div>
+          <div class="faq-answer"><div class="faq-answer-inner">Over 70% of large government IT projects fail to deliver intended benefits. The root causes are structural rather than technical: vendor-led processes, conflicted advisors with commercial relationships to the platforms they evaluate, governance designed for compliance instead of challenge, and skipped preparation. Birmingham City Council’s $216&nbsp;million overrun on a $19&nbsp;million ERP budget is the canonical case.</div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)" role="button" tabindex="0" aria-expanded="false" onkeydown="if(event.key===&#39;Enter&#39;||event.key===&#39; &#39;){event.preventDefault();toggleFaq(this);}">
+            <span>Who should read Start at Zero?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </div>
+          <div class="faq-answer"><div class="faq-answer-inner"><em>Start at Zero</em> is written for the leaders accountable when a government modernization goes sideways: city and county managers, government CIOs and IT directors, finance directors and CFOs, and state agency leaders running enterprise modernizations, ERP replacements, or digital transformations.</div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)" role="button" tabindex="0" aria-expanded="false" onkeydown="if(event.key===&#39;Enter&#39;||event.key===&#39; &#39;){event.preventDefault();toggleFaq(this);}">
+            <span>What was the Birmingham City Council ERP failure?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </div>
+          <div class="faq-answer"><div class="faq-answer-inner">Birmingham City Council, Europe’s largest local authority serving over 1 million citizens, replaced a working 20-year SAP system with a project that ballooned from a $19M original budget to $216M in actual cost — a 10× overrun. The failure had three structural causes: no Phase Zero preparation, an advisory firm with commercial ties to the vendors being evaluated, and governance that included vendor representatives alongside council decision-makers. It is the cautionary case study at the heart of <em>Start at Zero</em>.</div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)" role="button" tabindex="0" aria-expanded="false" onkeydown="if(event.key===&#39;Enter&#39;||event.key===&#39; &#39;){event.preventDefault();toggleFaq(this);}">
+            <span>What is independent advisory in government technology?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </div>
+          <div class="faq-answer"><div class="faq-answer-inner">Independent advisory means an advisor whose firm has no commercial relationships with the vendors or implementers being evaluated. When advisors profit from the platforms they recommend, the advice is structurally compromised regardless of the individuals’ integrity. <em>Start at Zero</em> argues that independence — not just talent or experience — is the prerequisite for advice that protects the buyer’s interests.</div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)" role="button" tabindex="0" aria-expanded="false" onkeydown="if(event.key===&#39;Enter&#39;||event.key===&#39; &#39;){event.preventDefault();toggleFaq(this);}">
+            <span>When does Start at Zero release?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </div>
+          <div class="faq-answer"><div class="faq-answer-inner"><em>Start at Zero</em> releases April 20, 2026 in hardcover. ISBN 979-8-9954535-0-5. Chapter 1 — the full Birmingham case study — is available now as a free download, along with five ready-to-use templates from the book’s toolkit.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- — Continue the Conversation — -->
   <section class="ecosystem">
     <div class="container">
@@ -1333,6 +1412,14 @@
       if (!item) return;
       const isOpen = item.classList.toggle('open');
       rowEl.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    }
+
+    // Expand/collapse an FAQ item.
+    function toggleFaq(qEl) {
+      const item = qEl.closest('.faq-item');
+      if (!item) return;
+      const isOpen = item.classList.toggle('open');
+      qEl.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     }
   </script>
 </body>

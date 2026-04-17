@@ -1,0 +1,35 @@
+# Start at Zero — Leading High-Stakes Modernization in the Age of AI
+
+> The definitive playbook for government leaders navigating high-stakes ERP modernization. Written by Abhijit Verekar, founder of Avèro Advisors and a 5× Inc. 5000 CEO. Releases April 20, 2026 (ISBN 979-8-9954535-0-5).
+
+Government ERP and digital transformation projects fail at rates that would be scandalous in any other sector. Over 70% of large public-sector IT projects fail to deliver intended benefits — Birmingham City Council's $216 million overrun on a $19 million budget is the cautionary case at the heart of this book. Start at Zero argues those failures are structural, not technical, and provides the frameworks (Phase Zero, Four Pillars of Project Control, AI-Enabled Requirements, Independent Advisory) to prevent them.
+
+## About the book
+- [Book home page](https://startatzero.averoadvisors.com/): overview, chapters, author, endorsements, and free Chapter 1
+- [Read Chapter 1 free](https://startatzero.averoadvisors.com/chapter-1): the full Birmingham case study
+- [Press kit](https://startatzero.averoadvisors.com/press): publication details, key facts, and media contact
+- [Toolkit](https://startatzero.averoadvisors.com/toolkit): 16 templates and checklists referenced in the book
+
+## Companion video series
+- [Why I wrote Start at Zero](https://www.youtube.com/watch?v=YX1xGtwE_i0): the author's introduction to the book
+- [Part I — The Pattern Behind Every Failed IT Megaproject](https://www.youtube.com/watch?v=JS45eB1xZ38)
+- [Part II — Regaining Command](https://www.youtube.com/watch?v=CEJPa8R6Nq4)
+- [Part III — Executing Without Capture](https://www.youtube.com/watch?v=oS1e241hZys)
+- [Full playlist on YouTube](https://www.youtube.com/playlist?list=PLReFy7x9rCmHlx0KNz73kg_nqemxNGsTu)
+
+## Author
+- [Abhijit Verekar bio](https://averoadvisors.com/who-we-are): Founder & CEO, Avèro Advisors. Two decades helping government organizations navigate complex technology transformations. 30+ government ERP engagements, 100% public-sector focus.
+- [LinkedIn](https://www.linkedin.com/in/verekar/)
+- [Untangled newsletter](https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7078108855146086400): independent govtech intelligence, weekly on LinkedIn
+
+## Key concepts defined in the book
+- **Phase Zero**: a structured 100-day preparation methodology that creates clarity before vendors enter the conversation
+- **Four Pillars of Project Control**: the architecture that separates successful government IT modernizations from disasters
+- **Independent Advisory**: an advisory model where the firm has no commercial relationships with the vendors it evaluates
+- **Vendor Capture**: the structural condition where governance, advisors, or processes become aligned with vendor interests rather than the buyer's
+
+## Audience
+City and county managers, government CIOs and IT directors, finance directors and CFOs, state agency leaders — anyone accountable for the success of a public-sector ERP, financial system, or enterprise modernization.
+
+## Publisher
+Avèro Advisors — an independent, vendor-neutral consulting firm focused exclusively on government enterprise technology. Recognized on the Inc. 5000 list five times.
