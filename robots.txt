@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://startatzero.averoadvisors.com/sitemap.xml
