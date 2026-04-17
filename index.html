@@ -285,48 +285,55 @@
     .part-chevron { width: 20px; height: 20px; color: var(--slate); transition: transform 0.3s; flex-shrink: 0; }
     .part.open .part-chevron { transform: rotate(180deg); }
     .part-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
-    .part.open .part-content { max-height: 2400px; }
+    .part.open .part-content { max-height: 6000px; }
     .part-chapters { padding: 0 28px 24px; }
     .chapter-item {
-      display: flex; gap: 16px; align-items: flex-start; padding: 14px 16px;
       border-radius: 10px; border-left: 3px solid var(--blue-light);
-      background: rgba(255,255,255,0.01); margin-bottom: 10px; transition: background 0.2s;
+      background: rgba(255,255,255,0.01); margin-bottom: 10px;
+      overflow: hidden; transition: background 0.2s;
     }
     .chapter-item:hover { background: rgba(255,255,255,0.02); }
+    .chapter-row {
+      display: flex; gap: 16px; align-items: flex-start; padding: 14px 16px;
+      cursor: pointer; user-select: none;
+    }
     .chapter-item-body { flex: 1; min-width: 0; }
     .chapter-num { font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; color: var(--orange); flex-shrink: 0; margin-top: 2px; }
     .chapter-title { font-weight: 700; font-size: 0.9rem; color: var(--cream); margin-bottom: 2px; }
     .chapter-desc { font-size: 0.8rem; color: var(--slate-dark); }
-    .chapter-watch {
-      display: inline-flex; align-items: center; gap: 6px;
-      padding: 6px 12px; font-size: 0.72rem; font-weight: 600;
-      color: var(--blue-light); text-decoration: none;
-      border: 1px solid rgba(184, 223, 240, 0.25); border-radius: 6px;
-      white-space: nowrap; flex-shrink: 0; margin-top: 2px;
-      transition: all 0.2s;
+    .chapter-chevron {
+      width: 16px; height: 16px; color: var(--slate);
+      transition: transform 0.3s; flex-shrink: 0; margin-top: 4px;
     }
-    .chapter-watch:hover { background: #FF0000; color: white; border-color: #FF0000; }
-    .chapter-watch svg { width: 10px; height: 10px; flex-shrink: 0; }
+    .chapter-item.open .chapter-chevron { transform: rotate(180deg); }
+    .chapter-video-panel {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.4s ease;
+      padding: 0 16px;
+    }
+    .chapter-item.open .chapter-video-panel { max-height: 600px; padding-bottom: 14px; }
 
-    /* — Part Intro Video Facade — */
-    .part-video {
-      position: relative; margin: 0 28px 20px;
+    /* — Video Facade (shared by Part intros & Chapter videos) — */
+    .part-video, .chapter-video {
+      position: relative;
       padding-bottom: 56.25%; height: 0;
       border-radius: 12px; overflow: hidden;
       border: 1px solid var(--glass-border); background: #000;
       cursor: pointer;
     }
-    .part-video img {
+    .part-video { margin: 0 28px 20px; }
+    .chapter-video { margin: 0; }
+    .part-video img, .chapter-video img {
       position: absolute; top: 0; left: 0;
       width: 100%; height: 100%;
       object-fit: cover; border: 0; display: block;
       transition: opacity 0.2s;
     }
-    .part-video iframe {
+    .part-video iframe, .chapter-video iframe {
       position: absolute; top: 0; left: 0;
       width: 100%; height: 100%; border: 0;
     }
-    .part-video .play-btn {
+    .part-video .play-btn, .chapter-video .play-btn {
       position: absolute; top: 50%; left: 50%;
       transform: translate(-50%, -50%);
       width: 68px; height: 48px;
@@ -334,8 +341,8 @@
       display: flex; align-items: center; justify-content: center;
       pointer-events: none; transition: background 0.2s;
     }
-    .part-video:hover .play-btn { background: #FF0000; }
-    .part-video .play-btn::after {
+    .part-video:hover .play-btn, .chapter-video:hover .play-btn { background: #FF0000; }
+    .part-video .play-btn::after, .chapter-video .play-btn::after {
       content: ''; display: block;
       border-left: 16px solid white;
       border-top: 10px solid transparent;
@@ -793,21 +800,37 @@
               <div class="play-btn"></div>
             </div>
             <div class="part-chapters">
-              <div class="chapter-item">
-                <span class="chapter-num">01</span>
-                <div class="chapter-item-body">
-                  <div class="chapter-title">The $216M Wake-Up Call</div>
-                  <div class="chapter-desc">Forensic examination of why identical challenges produced opposite outcomes.</div>
+              <div class="chapter-item" data-video-id="-SZ1Fdrp3IA">
+                <div class="chapter-row" role="button" tabindex="0" aria-expanded="false" onclick="toggleChapter(this)" onkeydown="if(event.key===&#39;Enter&#39;||event.key===&#39; &#39;){event.preventDefault();toggleChapter(this);}">
+                  <span class="chapter-num">01</span>
+                  <div class="chapter-item-body">
+                    <div class="chapter-title">The $216M Wake-Up Call</div>
+                    <div class="chapter-desc">Forensic examination of why identical challenges produced opposite outcomes.</div>
+                  </div>
+                  <svg class="chapter-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </div>
-                <a class="chapter-watch" href="https://youtu.be/-SZ1Fdrp3IA" target="_blank" rel="noopener" aria-label="Watch Chapter 1 episode"><svg viewBox="0 0 10 10" fill="currentColor"><polygon points="0,0 10,5 0,10"/></svg>Watch</a>
+                <div class="chapter-video-panel">
+                  <div class="chapter-video" data-video-id="-SZ1Fdrp3IA" role="button" tabindex="0" aria-label="Play Chapter 1 episode">
+                    <img src="https://i.ytimg.com/vi/-SZ1Fdrp3IA/hqdefault.jpg" alt="The $216M Wake-Up Call" loading="lazy" />
+                    <div class="play-btn"></div>
+                  </div>
+                </div>
               </div>
-              <div class="chapter-item">
-                <span class="chapter-num">02</span>
-                <div class="chapter-item-body">
-                  <div class="chapter-title">Legacy Time Bombs</div>
-                  <div class="chapter-desc">Why waiting costs more than acting — and how to build the case before crisis forces your hand.</div>
+              <div class="chapter-item" data-video-id="8fii8sfxGkg">
+                <div class="chapter-row" role="button" tabindex="0" aria-expanded="false" onclick="toggleChapter(this)" onkeydown="if(event.key===&#39;Enter&#39;||event.key===&#39; &#39;){event.preventDefault();toggleChapter(this);}">
+                  <span class="chapter-num">02</span>
+                  <div class="chapter-item-body">
+                    <div class="chapter-title">Legacy Time Bombs</div>
+                    <div class="chapter-desc">Why waiting costs more than acting — and how to build the case before crisis forces your hand.</div>
+                  </div>
+                  <svg class="chapter-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </div>
-                <a class="chapter-watch" href="https://youtu.be/8fii8sfxGkg" target="_blank" rel="noopener" aria-label="Watch Chapter 2 episode"><svg viewBox="0 0 10 10" fill="currentColor"><polygon points="0,0 10,5 0,10"/></svg>Watch</a>
+                <div class="chapter-video-panel">
+                  <div class="chapter-video" data-video-id="8fii8sfxGkg" role="button" tabindex="0" aria-label="Play Chapter 2 episode">
+                    <img src="https://i.ytimg.com/vi/8fii8sfxGkg/hqdefault.jpg" alt="Legacy Time Bombs" loading="lazy" />
+                    <div class="play-btn"></div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -828,10 +851,70 @@
               <div class="play-btn"></div>
             </div>
             <div class="part-chapters">
-              <div class="chapter-item"><span class="chapter-num">03</span><div class="chapter-item-body"><div class="chapter-title">Four Pillars of Project Control</div><div class="chapter-desc">The architecture of control that separates success from disaster.</div></div><a class="chapter-watch" href="https://youtu.be/_xxCDXN3iCU" target="_blank" rel="noopener" aria-label="Watch Chapter 3 episode"><svg viewBox="0 0 10 10" fill="currentColor"><polygon points="0,0 10,5 0,10"/></svg>Watch</a></div>
-              <div class="chapter-item"><span class="chapter-num">04</span><div class="chapter-item-body"><div class="chapter-title">Phase Zero Mastery</div><div class="chapter-desc">The preparation that creates clarity before vendors arrive.</div></div><a class="chapter-watch" href="https://youtu.be/Qew_TRNgDok" target="_blank" rel="noopener" aria-label="Watch Chapter 4 episode"><svg viewBox="0 0 10 10" fill="currentColor"><polygon points="0,0 10,5 0,10"/></svg>Watch</a></div>
-              <div class="chapter-item"><span class="chapter-num">05</span><div class="chapter-item-body"><div class="chapter-title">AI-Enabled Requirements</div><div class="chapter-desc">How AI transforms requirements gathering into a focused, human-centric process.</div></div><a class="chapter-watch" href="https://youtu.be/UFSkhbYt81k" target="_blank" rel="noopener" aria-label="Watch Chapter 5 episode"><svg viewBox="0 0 10 10" fill="currentColor"><polygon points="0,0 10,5 0,10"/></svg>Watch</a></div>
-              <div class="chapter-item"><span class="chapter-num">06</span><div class="chapter-item-body"><div class="chapter-title">Winning Procurement Strategy</div><div class="chapter-desc">Crafting RFPs that attract the right vendors and protect your leverage.</div></div><a class="chapter-watch" href="https://youtu.be/5sDXiu1thRQ" target="_blank" rel="noopener" aria-label="Watch Chapter 6 episode"><svg viewBox="0 0 10 10" fill="currentColor"><polygon points="0,0 10,5 0,10"/></svg>Watch</a></div>
+              <div class="chapter-item" data-video-id="_xxCDXN3iCU">
+                <div class="chapter-row" role="button" tabindex="0" aria-expanded="false" onclick="toggleChapter(this)" onkeydown="if(event.key===&#39;Enter&#39;||event.key===&#39; &#39;){event.preventDefault();toggleChapter(this);}">
+                  <span class="chapter-num">03</span>
+                  <div class="chapter-item-body">
+                    <div class="chapter-title">Four Pillars of Project Control</div>
+                    <div class="chapter-desc">The architecture of control that separates success from disaster.</div>
+                  </div>
+                  <svg class="chapter-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+                <div class="chapter-video-panel">
+                  <div class="chapter-video" data-video-id="_xxCDXN3iCU" role="button" tabindex="0" aria-label="Play Chapter 3 episode">
+                    <img src="https://i.ytimg.com/vi/_xxCDXN3iCU/hqdefault.jpg" alt="Four Pillars of Project Control" loading="lazy" />
+                    <div class="play-btn"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="chapter-item" data-video-id="Qew_TRNgDok">
+                <div class="chapter-row" role="button" tabindex="0" aria-expanded="false" onclick="toggleChapter(this)" onkeydown="if(event.key===&#39;Enter&#39;||event.key===&#39; &#39;){event.preventDefault();toggleChapter(this);}">
+                  <span class="chapter-num">04</span>
+                  <div class="chapter-item-body">
+                    <div class="chapter-title">Phase Zero Mastery</div>
+                    <div class="chapter-desc">The preparation that creates clarity before vendors arrive.</div>
+                  </div>
+                  <svg class="chapter-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+                <div class="chapter-video-panel">
+                  <div class="chapter-video" data-video-id="Qew_TRNgDok" role="button" tabindex="0" aria-label="Play Chapter 4 episode">
+                    <img src="https://i.ytimg.com/vi/Qew_TRNgDok/hqdefault.jpg" alt="Phase Zero Mastery" loading="lazy" />
+                    <div class="play-btn"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="chapter-item" data-video-id="UFSkhbYt81k">
+                <div class="chapter-row" role="button" tabindex="0" aria-expanded="false" onclick="toggleChapter(this)" onkeydown="if(event.key===&#39;Enter&#39;||event.key===&#39; &#39;){event.preventDefault();toggleChapter(this);}">
+                  <span class="chapter-num">05</span>
+                  <div class="chapter-item-body">
+                    <div class="chapter-title">AI-Enabled Requirements</div>
+                    <div class="chapter-desc">How AI transforms requirements gathering into a focused, human-centric process.</div>
+                  </div>
+                  <svg class="chapter-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+                <div class="chapter-video-panel">
+                  <div class="chapter-video" data-video-id="UFSkhbYt81k" role="button" tabindex="0" aria-label="Play Chapter 5 episode">
+                    <img src="https://i.ytimg.com/vi/UFSkhbYt81k/hqdefault.jpg" alt="AI-Enabled Requirements" loading="lazy" />
+                    <div class="play-btn"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="chapter-item" data-video-id="5sDXiu1thRQ">
+                <div class="chapter-row" role="button" tabindex="0" aria-expanded="false" onclick="toggleChapter(this)" onkeydown="if(event.key===&#39;Enter&#39;||event.key===&#39; &#39;){event.preventDefault();toggleChapter(this);}">
+                  <span class="chapter-num">06</span>
+                  <div class="chapter-item-body">
+                    <div class="chapter-title">Winning Procurement Strategy</div>
+                    <div class="chapter-desc">Crafting RFPs that attract the right vendors and protect your leverage.</div>
+                  </div>
+                  <svg class="chapter-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+                <div class="chapter-video-panel">
+                  <div class="chapter-video" data-video-id="5sDXiu1thRQ" role="button" tabindex="0" aria-label="Play Chapter 6 episode">
+                    <img src="https://i.ytimg.com/vi/5sDXiu1thRQ/hqdefault.jpg" alt="Winning Procurement Strategy" loading="lazy" />
+                    <div class="play-btn"></div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -851,12 +934,102 @@
               <div class="play-btn"></div>
             </div>
             <div class="part-chapters">
-              <div class="chapter-item"><span class="chapter-num">07</span><div class="chapter-item-body"><div class="chapter-title">Vendor Selection</div><div class="chapter-desc">Spotting allies, dodging traps, and cutting through polished demos.</div></div><a class="chapter-watch" href="https://youtu.be/nZYRFH42DSY" target="_blank" rel="noopener" aria-label="Watch Chapter 7 episode"><svg viewBox="0 0 10 10" fill="currentColor"><polygon points="0,0 10,5 0,10"/></svg>Watch</a></div>
-              <div class="chapter-item"><span class="chapter-num">08</span><div class="chapter-item-body"><div class="chapter-title">Governance Reimagined</div><div class="chapter-desc">Structures for decision-making that prevent vendor capture.</div></div><a class="chapter-watch" href="https://youtu.be/-5jZmQZ4iVQ" target="_blank" rel="noopener" aria-label="Watch Chapter 8 episode"><svg viewBox="0 0 10 10" fill="currentColor"><polygon points="0,0 10,5 0,10"/></svg>Watch</a></div>
-              <div class="chapter-item"><span class="chapter-num">09</span><div class="chapter-item-body"><div class="chapter-title">The Human Element</div><div class="chapter-desc">Change management that determines adoption or rejection.</div></div><a class="chapter-watch" href="https://youtu.be/Hs5iNlrrEAs" target="_blank" rel="noopener" aria-label="Watch Chapter 9 episode"><svg viewBox="0 0 10 10" fill="currentColor"><polygon points="0,0 10,5 0,10"/></svg>Watch</a></div>
-              <div class="chapter-item"><span class="chapter-num">10</span><div class="chapter-item-body"><div class="chapter-title">The Independence Principle</div><div class="chapter-desc">Building advisory relationships where incentives are permanently aligned.</div></div><a class="chapter-watch" href="https://youtu.be/V8655RK--OQ" target="_blank" rel="noopener" aria-label="Watch Chapter 10 episode"><svg viewBox="0 0 10 10" fill="currentColor"><polygon points="0,0 10,5 0,10"/></svg>Watch</a></div>
-              <div class="chapter-item"><span class="chapter-num">11</span><div class="chapter-item-body"><div class="chapter-title">AI Comes of Age</div><div class="chapter-desc">The new rules — what AI delivers today and how to spot vendor overselling.</div></div><a class="chapter-watch" href="https://youtu.be/lbscKUfkwW8" target="_blank" rel="noopener" aria-label="Watch Chapter 11 episode"><svg viewBox="0 0 10 10" fill="currentColor"><polygon points="0,0 10,5 0,10"/></svg>Watch</a></div>
-              <div class="chapter-item"><span class="chapter-num">12</span><div class="chapter-item-body"><div class="chapter-title">The Complete Roadmap</div><div class="chapter-desc">Step-by-step from day one to go-live with every framework integrated.</div></div><a class="chapter-watch" href="https://youtu.be/eHU_mw-bYVY" target="_blank" rel="noopener" aria-label="Watch Chapter 12 episode"><svg viewBox="0 0 10 10" fill="currentColor"><polygon points="0,0 10,5 0,10"/></svg>Watch</a></div>
+              <div class="chapter-item" data-video-id="nZYRFH42DSY">
+                <div class="chapter-row" role="button" tabindex="0" aria-expanded="false" onclick="toggleChapter(this)" onkeydown="if(event.key===&#39;Enter&#39;||event.key===&#39; &#39;){event.preventDefault();toggleChapter(this);}">
+                  <span class="chapter-num">07</span>
+                  <div class="chapter-item-body">
+                    <div class="chapter-title">Vendor Selection</div>
+                    <div class="chapter-desc">Spotting allies, dodging traps, and cutting through polished demos.</div>
+                  </div>
+                  <svg class="chapter-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+                <div class="chapter-video-panel">
+                  <div class="chapter-video" data-video-id="nZYRFH42DSY" role="button" tabindex="0" aria-label="Play Chapter 7 episode">
+                    <img src="https://i.ytimg.com/vi/nZYRFH42DSY/hqdefault.jpg" alt="Vendor Selection" loading="lazy" />
+                    <div class="play-btn"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="chapter-item" data-video-id="-5jZmQZ4iVQ">
+                <div class="chapter-row" role="button" tabindex="0" aria-expanded="false" onclick="toggleChapter(this)" onkeydown="if(event.key===&#39;Enter&#39;||event.key===&#39; &#39;){event.preventDefault();toggleChapter(this);}">
+                  <span class="chapter-num">08</span>
+                  <div class="chapter-item-body">
+                    <div class="chapter-title">Governance Reimagined</div>
+                    <div class="chapter-desc">Structures for decision-making that prevent vendor capture.</div>
+                  </div>
+                  <svg class="chapter-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+                <div class="chapter-video-panel">
+                  <div class="chapter-video" data-video-id="-5jZmQZ4iVQ" role="button" tabindex="0" aria-label="Play Chapter 8 episode">
+                    <img src="https://i.ytimg.com/vi/-5jZmQZ4iVQ/hqdefault.jpg" alt="Governance Reimagined" loading="lazy" />
+                    <div class="play-btn"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="chapter-item" data-video-id="Hs5iNlrrEAs">
+                <div class="chapter-row" role="button" tabindex="0" aria-expanded="false" onclick="toggleChapter(this)" onkeydown="if(event.key===&#39;Enter&#39;||event.key===&#39; &#39;){event.preventDefault();toggleChapter(this);}">
+                  <span class="chapter-num">09</span>
+                  <div class="chapter-item-body">
+                    <div class="chapter-title">The Human Element</div>
+                    <div class="chapter-desc">Change management that determines adoption or rejection.</div>
+                  </div>
+                  <svg class="chapter-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+                <div class="chapter-video-panel">
+                  <div class="chapter-video" data-video-id="Hs5iNlrrEAs" role="button" tabindex="0" aria-label="Play Chapter 9 episode">
+                    <img src="https://i.ytimg.com/vi/Hs5iNlrrEAs/hqdefault.jpg" alt="The Human Element" loading="lazy" />
+                    <div class="play-btn"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="chapter-item" data-video-id="V8655RK--OQ">
+                <div class="chapter-row" role="button" tabindex="0" aria-expanded="false" onclick="toggleChapter(this)" onkeydown="if(event.key===&#39;Enter&#39;||event.key===&#39; &#39;){event.preventDefault();toggleChapter(this);}">
+                  <span class="chapter-num">10</span>
+                  <div class="chapter-item-body">
+                    <div class="chapter-title">The Independence Principle</div>
+                    <div class="chapter-desc">Building advisory relationships where incentives are permanently aligned.</div>
+                  </div>
+                  <svg class="chapter-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+                <div class="chapter-video-panel">
+                  <div class="chapter-video" data-video-id="V8655RK--OQ" role="button" tabindex="0" aria-label="Play Chapter 10 episode">
+                    <img src="https://i.ytimg.com/vi/V8655RK--OQ/hqdefault.jpg" alt="The Independence Principle" loading="lazy" />
+                    <div class="play-btn"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="chapter-item" data-video-id="lbscKUfkwW8">
+                <div class="chapter-row" role="button" tabindex="0" aria-expanded="false" onclick="toggleChapter(this)" onkeydown="if(event.key===&#39;Enter&#39;||event.key===&#39; &#39;){event.preventDefault();toggleChapter(this);}">
+                  <span class="chapter-num">11</span>
+                  <div class="chapter-item-body">
+                    <div class="chapter-title">AI Comes of Age</div>
+                    <div class="chapter-desc">The new rules — what AI delivers today and how to spot vendor overselling.</div>
+                  </div>
+                  <svg class="chapter-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+                <div class="chapter-video-panel">
+                  <div class="chapter-video" data-video-id="lbscKUfkwW8" role="button" tabindex="0" aria-label="Play Chapter 11 episode">
+                    <img src="https://i.ytimg.com/vi/lbscKUfkwW8/hqdefault.jpg" alt="AI Comes of Age" loading="lazy" />
+                    <div class="play-btn"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="chapter-item" data-video-id="eHU_mw-bYVY">
+                <div class="chapter-row" role="button" tabindex="0" aria-expanded="false" onclick="toggleChapter(this)" onkeydown="if(event.key===&#39;Enter&#39;||event.key===&#39; &#39;){event.preventDefault();toggleChapter(this);}">
+                  <span class="chapter-num">12</span>
+                  <div class="chapter-item-body">
+                    <div class="chapter-title">The Complete Roadmap</div>
+                    <div class="chapter-desc">Step-by-step from day one to go-live with every framework integrated.</div>
+                  </div>
+                  <svg class="chapter-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+                <div class="chapter-video-panel">
+                  <div class="chapter-video" data-video-id="eHU_mw-bYVY" role="button" tabindex="0" aria-label="Play Chapter 12 episode">
+                    <img src="https://i.ytimg.com/vi/eHU_mw-bYVY/hqdefault.jpg" alt="The Complete Roadmap" loading="lazy" />
+                    <div class="play-btn"></div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -1091,24 +1264,28 @@
       observer.observe(el);
     });
 
-    // Lazy-load Part intro videos on click (facade pattern)
-    function loadPartVideo(el) {
+    // Lazy-load video facades on click (shared by Part intros & Chapter videos)
+    function loadVideoFacade(el) {
       if (el.dataset.loaded) return;
       const id = el.dataset.videoId;
       if (!id) return;
       el.dataset.loaded = 'true';
       el.innerHTML = '<iframe src="https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0" title="Start at Zero episode" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
     }
-    document.querySelectorAll('.part-video').forEach(el => {
-      el.addEventListener('click', () => loadPartVideo(el));
+    document.querySelectorAll('.part-video, .chapter-video').forEach(el => {
+      el.addEventListener('click', (e) => { e.stopPropagation(); loadVideoFacade(el); });
       el.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); loadPartVideo(el); }
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); loadVideoFacade(el); }
       });
     });
-    // Prevent chapter Watch link clicks from toggling the accordion.
-    document.querySelectorAll('.chapter-watch').forEach(a => {
-      a.addEventListener('click', e => e.stopPropagation());
-    });
+
+    // Expand/collapse a chapter row to reveal its inline video.
+    function toggleChapter(rowEl) {
+      const item = rowEl.closest('.chapter-item');
+      if (!item) return;
+      const isOpen = item.classList.toggle('open');
+      rowEl.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    }
   </script>
 </body>
 </html>

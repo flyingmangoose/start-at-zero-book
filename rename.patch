@@ -1,9 +1,0 @@
-cd ~/start-at-zero-book
-git checkout main
-git pull origin main
-git checkout -b rename-to-startatzero
-pbpaste > rename.patch
-git apply rename.patch
-git add -A
-git commit -m "Switch canonical domain from book to startatzero"
-git push -u origin rename-to-startatzero
