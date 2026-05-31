@@ -34,7 +34,7 @@
   {"@context":"https://schema.org","@type":"Review","itemReviewed":{"@type":"Book","name":"Start at Zero","isbn":"979-8-9954535-0-5"},"author":{"@type":"Person","name":"Dr. Jennifer Cougle","jobTitle":"CIO, Monroe County, New York"},"reviewBody":"START AT ZERO is a well written book that describes many issues governments have with ERP projects. AV’s expertise is evident. The valuable insights in this book will help government organizations navigate pitfalls of large, complex projects and avoid disastrous outcomes. This book is a roadmap for project success!"}
   </script>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Review","itemReviewed":{"@type":"Book","name":"Start at Zero","isbn":"979-8-9954535-0-5"},"author":{"@type":"Person","name":"Mike Nolop","jobTitle":"Port Forward Project Director, Port of Portland"},"reviewBody":"If you’re leading a modernization and you skip Stage Zero, you’re taking on risk you don’t understand. ‘Start at Zero’ puts structure around what determines success — something we’ve seen firsthand at the Port of Portland through Port Forward. This isn’t a theory book — it’s a reality check."}
+  {"@context":"https://schema.org","@type":"Review","itemReviewed":{"@type":"Book","name":"Start at Zero","isbn":"979-8-9954535-0-5"},"author":{"@type":"Person","name":"Mike Nolop","jobTitle":"Senior Manager, IT Business Systems, Port of Portland, Oregon"},"reviewBody":"If you’re leading a modernization and you skip Stage Zero, you’re taking on risk you don’t understand. ‘Start at Zero’ puts structure around what determines success — something we’ve seen firsthand at the Port of Portland through Port Forward. This isn’t a theory book — it’s a reality check."}
   </script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Review","itemReviewed":{"@type":"Book","name":"Start at Zero","isbn":"979-8-9954535-0-5"},"author":{"@type":"Person","name":"Paul Oberdorfer","jobTitle":"City Manager, City of Piqua, Ohio"},"reviewBody":"Start at Zero is a sharp, practical guide for public sector leaders facing high-stakes technology modernization. Drawing on real-world case studies and decades of experience, Abhijit Verekar shows why successful projects depend less on software and more on governance, preparation, and independent oversight. Clear, candid, and highly relevant in the age of AI, this book gives government leaders the tools to avoid costly failures and deliver technology transformations that truly serve the public."}
@@ -481,6 +481,36 @@
     }
     .success-state h4 { font-family: var(--font-serif); font-size: 1.5rem; color: var(--cream); margin-bottom: 8px; }
 
+    /* — Buy widget — */
+    .buy-card .buy-widget {
+      display: flex; gap: 20px; align-items: center;
+      padding: 20px; border-radius: 12px;
+      background: var(--navy-deep); border: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 16px;
+    }
+    .buy-cover {
+      width: 100px; height: auto; flex-shrink: 0;
+      border-radius: 6px; box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    }
+    .buy-meta { flex: 1; min-width: 0; }
+    .buy-title {
+      font-family: var(--font-serif); font-weight: 700;
+      font-size: 1.1rem; color: var(--cream); margin-bottom: 2px;
+    }
+    .buy-sub {
+      font-size: 0.78rem; color: var(--slate); line-height: 1.4; margin-bottom: 6px;
+    }
+    .buy-author {
+      font-size: 0.78rem; color: var(--slate); font-style: italic; margin-bottom: 14px;
+    }
+    .buy-btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 9px 20px; font-weight: 700; font-size: 0.85rem;
+      background: #FEBE10; color: #0c1e3a; border-radius: 8px;
+      text-decoration: none; transition: filter 0.2s;
+    }
+    .buy-btn:hover { filter: brightness(1.1); }
+
     /* — Footer — */
     .footer { padding: 40px 0; border-top: 1px solid var(--glass-border); text-align: center; }
     .footer-brand { font-family: var(--font-serif); font-weight: 700; color: var(--cream); margin-bottom: 8px; }
@@ -669,7 +699,7 @@
       <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded') === 'false' ? 'true' : 'false'); this.nextElementSibling.classList.toggle('open');">
         <span></span><span></span><span></span>
       </button>
-      <div class="nav-links"><a href="#hero">The Book</a><a href="/newsletter">Newsletter</a><a href="/youtube">YouTube</a><a href="/toolkit">Toolkit</a><a href="/speaking">Speaking</a><a href="/press">Press</a></div>
+      <div class="nav-links"><a href="#hero">The Book</a><a href="/newsletter">Newsletter</a><a href="/youtube">YouTube</a><a href="/toolkit">Toolkit</a><a href="/speaking">Speaking</a><a href="/press">Press</a><a href="https://shop.ingramspark.com/b/084?params=jczLlf963tjWs1kVmcWT1ZywmIABVLXOpCMrVEbK89V" target="_blank" rel="noopener" class="nav-cta">Buy Now</a></div>
     </div>
   </nav>
 
@@ -681,7 +711,7 @@
           <img src="/images/book-cover.jpg" alt="Start at Zero book cover — Leading High-Stakes Modernization in the Age of AI by Abhijit Verekar" />
         </div>
         <div>
-          <p class="hero-label accent tracking-wide uppercase mono fade-up delay-1">Coming Soon — Spring 2026</p>
+          <p class="hero-label accent tracking-wide uppercase mono fade-up delay-1">Available Now · Hardcover</p>
           <h1 class="fade-up delay-2">Start at Zero</h1>
           <p class="hero-subtitle fade-up delay-3">Leading High-Stakes Modernization in the Age of AI</p>
           <p class="hero-sub-sub fade-up delay-3">The government ERP modernization playbook — from 30+ engagements, 100% on the public-sector side of the table.</p>
@@ -696,10 +726,10 @@
             </div>
           </div>
           <div class="btn-row fade-up delay-5">
-            <a href="#reserve" class="btn-primary">Read Chapter 1 Free</a>
-            <a href="#chapters" class="btn-outline">See What's Inside ↓</a>
+            <a href="https://shop.ingramspark.com/b/084?params=jczLlf963tjWs1kVmcWT1ZywmIABVLXOpCMrVEbK89V" target="_blank" rel="noopener" class="btn-primary">Buy Now →</a>
+            <a href="#reserve" class="btn-outline">Read Chapter 1 Free</a>
           </div>
-          <p class="small-note fade-up delay-6">Free chapter + 5 templates. Or reserve a signed copy. No payment required.</p>
+          <p class="small-note fade-up delay-6">Hardcover · 276 pages · ISBN 979-8-9954535-0-5</p>
         </div>
       </div>
     </div>
@@ -1111,7 +1141,7 @@
           <blockquote class="endorse-quote">If you're leading a modernization and you skip Stage Zero, you're taking on risk you don't understand. ‘Start at Zero' puts structure around what determines success — something we've seen firsthand at the Port of Portland through Port Forward. This isn't a theory book — it's a reality check.</blockquote>
           <div class="endorse-author">
             <div class="endorse-author-name">Mike Nolop</div>
-            <div class="endorse-author-role">Port Forward Project Director, Port of Portland</div>
+            <div class="endorse-author-role">Senior Manager, IT Business Systems, Port of Portland, Oregon</div>
           </div>
         </div>
         <div class="endorse-card">
@@ -1308,22 +1338,20 @@
           <p class="form-note">No payment required. Chapter 1 + 5 templates sent instantly.</p>
         </div>
 
-        <!-- Path B: Request a Signed Copy -->
-        <div class="form-card" id="formCardSigned">
-          <h3>Request a Signed Copy</h3>
-          <p>Reserve your signed first edition — no payment required. We'll notify you at launch.</p>
-          <div id="hubspotFormSigned"></div>
-          <script>
-            hbspt.forms.create({
-              portalId: "24211389",
-              formId: "94584085-461f-4eb3-93ab-f1770be82ca6",
-              region: "na1",
-              target: "#hubspotFormSigned",
-              submitButtonClass: "btn-primary form-submit",
-              onFormReady: function($form) { $form.find('input[type="submit"]').val("Reserve My Copy"); }
-            });
-          </script>
-          <p class="form-note">No payment required. We'll notify you at launch.</p>
+        <!-- Path B: Buy the Book -->
+        <div class="form-card buy-card">
+          <h3>Buy the Book</h3>
+          <p>Hardcover edition available now via IngramSpark — shipping worldwide.</p>
+          <div class="buy-widget">
+            <img class="buy-cover" src="/images/book-cover.jpg" alt="Start at Zero book cover" loading="lazy" />
+            <div class="buy-meta">
+              <div class="buy-title">Start at Zero</div>
+              <div class="buy-sub">Leading High-Stakes Modernization in the Age of AI</div>
+              <div class="buy-author">by Abhijit Verekar</div>
+              <a class="buy-btn" href="https://shop.ingramspark.com/b/084?params=jczLlf963tjWs1kVmcWT1ZywmIABVLXOpCMrVEbK89V" target="_blank" rel="noopener">Buy Now →</a>
+            </div>
+          </div>
+          <p class="form-note">Hardcover · 276 pages · ISBN 979-8-9954535-0-5</p>
         </div>
 
       </div>
