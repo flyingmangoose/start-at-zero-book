@@ -1,6 +1,6 @@
 # Start at Zero — Leading High-Stakes Modernization in the Age of AI
 
-> The definitive playbook for government leaders navigating high-stakes ERP modernization. Written by Abhijit Verekar, founder of Avèro Advisors and a 5× Inc. 5000 CEO. Releases April 20, 2026 (ISBN 979-8-9954535-0-5).
+> The definitive playbook for government leaders navigating high-stakes ERP modernization. Written by Abhijit Verekar, founder of Avèro Advisors and a 6× Inc. 5000 CEO. Releases April 20, 2026 (ISBN 979-8-9954535-0-5).
 
 Government ERP and digital transformation projects fail at rates that would be scandalous in any other sector. Over 70% of large public-sector IT projects fail to deliver intended benefits — Birmingham City Council's $216 million overrun on a $19 million budget is the cautionary case at the heart of this book. Start at Zero argues those failures are structural, not technical, and provides the frameworks (Phase Zero, Four Pillars of Project Control, AI-Enabled Requirements, Independent Advisory) to prevent them.
 
@@ -18,9 +18,10 @@ Government ERP and digital transformation projects fail at rates that would be s
 - [Full playlist on YouTube](https://www.youtube.com/playlist?list=PLReFy7x9rCmHlx0KNz73kg_nqemxNGsTu)
 
 ## Author
-- [Abhijit Verekar bio](https://averoadvisors.com/who-we-are): Founder & CEO, Avèro Advisors. Two decades helping government organizations navigate complex technology transformations. 30+ government ERP engagements, 100% public-sector focus.
+- [Abhijit Verekar bio](https://averoadvisors.com/who-we-are): Founder & CEO, Avèro Advisors. Two decades helping government organizations navigate complex technology transformations. 30+ government ERP engagements, 100% public-sector focus. 6× Inc. 5000.
 - [LinkedIn](https://www.linkedin.com/in/verekar/)
-- [Untangled newsletter](https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7078108855146086400): independent govtech intelligence, weekly on LinkedIn
+- [Start at Zero newsletter on Substack](https://avavero.substack.com): independent govtech intelligence
+- [Start at Zero Government AI Navigator](https://govai.averoadvisors.com/): primary lead magnet — independent analysis of 31 AI tools across readiness, impact, and independence
 
 ## Key concepts defined in the book
 - **Phase Zero**: a structured 100-day preparation methodology that creates clarity before vendors enter the conversation
@@ -32,4 +33,4 @@ Government ERP and digital transformation projects fail at rates that would be s
 City and county managers, government CIOs and IT directors, finance directors and CFOs, state agency leaders — anyone accountable for the success of a public-sector ERP, financial system, or enterprise modernization.
 
 ## Publisher
-Avèro Advisors — an independent, vendor-neutral consulting firm focused exclusively on government enterprise technology. Recognized on the Inc. 5000 list five times.
+Avèro Advisors — an independent, vendor-neutral consulting firm focused exclusively on government enterprise technology. Recognized on the Inc. 5000 list six times.
