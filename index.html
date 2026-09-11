@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Start at Zero — Leading High-Stakes Modernization in the Age of AI</title>
-  <meta name="description" content="The definitive playbook for government leaders navigating high-stakes ERP modernization. By Abhijit Verekar, 5× Inc. 5000 CEO." />
+  <meta name="description" content="The definitive playbook for government leaders navigating high-stakes ERP modernization. By Abhijit Verekar, 6× Inc. 5000 CEO." />
 
   <!-- Open Graph -->
   <meta property="og:title" content="Start at Zero — Leading High-Stakes Modernization in the Age of AI" />
@@ -28,7 +28,7 @@
   {"@context":"https://schema.org","@type":"Book","name":"Start at Zero","alternateName":"Start at Zero: Leading High-Stakes Modernization in the Age of AI","author":{"@type":"Person","name":"Abhijit Verekar","jobTitle":"Founder & CEO, Avèro Advisors","url":"https://averoadvisors.com/who-we-are"},"publisher":{"@type":"Organization","name":"Avèro Advisors","url":"https://averoadvisors.com"},"description":"The definitive playbook for government leaders navigating high-stakes ERP modernization.","numberOfPages":276,"bookFormat":"https://schema.org/Hardcover","inLanguage":"en","isbn":"979-8-9954535-0-5","datePublished":"2026-04-20","image":"https://startatzero.averoadvisors.com/images/book-cover.jpg","url":"https://startatzero.averoadvisors.com/"}
   </script>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Person","name":"Abhijit Verekar","jobTitle":"Founder & CEO","worksFor":{"@type":"Organization","name":"Avèro Advisors","url":"https://averoadvisors.com"},"url":"https://averoadvisors.com/who-we-are","image":"https://startatzero.averoadvisors.com/images/abhijit-author.jpg","description":"Abhijit Verekar has spent two decades helping government organizations navigate complex technology transformations.","sameAs":["https://www.linkedin.com/in/verekar/","https://www.youtube.com/@startatzeroAV","https://averoadvisors.com"]}
+  {"@context":"https://schema.org","@type":"Person","name":"Abhijit Verekar","jobTitle":"Founder & CEO","worksFor":{"@type":"Organization","name":"Avèro Advisors","url":"https://averoadvisors.com"},"url":"https://averoadvisors.com/who-we-are","image":"https://startatzero.averoadvisors.com/images/abhijit-author.jpg","description":"Abhijit Verekar has spent two decades helping government organizations navigate complex technology transformations.","sameAs":["https://www.linkedin.com/in/verekar/","https://www.youtube.com/@startatzeroAV","https://avavero.substack.com","https://govai.averoadvisors.com/","https://averoadvisors.com"]}
   </script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Review","itemReviewed":{"@type":"Book","name":"Start at Zero","isbn":"979-8-9954535-0-5"},"author":{"@type":"Person","name":"Dr. Jennifer Cougle","jobTitle":"CIO, Monroe County, New York"},"reviewBody":"START AT ZERO is a well written book that describes many issues governments have with ERP projects. AV’s expertise is evident. The valuable insights in this book will help government organizations navigate pitfalls of large, complex projects and avoid disastrous outcomes. This book is a roadmap for project success!"}
@@ -563,9 +563,9 @@
     }
     .ecosystem-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 32px;
-      max-width: 900px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1100px;
       margin: 0 auto;
     }
     .ecosystem-card {
@@ -622,6 +622,38 @@
     }
     .btn-youtube:hover {
       background: #cc0000;
+    }
+    .btn-ecosystem {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 24px;
+      background: var(--orange);
+      color: white;
+      font-weight: 600;
+      font-size: 0.85rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn-ecosystem:hover {
+      background: var(--orange-hover);
+    }
+    .btn-substack {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 24px;
+      background: #FF6719;
+      color: white;
+      font-weight: 600;
+      font-size: 0.85rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: filter 0.2s;
+    }
+    .btn-substack:hover {
+      filter: brightness(1.08);
     }
 
     /* — Newsletter CTA line — */
@@ -722,7 +754,7 @@
             <img src="/images/abhijit-speaker.jpg" alt="Abhijit Verekar" class="hero-author-avatar" />
             <div>
               <div class="hero-author-name">Abhijit Verekar</div>
-              <div class="hero-author-title">5× Inc. 5000 CEO · Founder, Avèro Advisors</div>
+              <div class="hero-author-title">6× Inc. 5000 CEO · Founder, Avèro Advisors</div>
             </div>
           </div>
           <div class="btn-row fade-up delay-5">
@@ -1199,10 +1231,10 @@
             Abhijit Verekar has spent two decades helping government organizations navigate the most complex technology transformations in the public sector. As founder of Avèro Advisors, he built the only consulting firm exclusively focused on independent, vendor-neutral government ERP advisory.
           </p>
           <p class="author-bio">
-            His firm has been recognized on the Inc. 5000 list five times, and his team works exclusively with cities, counties, and states — never with the vendors who sell to them.
+            His firm has been recognized on the Inc. 5000 list six times, and his team works exclusively with cities, counties, and states — never with the vendors who sell to them.
           </p>
           <div class="author-credentials">
-            <span class="credential">5× Inc. 5000</span>
+            <span class="credential">6× Inc. 5000</span>
             <span class="credential">20+ Years in Gov Tech</span>
             <span class="credential">30+ ERP Engagements</span>
             <span class="credential">100% Government Focus</span>
@@ -1275,39 +1307,29 @@
         <p>Start at Zero isn’t just a book — it’s a movement to fix how government buys technology.</p>
       </div>
       <div class="ecosystem-grid">
-        <!-- Card 1: Untangled Newsletter -->
+        <!-- Card 1: Government AI Navigator (primary magnet) -->
+        <div class="ecosystem-card">
+          <div class="ecosystem-icon">🧭</div>
+          <div class="ecosystem-card-title">Government AI Navigator</div>
+          <div class="ecosystem-card-subtitle">Primary resource — free for agency leaders</div>
+          <p class="ecosystem-card-desc">Independent analysis of 31 AI tools across readiness, impact, and independence. Three lenses every government leader needs before investing in AI.</p>
+          <a class="btn-ecosystem" href="https://govai.averoadvisors.com/" target="_blank" rel="noopener">Open the Navigator →</a>
+        </div>
+        <!-- Card 2: Start at Zero on Substack -->
         <div class="ecosystem-card">
           <div class="ecosystem-icon">📬</div>
-          <div class="ecosystem-card-title">Untangled</div>
-          <div class="ecosystem-card-subtitle">Independent govtech intelligence — every Tuesday on LinkedIn</div>
+          <div class="ecosystem-card-title">Start at Zero Newsletter</div>
+          <div class="ecosystem-card-subtitle">Independent govtech intelligence on Substack</div>
           <p class="ecosystem-card-desc">The signal through the noise. AI governance, ERP modernization, procurement strategy, and vendor management — with AV’s unfiltered take.</p>
-          <style>
-            .libutton {
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
-              padding: 7px;
-              text-align: center;
-              outline: none;
-              text-decoration: none !important;
-              color: #ffffff !important;
-              width: 200px;
-              height: 32px;
-              border-radius: 16px;
-              background-color: #0A66C2;
-              font-family: "SF Pro Text", Helvetica, sans-serif;
-            }
-          </style>
-          <a class="libutton" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7078108855146086400" target="_blank">Subscribe on LinkedIn</a>
-          <p class="ecosystem-card-note">Requires LinkedIn login</p>
+          <a class="btn-substack" href="https://avavero.substack.com" target="_blank" rel="noopener">Subscribe on Substack →</a>
         </div>
-        <!-- Card 2: Start at Zero with AV (YouTube) -->
+        <!-- Card 3: Start at Zero with AV (YouTube) -->
         <div class="ecosystem-card">
           <div class="ecosystem-icon">📺</div>
           <div class="ecosystem-card-title">Start at Zero with AV</div>
           <div class="ecosystem-card-subtitle">New episodes every week</div>
           <p class="ecosystem-card-desc">Long-form govtech intelligence from the government buyer’s side, not the vendor’s. ERP, AI, procurement, digital transformation.</p>
-          <a class="btn-youtube" href="https://www.youtube.com/@startatzeroAV" target="_blank">Watch on YouTube →</a>
+          <a class="btn-youtube" href="https://www.youtube.com/@startatzeroAV" target="_blank" rel="noopener">Watch on YouTube →</a>
         </div>
       </div>
     </div>
@@ -1355,7 +1377,7 @@
         </div>
 
       </div>
-      <p class="newsletter-cta-line">Or subscribe to <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7078108855146086400" target="_blank">Untangled</a> for weekly govtech intelligence →</p>
+      <p class="newsletter-cta-line">Or get the <a href="https://govai.averoadvisors.com/" target="_blank" rel="noopener">Government AI Navigator</a> · <a href="https://avavero.substack.com" target="_blank" rel="noopener">Subscribe on Substack</a> →</p>
     </div>
   </section>
 
@@ -1369,7 +1391,8 @@
           <div class="footer-row-label">Ecosystem</div>
           <div class="footer-row-links">
             <a href="#hero">The Book</a>
-            <a href="/newsletter">Untangled Newsletter</a>
+            <a href="/newsletter">Newsletter</a>
+            <a href="https://govai.averoadvisors.com/" target="_blank" rel="noopener">AI Navigator</a>
             <a href="/youtube">YouTube</a>
           </div>
         </div>
