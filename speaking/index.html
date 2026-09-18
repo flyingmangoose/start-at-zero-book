@@ -229,14 +229,17 @@
     .booking-actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-bottom: 24px; }
     .hs-form-slot {
       text-align: left;
-      min-height: 0;
-    }
-    .hs-form-slot:not(:empty) {
-      margin-top: 8px;
+      margin: 0 0 28px;
       padding: 20px;
       border-radius: 12px;
       background: rgba(8, 21, 38, 0.45);
       border: 1px solid var(--glass-border);
+    }
+    .hs-form-slot .hs-form-frame,
+    .hs-form-slot iframe {
+      width: 100%;
+      max-width: 100%;
+      display: block;
     }
     .booking-note { margin-top: 16px; font-size: 0.8rem; color: var(--slate-dark); }
 
@@ -302,7 +305,7 @@
             <a href="https://www.youtube.com/@startatzeroAV" target="_blank" rel="noopener" class="credential credential-link">YouTube @startatzeroAV</a>
           </div>
           <div class="hero-ctas fade-up delay-3">
-            <a class="btn-primary" href="mailto:av@averoadvisors.com?subject=Book%20flagship%20keynote%3A%20AI%20Without%20a%20Named%20Owner">Book this keynote</a>
+            <a class="btn-primary" href="#book">Book this keynote</a>
             <a class="btn-secondary btn-placeholder" href="mailto:av@averoadvisors.com?subject=Request%20keynote%20one-pager%3A%20AI%20Without%20a%20Named%20Owner">Download one-pager</a>
             <p class="cta-note">One-pager PDF coming soon. Request it by email for now.</p>
           </div>
@@ -425,6 +428,18 @@
             <div class="detail-value">Book available for attendees</div>
           </div>
         </div>
+        <div
+          id="hs-speaking-form"
+          class="hs-form-slot"
+          data-hs-form="speaking"
+          data-hs-portal-id="24211389"
+          data-hs-region="na1"
+          data-hs-form-id="9c52de17-efdb-47a7-b261-e15d869240f9"
+          aria-label="Speaking engagement request form"
+        >
+          <script src="https://js.hsforms.net/forms/embed/24211389.js" defer></script>
+          <div class="hs-form-frame" data-region="na1" data-form-id="9c52de17-efdb-47a7-b261-e15d869240f9" data-portal-id="24211389"></div>
+        </div>
         <div class="contact-block">
           <p><a href="mailto:av@averoadvisors.com">av@averoadvisors.com</a> · <a href="tel:8654153848">865-415-3848</a></p>
           <p class="magnets">
@@ -434,21 +449,7 @@
             <a href="https://startatzero.averoadvisors.com/" target="_blank" rel="noopener">startatzero.averoadvisors.com</a>
           </p>
         </div>
-        <div class="booking-actions">
-          <a class="btn-primary" href="mailto:av@averoadvisors.com?subject=Book%20flagship%20keynote%3A%20AI%20Without%20a%20Named%20Owner">Book this keynote</a>
-          <a class="btn-secondary" href="tel:8654153848">Call 865-415-3848</a>
-        </div>
-        <!-- HubSpot speaking form: mount with hbspt.forms.create when portalId + formId land. Do not invent a form GUID. Historical portal 24211389, region na1. -->
-        <div
-          id="hs-speaking-form"
-          class="hs-form-slot"
-          data-hs-form="speaking"
-          data-hs-portal-id="24211389"
-          data-hs-region="na1"
-          data-hs-form-id=""
-          aria-label="Speaking inquiry form"
-        ></div>
-        <p class="booking-note">Prefer email? Write av@averoadvisors.com and name the flagship keynote.</p>
+        <p class="booking-note">Prefer email or a call? Write av@averoadvisors.com or call 865-415-3848 and name the flagship keynote.</p>
       </div>
     </div>
   </section>
