@@ -159,6 +159,7 @@
       localStorage.setItem(KEY + '_last', String(Date.now()));
       var r = AveroReadiness.score(cfg, state.answers);
       state.contact = c; state.talk = $('talk').checked; state.unlocked = true;
+      try { localStorage.setItem('saz_ch1_unlocked', '1'); sessionStorage.setItem('saz_ch1_unlocked', '1'); } catch (e) {} // read by /chapter-1
       state.completedAt = new Date().toISOString();
       state.history = (state.history || []).concat([{ date: state.completedAt, stage: r.stage.n, total: r.total, version: cfg.version }]);
       save();
