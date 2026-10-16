@@ -157,25 +157,7 @@
       <p class="note">No spam. Your answers stay in your browser; only your name, email, and organization are sent.</p>
     </section>
 
-    <section class="hidden" id="resultSection">
-      <div class="card result">
-        <h3>Your recommendations</h3>
-        <div id="recList"></div>
-      </div>
-      <div class="next-grid">
-        <div class="next">
-          <h4>Read Chapter 1 free</h4>
-          <p>Two cities, two outcomes. The forensic case for doing the work before a vendor is in the room.</p>
-          <a class="btn" href="/chapter-1">Read Chapter 1</a>
-        </div>
-        <div class="next">
-          <h4>Subscribe to Start at Zero</h4>
-          <p>Independent govtech intelligence from the buyer's side of the table, every week on Substack.</p>
-          <a class="btn-outline" href="https://avavero.substack.com/subscribe?utm_source=startatzero&amp;utm_medium=site&amp;utm_campaign=contract-check" target="_blank" rel="noopener">Subscribe on Substack</a>
-        </div>
-      </div>
-      <p class="disclaimer" style="margin-top:32px">Want a second set of eyes on the actual contract language? <a href="https://averoadvisors.com/contact" target="_blank" rel="noopener">Talk to Avero</a>.</p>
-    </section>
+    <section class="hidden" id="resultSection"></section>
 
     <p class="disclaimer">This check is a starting point for a conversation with your counsel and procurement team, not legal advice.</p>
   </main>
@@ -296,7 +278,6 @@
     bl.className = 'band ' + b.key;
     $('bandDesc').textContent = b.desc;
     $('scoreCard').classList.remove('hidden');
-    buildRecs();
     if (unlocked) { showResult(); } else { $('gateCard').classList.remove('hidden'); mountForm(); }
     $('scoreCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
@@ -324,11 +305,16 @@
     }
   }
 
+  var RESULT_TEMPLATE = '\n      <div class="card result">\n        <h3>Your recommendations</h3>\n        <div id="recList"></div>\n      </div>\n      <div class="next-grid">\n        <div class="next">\n          <h4>Read Chapter 1 free</h4>\n          <p>Two cities, two outcomes. The forensic case for doing the work before a vendor is in the room.</p>\n          <a class="btn" href="/chapter-1">Read Chapter 1</a>\n        </div>\n        <div class="next">\n          <h4>Subscribe to Start at Zero</h4>\n          <p>Independent govtech intelligence from the buyer\'s side of the table, every week on Substack.</p>\n          <a class="btn-outline" href="https://avavero.substack.com/subscribe?utm_source=startatzero&amp;utm_medium=site&amp;utm_campaign=contract-check" target="_blank" rel="noopener">Subscribe on Substack</a>\n        </div>\n      </div>\n      <p class="disclaimer" style="margin-top:32px">Want a second set of eyes on the actual contract language? <a href="https://averoadvisors.com/contact" target="_blank" rel="noopener">Talk to Avero</a>.</p>\n    ';
   var unlocked = false, formMounted = false;
   // Chapter 1 page reads this flag (set only on a successful HubSpot submit).
   function setChapterFlag() { try { localStorage.setItem('saz_ch1_unlocked', '1'); sessionStorage.setItem('saz_ch1_unlocked', '1'); } catch (e) {} }
   function showResult() {
     unlocked = true;
+    // Gated content is rendered only after a successful submit, never shipped in the HTML.
+    var rs = $('resultSection');
+    if (!rs.childElementCount) rs.innerHTML = RESULT_TEMPLATE;
+    buildRecs();
     $('gateCard').classList.add('hidden');
     $('resultSection').classList.remove('hidden');
   }
