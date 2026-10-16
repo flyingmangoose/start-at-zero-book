@@ -4,7 +4,7 @@
   var FORM = '5b80993b-caef-4735-88ea-f95fca9538ba'; // existing Start at Zero form (same as Chapter 1)
   var KEY = 'avero_readiness_v1';
   var $ = function (id) { return document.getElementById(id); };
-  var cfg, state, screen = 0;
+  var cfg, state, screen = 0, confirmedFreeMail = null, RESULTS_HTML = '';
   var params = new URLSearchParams(location.search);
 
   function track(name, data) {
@@ -74,6 +74,8 @@
   }
 
   function renderResults() {
+    // Gated content is injected only after a successful submit; it is not in the page HTML.
+    if (!$('sResults').childElementCount) { $('sResults').innerHTML = RESULTS_HTML; bindResults(); }
     var r = AveroReadiness.score(cfg, state.answers);
     $('rStageN').textContent = 'Stage ' + r.stage.n + ' of 5';
     $('rStageName').textContent = r.stage.name;
@@ -122,6 +124,14 @@
     track('compare', { n: lines.length });
   }
 
+  function bindResults() {
+    $('copyInvite').onclick = function () { navigator.clipboard && navigator.clipboard.writeText($('inviteUrl').value); track('cta', { cta: 'invite_copy' }); };
+    $('copyCode').onclick = function () { navigator.clipboard && navigator.clipboard.writeText($('myCode').value); };
+    $('compareBtn').onclick = compare;
+    $('bookBtn').onclick = function () { track('cta', { cta: 'book_readout' }); };
+    $('retakeBtn').onclick = function () { state.answers = []; state.unlocked = false; save(); screen = 0; show('sIntro'); };
+  }
+
   function cookie(name) { var m = document.cookie.match('(?:^|; )' + name + '=([^;]*)'); return m ? decodeURIComponent(m[1]) : undefined; }
 
   function submitGate(e) {
@@ -138,11 +148,16 @@
     if (Date.now() - last < 30000) return fail('Please wait a moment before submitting again.');
     var domain = c.email.split('@')[1].toLowerCase();
     var freeMail = cfg.freeMailDomains.indexOf(domain) !== -1;
+    $('emailWarn').classList.toggle('hidden', !freeMail);
+    if (freeMail && confirmedFreeMail !== c.email) {
+      confirmedFreeMail = c.email;
+      $('email').focus();
+      return fail('That is a personal email address. Use your work email, or select "Show my results" again to continue with this one.');
+    }
     c.freeMailOverride = freeMail; // flag kept with the local record for review
 
     var all = ['firstname','lastname','email','company','jobtitle','state'].filter(function (k) { return c[k]; })
       .map(function (k) { return { objectTypeId: '0-1', name: k, value: c[k] }; });
-    var core = all.filter(function (f) { return ['firstname','lastname','email'].indexOf(f.name) !== -1; });
     var body = function (fields) {
       return JSON.stringify({ fields: fields, context: { hutk: cookie('hubspotutk'), pageUri: location.href, pageName: 'AI Readiness Self-Diagnostic' },
         legalConsentOptions: { consent: { consentToProcess: true, text: 'I agree that Avero may contact me about my results and related services.' } } });
@@ -151,11 +166,15 @@
     var post = function (fields) { return fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: body(fields) }); };
     var btn = $('gateSubmit'); btn.disabled = true; btn.textContent = 'Sending...';
     post(all).then(function (res) {
-      // If the existing form rejects fields it does not include, resend with its own fields only.
-      if (res.status === 400 && all.length > core.length) return post(core);
-      return res;
-    }).then(function (res) {
-      if (!res.ok) throw new Error('HTTP ' + res.status);
+      if (res.ok) return res;
+      // Never drop fields silently: surface HubSpot's reason and log it.
+      return res.json().catch(function () { return {}; }).then(function (b) {
+        var msg = (b.errors || []).map(function (x) { return x.message; }).join('; ') || ('HTTP ' + res.status);
+        if (window.console) console.error('[readiness] HubSpot submit rejected:', res.status, b);
+        track('gate_error', { status: res.status, message: msg });
+        throw new Error(msg);
+      });
+    }).then(function () {
       localStorage.setItem(KEY + '_last', String(Date.now()));
       var r = AveroReadiness.score(cfg, state.answers);
       state.contact = c; state.talk = $('talk').checked; state.unlocked = true;
@@ -165,8 +184,8 @@
       save();
       track('gate_submit', { talk: state.talk, free_mail: freeMail });
       renderResults();
-    }).catch(function () {
-      fail('We could not send your details. Please check your connection and try again.');
+    }).catch(function (e) {
+      fail('We could not send your details (' + (e && e.message ? e.message : 'network error') + '). Nothing was dropped; please try again or email us.');
     }).then(function () { btn.disabled = false; btn.textContent = 'Show my results'; });
   }
 
@@ -210,16 +229,14 @@
       $('emailWarn').classList.toggle('hidden', cfg.freeMailDomains.indexOf(d) === -1);
     });
     $('gateForm').addEventListener('submit', submitGate);
-    $('copyInvite').onclick = function () { navigator.clipboard && navigator.clipboard.writeText($('inviteUrl').value); track('cta', { cta: 'invite_copy' }); };
-    $('copyCode').onclick = function () { navigator.clipboard && navigator.clipboard.writeText($('myCode').value); };
-    $('compareBtn').onclick = compare;
-    $('bookBtn').onclick = function () { track('cta', { cta: 'book_readout' }); };
-    $('retakeBtn').onclick = function () { state.answers = []; state.unlocked = false; save(); screen = 0; show('sIntro'); };
 
     // Results only for someone who has already passed the gate in this browser.
     var complete = state.answers.filter(function (v) { return typeof v === 'number'; }).length === 20;
     if (state.unlocked && complete) renderResults();
   }
 
-  fetch('config.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(init);
+  Promise.all([
+    fetch('config.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }),
+    fetch('results-template.html', { cache: 'no-cache' }).then(function (r) { return r.text(); })
+  ]).then(function (v) { RESULTS_HTML = v[1]; init(v[0]); });
 })();
