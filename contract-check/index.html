@@ -166,7 +166,7 @@
         <div class="next">
           <h4>Read Chapter 1 free</h4>
           <p>Two cities, two outcomes. The forensic case for doing the work before a vendor is in the room.</p>
-          <a class="btn" href="/chapter-1?unlocked=true">Read Chapter 1</a>
+          <a class="btn" href="/chapter-1">Read Chapter 1</a>
         </div>
         <div class="next">
           <h4>Subscribe to Start at Zero</h4>
@@ -325,6 +325,8 @@
   }
 
   var unlocked = false, formMounted = false;
+  // Chapter 1 page reads this flag (set only on a successful HubSpot submit).
+  function setChapterFlag() { try { localStorage.setItem('saz_ch1_unlocked', '1'); sessionStorage.setItem('saz_ch1_unlocked', '1'); } catch (e) {} }
   function showResult() {
     unlocked = true;
     $('gateCard').classList.add('hidden');
@@ -348,7 +350,7 @@
           var btn = el && el.querySelector('input[type="submit"]');
           if (btn) btn.value = 'Show My Full Result';
         },
-        onFormSubmitted: function () { showResult(); }
+        onFormSubmitted: function () { setChapterFlag(); showResult(); }
       });
     };
     if (window.hbspt && window.hbspt.forms) { create(); return; }
@@ -360,7 +362,7 @@
   }
   window.addEventListener('message', function (e) {
     var d = e && e.data;
-    if (d && d.type === 'hsFormCallback' && d.eventName === 'onFormSubmitted') showResult();
+    if (d && d.type === 'hsFormCallback' && d.eventName === 'onFormSubmitted') { setChapterFlag(); showResult(); }
   });
 
   $('backBtn').addEventListener('click', function () { if (idx > 0) { idx--; render(); } });
