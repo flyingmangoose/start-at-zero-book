@@ -1,0 +1,41 @@
+<div class="card score-wrap">
+        <p class="stage-n" id="rStageN"></p>
+        <div class="stage-name" id="rStageName"></div>
+        <p class="band-desc" id="rStageDesc"></p>
+        <p style="margin-top:16px"><span class="score-num" style="font-size:2.4rem" id="rTotal"></span><small style="color:var(--slate-dark)"> / 80</small></p>
+        <p class="note" id="rCap"></p>
+        <p class="note" id="rPrior"></p>
+      </div>
+      <div class="card">
+        <h3 style="font-family:var(--font-serif);color:var(--cream)">Domain scores</h3>
+        <div class="bars" id="rBars" role="img"></div>
+        <p style="margin-top:12px">Weakest domain: <strong style="color:var(--cream)" id="rWeakest"></strong>. AI cannot outrun the data and systems underneath it.</p>
+      </div>
+      <div class="card result"><h3>Next moves</h3><div id="rMoves"></div></div>
+      <div class="next-grid">
+        <div class="next">
+          <h4>Book a readout</h4>
+          <p>A 30-minute walk through your stage and gaps with Avero.</p>
+          <!-- BOOKING LINK PLACEHOLDER: replace href with the real scheduling URL -->
+          <a class="btn" id="bookBtn" href="#booking-link-placeholder" data-placeholder="booking">Book a readout</a>
+        </div>
+        <div class="next">
+          <h4>Invite your team</h4>
+          <p>Leadership, IT, finance and department staff often see readiness differently. Send this link, then compare.</p>
+          <div class="share"><input id="inviteUrl" readonly aria-label="Team invite link" /><button class="btn" type="button" id="copyInvite">Copy</button></div>
+        </div>
+      </div>
+      <div class="card" style="margin-top:32px">
+        <h3 style="font-family:var(--font-serif);color:var(--cream)">Compare with your team</h3>
+        <p>Your result code is below. Ask teammates to paste theirs here, or paste theirs yourself, one per line. Comparison runs in this browser only.</p>
+        <div class="share"><input id="myCode" readonly aria-label="Your result code" /><button class="btn" type="button" id="copyCode">Copy</button></div>
+        <label for="compareBox" class="hp">Teammate result codes</label>
+        <textarea id="compareBox" style="margin-top:16px" placeholder="Paste result codes or result links, one per line"></textarea>
+        <div class="row" style="margin-top:12px"><span></span><button class="btn-outline" type="button" id="compareBtn" style="background:none;cursor:pointer">Compare</button></div>
+        <div id="compareOut"></div>
+      </div>
+      <div class="next-grid" style="margin-top:32px">
+        <div class="next"><h4>Read Chapter 1 free</h4><p>Why modernization succeeds or fails before the first vendor meeting.</p><a class="btn-outline" href="/chapter-1">Read Chapter 1</a></div>
+        <div class="next"><h4>Subscribe to Start at Zero</h4><p>Independent govtech intelligence from the buyer's side, weekly.</p><a class="btn-outline" href="https://avavero.substack.com/subscribe?utm_source=startatzero&amp;utm_medium=site&amp;utm_campaign=readiness" target="_blank" rel="noopener">Subscribe on Substack</a></div>
+      </div>
+      <p class="disclaimer" style="margin-top:32px">Retake every quarter to track your trend. <button class="link-btn" type="button" id="retakeBtn" style="text-decoration:underline">Retake now</button></p>

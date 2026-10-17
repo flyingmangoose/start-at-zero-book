@@ -1,0 +1,77 @@
+{
+  "version": "2026-10-v0.1",
+  "scale": [
+    {"value": 0, "label": "Not at all / don't know"},
+    {"value": 1, "label": "Talked about it"},
+    {"value": 2, "label": "Partly in place"},
+    {"value": 3, "label": "Mostly in place"},
+    {"value": 4, "label": "Fully in place and measured"}
+  ],
+  "intro": {
+    "orgTypes": ["County", "City", "State agency", "Special district", "School district", "Other"],
+    "sizes": ["Under 25,000", "25,000 to 100,000", "100,000 to 500,000", "500,000 to 1 million", "Over 1 million"],
+    "roles": ["Elected", "Executive", "Finance", "HR", "IT", "Department", "Other"]
+  },
+  "domains": [
+    {"key": "data", "name": "Data", "questions": [
+      "We have agreed systems of record for finance, HR/payroll and core service data.",
+      "Every key dataset has a named owner who is responsible for its quality.",
+      "Our data is classified by sensitivity (public, internal, confidential, regulated).",
+      "Staff can get reliable reports from ERP/HRIS without manual spreadsheet cleanup."],
+     "moves": [
+      "Name a system of record for finance, HR/payroll and each core service dataset, and publish the list.",
+      "Assign a data owner to every key dataset, with quality as part of their role.",
+      "Start a simple four-level data classification and tag your top 20 datasets first."]},
+    {"key": "governance", "name": "Policy and Governance", "questions": [
+      "We have a short written AI policy covering approved tools, prohibited uses and data handling.",
+      "A named leader owns AI adoption, with authority across departments (not only IT).",
+      "We review AI tools for security, privacy, records retention and accessibility before use.",
+      "We have a process to approve, monitor and retire AI initiatives."],
+     "moves": [
+      "Adopt a 2-page AI policy: approved tools, prohibited uses, data handling, who to ask.",
+      "Name an AI lead with cross-department authority and a small working group.",
+      "Use a one-page tool review checklist covering security, privacy, records, accessibility and cost model."]},
+    {"key": "people", "name": "People and Literacy", "questions": [
+      "Leadership has explained to staff why we are using AI and how it affects their roles.",
+      "Most staff have completed basic AI training on our approved tools.",
+      "Staff know what data they may and may not put into AI tools.",
+      "We have power users in departments who help others adopt AI."],
+     "moves": [
+      "Have leadership explain the why: capacity goes back to service, not cuts by default.",
+      "Run role-based training for leaders, power users and all staff on approved tools and safe data use.",
+      "Recruit one power user per department and give them time to help peers."]},
+    {"key": "usecases", "name": "Use Cases and ROI", "questions": [
+      "We have a ranked list of workflows where AI could save time or improve service.",
+      "Each AI initiative has a baseline measured before it starts (hours, backlog, errors, cycle time).",
+      "Each initiative has an owner, a KPI and a decision date to continue or stop.",
+      "We can show measured results from at least one AI use case to council, board or leadership."],
+     "moves": [
+      "Collect pain points from departments and score them by impact and effort; pick 3 to 5.",
+      "Measure a baseline before any initiative starts: hours, backlog, errors or cycle time.",
+      "Give every initiative a one-line card: baseline, owner, KPI, target and a kill-or-fund date."]},
+    {"key": "systems", "name": "Systems and Integration", "questions": [
+      "Our ERP, HRIS and key service systems are current, supported versions.",
+      "Core systems expose APIs or integrations that AI tools can use securely.",
+      "We use enterprise AI licenses with business data protections (not personal accounts).",
+      "We can budget AI costs predictably (fixed fees, usage caps or monitoring)."],
+     "moves": [
+      "Inventory ERP, HRIS and service systems with version and support status; plan upgrades for anything unsupported.",
+      "Document which core systems have secure APIs and close the integration gaps that block priority use cases.",
+      "Move staff off personal AI accounts to enterprise licenses, and set usage caps or monitoring for cost."]}
+  ],
+  "stages": [
+    {"n": 1, "name": "Ground Truth", "min": 0, "max": 16, "desc": "AI use is informal and unmanaged. Data lives in silos and spreadsheets, and no system of record is agreed for key data."},
+    {"n": 2, "name": "Guardrails", "min": 17, "max": 32, "desc": "Leadership has said yes to AI with rules. Data classification has started and data quality issues are documented."},
+    {"n": 3, "name": "Assisted Work", "min": 33, "max": 48, "desc": "Staff use approved AI for drafting, summarizing and analysis. First quick wins are measured against baselines."},
+    {"n": 4, "name": "Connected Workflows", "min": 49, "max": 64, "desc": "AI is built into processes, with ERP, HRIS and service systems integrated and data governance run as a routine."},
+    {"n": 5, "name": "Autonomous Workflows", "min": 65, "max": 80, "desc": "Supervised agents complete multi-step work across systems with human approval points, monitoring and rollback."}
+  ],
+  "domainBands": [
+    {"stage": 1, "min": 0, "max": 3},
+    {"stage": 2, "min": 4, "max": 6},
+    {"stage": 3, "min": 7, "max": 10},
+    {"stage": 4, "min": 11, "max": 13},
+    {"stage": 5, "min": 14, "max": 16}
+  ],
+  "freeMailDomains": ["gmail.com","yahoo.com","hotmail.com","outlook.com","live.com","aol.com","icloud.com","me.com","msn.com","protonmail.com","proton.me","gmx.com","mail.com","yandex.com","zoho.com"]
+}
