@@ -220,7 +220,7 @@
           formId: "5b80993b-caef-4735-88ea-f95fca9538ba",
           region: "na1",
           target: "#chapterGateForm",
-                        redirectUrl: "https://startatzero.averoadvisors.com/chapter-1?unlocked=true"
+          onFormSubmitted: function () { window.sazUnlockChapter1 && window.sazUnlockChapter1(true); }
         });
       </script>
                 <p class="gate-note">No payment required. Chapter 1 + 5 ready-to-use templates sent instantly.</p>
@@ -271,13 +271,26 @@
         </div>
   </footer>
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  if (new URLSearchParams(window.location.search).get('unlocked') === 'true') {
+// Client-side gate: unlocks only after a successful HubSpot submit sets the flag. The URL param is ignored.
+(function () {
+  var KEY = 'saz_ch1_unlocked';
+  function has() { try { return localStorage.getItem(KEY) === '1' || sessionStorage.getItem(KEY) === '1'; } catch (e) { return false; } }
+  function unlock() {
     document.querySelector('.fade-gate')?.classList.remove('fade-gate');
+    document.querySelectorAll('.gated-content, .full-content, [style*="display: none"]').forEach(function (el) { el.style.display = 'block'; });
+    // hide the gate last, so the reveal above cannot re-show it
     document.querySelector('.gate-section')?.style.setProperty('display', 'none');
-    document.querySelectorAll('.gated-content, .full-content, [style*="display: none"]').forEach(el => el.style.display = 'block');
   }
-});
+  window.sazUnlockChapter1 = function (fromSubmit) {
+    if (fromSubmit) { try { localStorage.setItem(KEY, '1'); sessionStorage.setItem(KEY, '1'); } catch (e) {} }
+    if (has()) unlock();
+  };
+  window.addEventListener('message', function (e) {
+    var d = e && e.data;
+    if (d && d.type === 'hsFormCallback' && d.eventName === 'onFormSubmitted') window.sazUnlockChapter1(true);
+  });
+  document.addEventListener('DOMContentLoaded', function () { if (has()) unlock(); });
+})();
 </script>
 </body>
 </html>

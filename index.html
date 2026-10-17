@@ -1362,7 +1362,8 @@
               formId: "5b80993b-caef-4735-88ea-f95fca9538ba",
               region: "na1",
               target: "#hubspotFormChapter",
-              redirectUrl: "https://startatzero.averoadvisors.com/chapter-1?unlocked=true",
+              redirectUrl: "https://startatzero.averoadvisors.com/chapter-1",
+              onFormSubmitted: function(){try{localStorage.setItem('saz_ch1_unlocked','1');sessionStorage.setItem('saz_ch1_unlocked','1');}catch(e){}},
               submitButtonClass: "btn-primary form-submit",
               onFormReady: function($form) { $form.find('input[type="submit"]').val("Send Me Chapter 1"); }
             });
