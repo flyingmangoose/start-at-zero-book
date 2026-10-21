@@ -475,6 +475,15 @@
     }
     .form-input::placeholder { color: var(--slate-darker); }
     .form-input:focus { border-color: var(--orange); }
+    .decision-review { padding: 56px 0 8px; text-align: center; }
+    .decision-review .dr-card { max-width: 720px; margin: 0 auto; padding: 32px 28px; border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; }
+    .decision-review h2 { font-family: var(--font-serif); color: var(--cream); margin-bottom: 12px; }
+    .decision-review p { color: var(--slate); margin-bottom: 24px; }
+    .dr-note { display: none; text-align: center; margin: 0 0 16px; color: var(--cream); font-size: 0.95rem; }
+    .dr-intent .dr-note { display: block; }
+    .dr-done { display: none; text-align: center; }
+    .dr-done p { color: var(--slate); margin: 12px 0 20px; }
+    .dr-done a.dr-ch1 { display: block; margin-top: 14px; color: var(--slate); }
     .form-submit { width: 100%; padding: 14px; margin-top: 8px; }
     .form-note { text-align: center; font-size: 0.75rem; color: var(--slate-darker); margin-top: 20px; }
     .success-state { text-align: center; padding: 32px 0; }
@@ -1348,6 +1357,17 @@
     </div>
   </section>
 
+  <!-- Decision review CTA -->
+  <section class="decision-review" id="decision-review">
+    <div class="container">
+      <div class="dr-card">
+        <h2>Book a free 30-minute decision review</h2>
+        <p>Facing a big ERP, AI, or procurement call? Talk it through with AV before you commit. No pitch, just a clear second opinion from the Avero team.</p>
+        <a class="btn-primary" href="#reserve" id="drCta">Book a free 30-minute decision review</a>
+      </div>
+    </div>
+  </section>
+
   <!-- — Reserve Forms — -->
   <section class="reserve" id="reserve">
     <div class="container">
@@ -1357,19 +1377,55 @@
         <div class="form-card" id="formCardChapter">
           <h3>Read Chapter 1 Free</h3>
           <p>Get the full Birmingham case study, plus 5 ready-to-use templates delivered to your inbox.</p>
+          <p class="dr-note" id="drNote">Share your details below and we will send Chapter 1, then help you book your free 30-minute decision review.</p>
           <div id="hubspotFormChapter"></div>
+          <div class="dr-done" id="drDone">
+            <h3>Thanks, you are all set</h3>
+            <p>Chapter 1 is on its way. Pick a time for your free 30-minute decision review.</p>
+            <a class="btn-primary" href="https://meetings.hubspot.com/abhijit-verekar?utm_source=startatzero&amp;utm_medium=landing&amp;utm_campaign=decision-review" target="_blank" rel="noopener">Book my decision review</a>
+            <a class="dr-ch1" href="/chapter-1">Or start reading Chapter 1 now</a>
+          </div>
           <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
           <script>
-            hbspt.forms.create({
-              portalId: "24211389",
+            (function(){
+              var drIntent = false;
+              try {
+                var q = new URLSearchParams(location.search);
+                drIntent = q.get('utm_campaign') === 'decision-review' || location.hash === '#decision-review' || sessionStorage.getItem('saz_dr_intent') === '1';
+              } catch(e){}
+              window.sazSetDrIntent = function(){
+                drIntent = true;
+                try { sessionStorage.setItem('saz_dr_intent','1'); } catch(e){}
+                document.getElementById('formCardChapter').classList.add('dr-intent');
+              };
+              if (drIntent) window.sazSetDrIntent();
+              document.getElementById('drCta').addEventListener('click', function(ev){
+                ev.preventDefault();
+                window.sazSetDrIntent();
+                document.getElementById('formCardChapter').scrollIntoView({behavior:'smooth', block:'start'});
+              });
+              var opts = {
+                portalId: "24211389",
               formId: "5b80993b-caef-4735-88ea-f95fca9538ba",
               region: "na1",
               target: "#hubspotFormChapter",
-              redirectUrl: "https://startatzero.averoadvisors.com/chapter-1",
-              onFormSubmitted: function(){try{localStorage.setItem('saz_ch1_unlocked','1');sessionStorage.setItem('saz_ch1_unlocked','1');}catch(e){}},
+              onFormSubmitted: function(){
+                try{localStorage.setItem('saz_ch1_unlocked','1');sessionStorage.setItem('saz_ch1_unlocked','1');}catch(e){}
+                if (drIntent) {
+                  try { sessionStorage.removeItem('saz_dr_intent'); } catch(e){}
+                  document.getElementById('hubspotFormChapter').style.display = 'none';
+                  document.getElementById('drNote').style.display = 'none';
+                  document.getElementById('drDone').style.display = 'block';
+                } else {
+                  window.location.href = "https://startatzero.averoadvisors.com/chapter-1";
+                }
+              },
               submitButtonClass: "btn-primary form-submit",
               onFormReady: function($form) { $form.find('input[type="submit"]').val("Send Me Chapter 1"); }
-            });
+              };
+              // Redirect is handled in onFormSubmitted: decision review visitors stay to book, everyone else goes to Chapter 1 as before.
+              hbspt.forms.create(opts);
+            })();
           </script>
           <p class="form-note">No payment required. Chapter 1 + 5 templates sent instantly.</p>
         </div>
